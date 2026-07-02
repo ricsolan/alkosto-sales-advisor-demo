@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alkosto Sales Advisor</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="app" class="app-shell">
+    <header class="topbar">
+      <div class="brand">
+        <div class="logo">ALKOSTO</div>
+        <div>
+          <h1>Sales Advisor</h1>
+          <p>Asistente inteligente de ventas</p>
+        </div>
+      </div>
+      <div class="top-meta">
+        <span class="status-dot"></span><span id="callStatus">En llamada</span>
+        <span class="divider"></span>
+        <span>Cliente: <strong id="customerLabel">Mobile Number, Colombia</strong></span>
+        <span>Canal: <strong id="channelLabel">Voz</strong></span>
+        <span>Categoría: <strong id="categoryLabel">Sin detectar</strong></span>
+        <span>Ciudad: <strong id="cityLabel">Sin ciudad</strong></span>
+      </div>
+      <div class="header-actions">
+        <button class="copilot-pill" id="simulateCopilotBtn">✦ Simular señal Copilot</button>
+        <button class="secondary" id="simulateArticleBtn">📄 Simular artículo</button>
+      </div>
+    </header>
+
+    <main class="layout">
+      <aside class="left-panel">
+        <section class="card context-card">
+          <div class="section-title-row">
+            <h2>Contexto detectado</h2>
+            <span class="badge muted" id="contextOrigin">Sin contexto</span>
+          </div>
+          <div class="kv"><span>Intención</span><strong id="intentText">Pendiente</strong></div>
+          <div class="kv"><span>Categoría</span><strong id="categoryText">Pendiente</strong></div>
+          <div class="kv"><span>Necesidad</span><strong id="needText">Pendiente</strong></div>
+          <div class="kv"><span>Uso principal</span><strong id="useText">Pendiente</strong></div>
+          <div class="kv"><span>Presupuesto</span><strong id="budgetText">Pendiente</strong></div>
+          <div class="kv"><span>Ciudad</span><strong id="cityText">Pendiente</strong></div>
+          <div class="kv"><span>Prioridad</span><strong id="priorityText">Pendiente</strong></div>
+        </section>
+
+        <section class="card profile-card">
+          <div class="section-title-row">
+            <h2>Perfilamiento</h2>
+            <button class="link-btn" id="resetBtn">Limpiar</button>
+          </div>
+          <label>Presupuesto máximo
+            <input id="budgetInput" type="number" placeholder="Ej: 2500000" />
+          </label>
+          <label>Tamaño de pantalla
+            <select id="sizeInput">
+              <option value="">Sin definir</option>
+              <option>43 pulgadas</option><option>50 pulgadas</option><option>55 pulgadas</option><option>65 pulgadas</option><option>75 pulgadas</option>
+            </select>
+          </label>
+          <label>Uso principal
+            <select id="useInput">
+              <option value="">Sin definir</option>
+              <option>Streaming</option><option>Deportes y streaming</option><option>Videojuegos</option><option>Películas</option><option>Uso general</option>
+            </select>
+          </label>
+          <label>Marca preferida
+            <select id="brandInput">
+              <option value="">Sin preferencia</option>
+              <option>Samsung</option><option>LG</option><option>TCL</option><option>Challenger</option><option>Kalley</option><option>Sony</option>
+            </select>
+          </label>
+          <label>Ciudad
+            <select id="cityInput">
+              <option value="">Sin definir</option>
+              <option>Barranquilla</option><option>Bogotá</option><option>Medellín</option><option>Cali</option><option>Cartagena</option>
+            </select>
+          </label>
+          <label>Prioridad
+            <select id="priorityInput">
+              <option value="">Sin definir</option>
+              <option>Precio y calidad</option><option>Mejor precio</option><option>Marca</option><option>Entrega rápida</option><option>Garantía</option><option>Imagen premium</option>
+            </select>
+          </label>
+          <button class="primary full" id="searchBtn">Buscar productos recomendados</button>
+        </section>
+      </aside>
+
+      <section class="center-panel">
+        <div class="section-header">
+          <div>
+            <h2>✦ Productos recomendados</h2>
+            <p id="recommendationSummary">Aún no hay búsqueda activa. Completa el perfilamiento o espera una señal de Copilot.</p>
+          </div>
+          <div class="actions-row">
+            <select id="sortInput"><option>Ordenar por recomendados</option><option>Precio menor a mayor</option><option>Disponibilidad</option><option>Marca</option></select>
+            <button class="secondary" id="compareBtn">Ver comparativo</button>
+          </div>
+        </div>
+
+        <div class="progress-strip" id="progressStrip">
+          <span>⚪ Sin búsqueda activa</span><span>→</span><span>Inventario pendiente</span><span>→</span><span>Recomendación pendiente</span>
+        </div>
+
+        <div id="emptyState" class="empty-state">
+          <div class="empty-icon">🛒</div>
+          <h3>Canvas listo para asistir la venta</h3>
+          <p>La app está esperando contexto de AVA/Copilot o datos del asesor. Al buscar, cargará productos, inventario, comparativo y guía de cierre.</p>
+          <div class="empty-actions">
+            <button class="primary" id="emptySearchBtn">Buscar con filtros actuales</button>
+            <button class="secondary" id="emptyCopilotBtn">Simular contexto Copilot</button>
+          </div>
+        </div>
+
+        <div class="products-grid" id="productsGrid"></div>
+
+        <section class="card comparison-card" id="comparisonCard" hidden>
+          <div class="section-title-row">
+            <h2>Comparativo rápido</h2>
+            <span class="badge neutral">Dinámico</span>
+          </div>
+          <table>
+            <thead><tr><th>Producto</th><th>Precio</th><th>Inventario</th><th>Ideal para</th><th>Recomendación</th></tr></thead>
+            <tbody id="comparisonBody"></tbody>
+          </table>
+        </section>
+      </section>
+
+      <aside class="right-panel">
+        <section class="card guidance-card">
+          <h2>✦ Guía para el asesor</h2>
+          <h3>Preguntas sugeridas</h3>
+          <div id="questionsList" class="questions-list muted-list">
+            <div>Esperando contexto para sugerir preguntas.</div>
+          </div>
+          <h3>Argumento recomendado</h3>
+          <div class="message-box empty-copy" id="pitchBox">Aún no hay argumento sugerido. Ejecuta una búsqueda o recibe una señal de Copilot.</div>
+          <button class="secondary full" id="copyPitchBtn">Copiar argumento</button>
+          <h3>Siguiente mejor acción</h3>
+          <div class="next-action" id="nextActionBox">Completar perfilamiento y buscar productos recomendados.</div>
+        </section>
+
+        <section class="card article-card" id="articleCard" hidden>
+          <div class="section-title-row">
+            <h2>Artículo sugerido por Copilot</h2>
+            <span class="badge purple">Knowledge</span>
+          </div>
+          <div id="articleContent"></div>
+        </section>
+
+        <section class="card selected-card" id="selectedCard" hidden>
+          <div class="section-title-row"><h2>Producto seleccionado</h2><button class="link-btn" id="clearSelectedBtn">Cambiar</button></div>
+          <div id="selectedContent"></div>
+        </section>
+
+        <section class="card objection-card">
+          <h2>🛡 Manejo de objeciones</h2>
+          <label>Objeción detectada
+            <select id="objectionType"><option>Precio</option><option>Indecisión</option><option>Comparación</option><option>Entrega</option><option>Garantía</option></select>
+          </label>
+          <label>Frase del cliente
+            <input id="customerPhrase" placeholder="Ej: Está caro, lo voy a pensar." />
+          </label>
+          <button class="danger full" id="objectionBtn">Sugerir estrategia de cierre</button>
+          <div id="objectionResult" class="objection-result" hidden></div>
+        </section>
+
+        <section class="card history-card">
+          <h2>Historial de acciones</h2>
+          <div id="historyList" class="history-list"><p>Sin acciones aún.</p></div>
+        </section>
+      </aside>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
