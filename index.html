@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Alkosto Sales Advisor · Demo v0.4</title>
+  <title>Alkosto Sales Advisor · Demo v0.5</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -13,7 +13,7 @@
         <div class="logo">ALKOSTO</div>
         <div>
           <h1>Sales Advisor</h1>
-          <p>Asistente inteligente de ventas · Demo v0.4</p>
+          <p>Asistente inteligente de ventas · Demo v0.5</p>
         </div>
       </div>
       <div class="top-meta">
@@ -89,6 +89,18 @@
           </label>
           <button class="primary full" id="searchBtn">Buscar productos recomendados</button>
         </section>
+
+        <section class="card data-card">
+          <div class="section-title-row">
+            <h2>Fuente de datos</h2>
+            <span class="badge neutral">v0.5</span>
+          </div>
+          <div class="kv"><span>Modo</span><strong>Demo controlado</strong></div>
+          <div class="kv"><span>Catálogo</span><strong id="catalogCountText">Pendiente</strong></div>
+          <div class="kv"><span>Knowledge</span><strong id="articleCountText">Pendiente</strong></div>
+          <div class="kv"><span>Actualización</span><strong id="dataUpdatedText">Pendiente</strong></div>
+          <p class="data-note">En producción esta capa puede ser alimentada por n8n, API de catálogo o KB gobernada.</p>
+        </section>
       </aside>
 
       <section class="center-panel">
@@ -110,7 +122,7 @@
         <div id="emptyState" class="empty-state">
           <div class="empty-icon">🛒</div>
           <h3>Canvas listo para asistir la venta</h3>
-          <p>La app está esperando contexto de AVA/Copilot o datos del asesor. Al buscar, cargará productos desde <strong>products.json</strong>, artículos desde <strong>articles.json</strong>, inventario, comparativo y guía de cierre.</p>
+          <p>La app está esperando contexto de AVA/Copilot o datos del asesor. Al buscar, cargará productos desde <strong>products.json</strong>, artículos desde <strong>articles.json</strong>, inventario, comparativo, siguiente mejor acción y guía de cierre.</p>
           <div class="empty-actions">
             <button class="primary" id="emptySearchBtn">Buscar con filtros actuales</button>
             <button class="secondary" id="emptyCopilotBtn">Simular contexto Copilot</button>

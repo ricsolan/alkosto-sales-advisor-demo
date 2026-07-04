@@ -1,43 +1,40 @@
-# Alkosto Sales Advisor App · Demo v0.4
+# Alkosto Sales Advisor App · Demo v0.5
 
-Esta versión separa la experiencia visual de los datos demo.
+Versión embebible para Genesys Cloud Agent Workspace.
 
-## Archivos incluidos
+## Cambios v0.5
 
-- `index.html`: estructura de la Client App.
-- `styles.css`: estilos visuales.
-- `app.js`: lógica de la app, lectura de JSON, filtros, recomendación, artículos, objeciones y selección de producto.
-- `products.json`: catálogo demo enriquecido de televisores y computadores.
-- `articles.json`: artículos demo para Knowledge/Copilot.
+- Mantiene lectura externa de `products.json` y `articles.json`.
+- Sugiere automáticamente un artículo de conocimiento cuando llega contexto por URL/AVA/Copilot.
+- Mejora el ranking de productos con señales de presupuesto, tamaño, ciudad, uso, marca y prioridad.
+- Agrega chips de coincidencia en cada producto: dentro del presupuesto, tamaño exacto, disponible en ciudad, uso compatible, etc.
+- Mejora el panel de `Siguiente mejor acción` según etapa: perfilamiento, producto seleccionado u objeción.
+- Mejora el manejo de objeciones con diferencias para Televisores y Computadores.
+- Agrega panel `Fuente de datos` para explicar que el demo usa catálogo y artículos estructurados.
+- Deja lista la arquitectura para Demo v0.6 con n8n actualizando los JSON.
 
-## Cómo publicar
+## Archivos requeridos
 
-Sube todos los archivos a la raíz del repositorio GitHub Pages:
+Subir todos estos archivos a la raíz del repositorio GitHub Pages:
 
 ```text
-/
-├── index.html
-├── styles.css
-├── app.js
-├── products.json
-└── articles.json
+/index.html
+/styles.css
+/app.js
+/products.json
+/articles.json
+/assets/
 ```
 
 ## Pruebas rápidas
 
-### Sin contexto
-
-```text
-https://TU_USUARIO.github.io/alkosto-sales-advisor-demo/
-```
-
-### Televisores
+TV:
 
 ```text
 https://TU_USUARIO.github.io/alkosto-sales-advisor-demo/?category=Televisores&budget=3000000&city=Barranquilla&useCase=deportes%20y%20streaming&priority=precio%20y%20calidad&need=televisor%20de%2055%20pulgadas&origin=AVA
 ```
 
-### Computadores
+Computadores:
 
 ```text
 https://TU_USUARIO.github.io/alkosto-sales-advisor-demo/?category=Computadores&budget=3000000&city=Barranquilla&useCase=trabajo%20y%20estudio&priority=precio%20y%20calidad&need=portatil%20para%20trabajo%20remoto&origin=AVA
@@ -45,11 +42,4 @@ https://TU_USUARIO.github.io/alkosto-sales-advisor-demo/?category=Computadores&b
 
 ## Nota
 
-Los datos de producto, precio e inventario son demo estructurado. En producción deben reemplazarse por APIs oficiales, fuente de catálogo gobernada o ingesta controlada.
-
-
-## v0.4.1 - Imágenes locales tipo catálogo
-
-- Se agregó carpeta `assets/` con imágenes SVG tipo packshot para cada producto.
-- `products.json` ahora apunta a imágenes relativas `assets/<sku>.svg`, evitando depender de placeholders externos.
-- Las imágenes son mockups visuales para demo; no son fotografías oficiales de Alkosto ni validan producto real.
+Los datos son demo estructurados, no inventario real. Para producción, reemplazar por API oficial, catálogo interno o ingesta gobernada con n8n.
