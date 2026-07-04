@@ -51,7 +51,7 @@
     ],
     "inventory_status": "Disponible",
     "product_url": "https://www.alkosto.com/",
-    "image_url": "https://placehold.co/640x420?text=TCL",
+    "image_url": "assets/TV-TCL-43-S5400.svg",
     "source_type": "demo_catalog",
     "source_note": "Dato demo estructurado. Validar precio, URL e inventario real contra fuente oficial antes de producción.",
     "last_updated": "2026-07-04",
@@ -75,7 +75,9 @@
       "tv-screen-size-guide",
       "tv-price-objection"
     ],
-    "sales_pitch": "Recomendable si el cliente quiere una TV económica para habitación o uso básico."
+    "sales_pitch": "Recomendable si el cliente quiere una TV económica para habitación o uso básico.",
+    "image_source": "local_demo_packshot",
+    "image_note": "Imagen demo estilo packshot, no corresponde a fotografía oficial de Alkosto."
   },
   {
     "catalog_version": "demo-v0.4",
@@ -129,7 +131,7 @@
     ],
     "inventory_status": "Disponible",
     "product_url": "https://www.alkosto.com/",
-    "image_url": "https://placehold.co/640x420?text=Kalley",
+    "image_url": "assets/TV-KALLEY-43-4K.svg",
     "source_type": "demo_catalog",
     "source_note": "Dato demo estructurado. Validar precio, URL e inventario real contra fuente oficial antes de producción.",
     "last_updated": "2026-07-04",
@@ -152,7 +154,9 @@
       "uhd-vs-qled",
       "tv-price-objection"
     ],
-    "sales_pitch": "Buen puente entre precio bajo y resolución 4K."
+    "sales_pitch": "Buen puente entre precio bajo y resolución 4K.",
+    "image_source": "local_demo_packshot",
+    "image_note": "Imagen demo estilo packshot, no corresponde a fotografía oficial de Alkosto."
   },
   {
     "catalog_version": "demo-v0.4",
@@ -206,7 +210,7 @@
     ],
     "inventory_status": "Disponible",
     "product_url": "https://www.alkosto.com/",
-    "image_url": "https://placehold.co/640x420?text=Xiaomi",
+    "image_url": "assets/TV-XIAOMI-50-A.svg",
     "source_type": "demo_catalog",
     "source_note": "Dato demo estructurado. Validar precio, URL e inventario real contra fuente oficial antes de producción.",
     "last_updated": "2026-07-04",
@@ -230,7 +234,9 @@
       "uhd-vs-qled",
       "tv-screen-size-guide"
     ],
-    "sales_pitch": "Ideal para cliente que quiere sistema fácil y buen tamaño sin subir mucho el presupuesto."
+    "sales_pitch": "Ideal para cliente que quiere sistema fácil y buen tamaño sin subir mucho el presupuesto.",
+    "image_source": "local_demo_packshot",
+    "image_note": "Imagen demo estilo packshot, no corresponde a fotografía oficial de Alkosto."
   },
   {
     "catalog_version": "demo-v0.4",
@@ -284,7 +290,7 @@
     ],
     "inventory_status": "Disponible",
     "product_url": "https://www.alkosto.com/",
-    "image_url": "https://placehold.co/640x420?text=Challenger",
+    "image_url": "assets/TV-CHALLENGER-55-4K.svg",
     "source_type": "demo_catalog",
     "source_note": "Dato demo estructurado. Validar precio, URL e inventario real contra fuente oficial antes de producción.",
     "last_updated": "2026-07-04",
@@ -308,7 +314,9 @@
       "tv-distance-55",
       "tv-price-objection"
     ],
-    "sales_pitch": "Opción fuerte cuando el cliente quiere 55 pulgadas con presupuesto ajustado."
+    "sales_pitch": "Opción fuerte cuando el cliente quiere 55 pulgadas con presupuesto ajustado.",
+    "image_source": "local_demo_packshot",
+    "image_note": "Imagen demo estilo packshot, no corresponde a fotografía oficial de Alkosto."
   },
   {
     "catalog_version": "demo-v0.4",
@@ -362,7 +370,7 @@
     ],
     "inventory_status": "Disponible",
     "product_url": "https://www.alkosto.com/",
-    "image_url": "https://placehold.co/640x420?text=TCL",
+    "image_url": "assets/TV-TCL-55V6C.svg",
     "source_type": "demo_catalog",
     "source_note": "Dato demo estructurado. Validar precio, URL e inventario real contra fuente oficial antes de producción.",
     "last_updated": "2026-07-04",
@@ -387,7 +395,9 @@
       "uhd-vs-qled",
       "tv-gaming-sports-guide"
     ],
-    "sales_pitch": "Para deportes y streaming, destaca tamaño, 4K y facilidad de uso con Google TV."
+    "sales_pitch": "Para deportes y streaming, destaca tamaño, 4K y facilidad de uso con Google TV.",
+    "image_source": "local_demo_packshot",
+    "image_note": "Imagen demo estilo packshot, no corresponde a fotografía oficial de Alkosto."
   },
   {
     "catalog_version": "demo-v0.4",
@@ -441,7 +451,7 @@
     ],
     "inventory_status": "Disponible",
     "product_url": "https://www.alkosto.com/",
-    "image_url": "https://placehold.co/640x420?text=Hisense",
+    "image_url": "assets/TV-HISENSE-55-UHD.svg",
     "source_type": "demo_catalog",
     "source_note": "Dato demo estructurado. Validar precio, URL e inventario real contra fuente oficial antes de producción.",
     "last_updated": "2026-07-04",
@@ -465,7 +475,9 @@
       "tv-distance-55",
       "tv-price-objection"
     ],
-    "sales_pitch": "Alternativa costo-beneficio para comparar contra TCL o Challenger."
+    "sales_pitch": "Alternativa costo-beneficio para comparar contra TCL o Challenger.",
+    "image_source": "local_demo_packshot",
+    "image_note": "Imagen demo estilo packshot, no corresponde a fotografía oficial de Alkosto."
   },
   {
     "catalog_version": "demo-v0.4",
@@ -519,7 +531,7 @@
     ],
     "inventory_status": "Disponible",
     "product_url": "https://www.alkosto.com/",
-    "image_url": "https://placehold.co/640x420?text=Samsung",
+    "image_url": "assets/TV-SAMSUNG-55-CU.svg",
     "source_type": "demo_catalog",
     "source_note": "Dato demo estructurado. Validar precio, URL e inventario real contra fuente oficial antes de producción.",
     "last_updated": "2026-07-04",
@@ -544,7 +556,9 @@
       "tv-distance-55",
       "uhd-vs-qled"
     ],
-    "sales_pitch": "Útil cuando el cliente quiere respaldo de marca y buena experiencia para contenido diario."
+    "sales_pitch": "Útil cuando el cliente quiere respaldo de marca y buena experiencia para contenido diario.",
+    "image_source": "local_demo_packshot",
+    "image_note": "Imagen demo estilo packshot, no corresponde a fotografía oficial de Alkosto."
   },
   {
     "catalog_version": "demo-v0.4",
@@ -598,7 +612,7 @@
     ],
     "inventory_status": "Disponible",
     "product_url": "https://www.alkosto.com/",
-    "image_url": "https://placehold.co/640x420?text=LG",
+    "image_url": "assets/TV-LG-55-AI.svg",
     "source_type": "demo_catalog",
     "source_note": "Dato demo estructurado. Validar precio, URL e inventario real contra fuente oficial antes de producción.",
     "last_updated": "2026-07-04",
@@ -623,7 +637,9 @@
       "tv-distance-55",
       "uhd-vs-qled"
     ],
-    "sales_pitch": "Resaltar webOS, experiencia inteligente y marca si el cliente quiere algo más premium."
+    "sales_pitch": "Resaltar webOS, experiencia inteligente y marca si el cliente quiere algo más premium.",
+    "image_source": "local_demo_packshot",
+    "image_note": "Imagen demo estilo packshot, no corresponde a fotografía oficial de Alkosto."
   },
   {
     "catalog_version": "demo-v0.4",
@@ -677,7 +693,7 @@
     ],
     "inventory_status": "Disponible",
     "product_url": "https://www.alkosto.com/",
-    "image_url": "https://placehold.co/640x420?text=Samsung",
+    "image_url": "assets/TV-SAMSUNG-55-QLED.svg",
     "source_type": "demo_catalog",
     "source_note": "Dato demo estructurado. Validar precio, URL e inventario real contra fuente oficial antes de producción.",
     "last_updated": "2026-07-04",
@@ -702,7 +718,9 @@
       "uhd-vs-qled",
       "tv-gaming-sports-guide"
     ],
-    "sales_pitch": "Si el presupuesto llega a 3 millones, esta opción eleva color, brillo y percepción premium."
+    "sales_pitch": "Si el presupuesto llega a 3 millones, esta opción eleva color, brillo y percepción premium.",
+    "image_source": "local_demo_packshot",
+    "image_note": "Imagen demo estilo packshot, no corresponde a fotografía oficial de Alkosto."
   },
   {
     "catalog_version": "demo-v0.4",
@@ -756,7 +774,7 @@
     ],
     "inventory_status": "Disponible",
     "product_url": "https://www.alkosto.com/",
-    "image_url": "https://placehold.co/640x420?text=LG",
+    "image_url": "assets/TV-LG-55-QNED.svg",
     "source_type": "demo_catalog",
     "source_note": "Dato demo estructurado. Validar precio, URL e inventario real contra fuente oficial antes de producción.",
     "last_updated": "2026-07-04",
@@ -780,7 +798,9 @@
     "related_articles": [
       "uhd-vs-qled"
     ],
-    "sales_pitch": "Para clientes que quieren mejorar imagen y marca, explicar diferencia frente a LED tradicional."
+    "sales_pitch": "Para clientes que quieren mejorar imagen y marca, explicar diferencia frente a LED tradicional.",
+    "image_source": "local_demo_packshot",
+    "image_note": "Imagen demo estilo packshot, no corresponde a fotografía oficial de Alkosto."
   },
   {
     "catalog_version": "demo-v0.4",
@@ -834,7 +854,7 @@
     ],
     "inventory_status": "Disponible",
     "product_url": "https://www.alkosto.com/",
-    "image_url": "https://placehold.co/640x420?text=TCL",
+    "image_url": "assets/TV-TCL-65-P635.svg",
     "source_type": "demo_catalog",
     "source_note": "Dato demo estructurado. Validar precio, URL e inventario real contra fuente oficial antes de producción.",
     "last_updated": "2026-07-04",
@@ -858,7 +878,9 @@
       "tv-screen-size-guide",
       "tv-gaming-sports-guide"
     ],
-    "sales_pitch": "Si el cliente tiene sala amplia, 65 pulgadas puede ser el salto más visible dentro de presupuesto."
+    "sales_pitch": "Si el cliente tiene sala amplia, 65 pulgadas puede ser el salto más visible dentro de presupuesto.",
+    "image_source": "local_demo_packshot",
+    "image_note": "Imagen demo estilo packshot, no corresponde a fotografía oficial de Alkosto."
   },
   {
     "catalog_version": "demo-v0.4",
@@ -912,7 +934,7 @@
     ],
     "inventory_status": "Disponible",
     "product_url": "https://www.alkosto.com/",
-    "image_url": "https://placehold.co/640x420?text=Samsung",
+    "image_url": "assets/TV-SAMSUNG-65-QLED.svg",
     "source_type": "demo_catalog",
     "source_note": "Dato demo estructurado. Validar precio, URL e inventario real contra fuente oficial antes de producción.",
     "last_updated": "2026-07-04",
@@ -938,7 +960,9 @@
       "tv-screen-size-guide",
       "uhd-vs-qled"
     ],
-    "sales_pitch": "Ideal para subir ticket si el cliente quiere pantalla grande y marca."
+    "sales_pitch": "Ideal para subir ticket si el cliente quiere pantalla grande y marca.",
+    "image_source": "local_demo_packshot",
+    "image_note": "Imagen demo estilo packshot, no corresponde a fotografía oficial de Alkosto."
   },
   {
     "catalog_version": "demo-v0.4",
@@ -992,7 +1016,7 @@
     ],
     "inventory_status": "Disponible",
     "product_url": "https://www.alkosto.com/",
-    "image_url": "https://placehold.co/640x420?text=LG",
+    "image_url": "assets/TV-LG-65-QNED.svg",
     "source_type": "demo_catalog",
     "source_note": "Dato demo estructurado. Validar precio, URL e inventario real contra fuente oficial antes de producción.",
     "last_updated": "2026-07-04",
@@ -1017,7 +1041,9 @@
       "tv-screen-size-guide",
       "uhd-vs-qled"
     ],
-    "sales_pitch": "Reforzar experiencia de imagen y tamaño para cine en casa."
+    "sales_pitch": "Reforzar experiencia de imagen y tamaño para cine en casa.",
+    "image_source": "local_demo_packshot",
+    "image_note": "Imagen demo estilo packshot, no corresponde a fotografía oficial de Alkosto."
   },
   {
     "catalog_version": "demo-v0.4",
@@ -1071,7 +1097,7 @@
     ],
     "inventory_status": "Disponible",
     "product_url": "https://www.alkosto.com/",
-    "image_url": "https://placehold.co/640x420?text=Sony",
+    "image_url": "assets/TV-SONY-55-BRAVIA.svg",
     "source_type": "demo_catalog",
     "source_note": "Dato demo estructurado. Validar precio, URL e inventario real contra fuente oficial antes de producción.",
     "last_updated": "2026-07-04",
@@ -1095,7 +1121,9 @@
     "related_articles": [
       "uhd-vs-qled"
     ],
-    "sales_pitch": "Para clientes sensibles a marca y calidad percibida, enfocar en procesamiento de imagen."
+    "sales_pitch": "Para clientes sensibles a marca y calidad percibida, enfocar en procesamiento de imagen.",
+    "image_source": "local_demo_packshot",
+    "image_note": "Imagen demo estilo packshot, no corresponde a fotografía oficial de Alkosto."
   },
   {
     "catalog_version": "demo-v0.4",
@@ -1149,7 +1177,7 @@
     ],
     "inventory_status": "Disponible",
     "product_url": "https://www.alkosto.com/",
-    "image_url": "https://placehold.co/640x420?text=Samsung",
+    "image_url": "assets/TV-SAMSUNG-75-CRYSTAL.svg",
     "source_type": "demo_catalog",
     "source_note": "Dato demo estructurado. Validar precio, URL e inventario real contra fuente oficial antes de producción.",
     "last_updated": "2026-07-04",
@@ -1173,7 +1201,9 @@
     "related_articles": [
       "tv-screen-size-guide"
     ],
-    "sales_pitch": "Para pantalla grande, validar espacio y presupuesto antes de presentar como upgrade."
+    "sales_pitch": "Para pantalla grande, validar espacio y presupuesto antes de presentar como upgrade.",
+    "image_source": "local_demo_packshot",
+    "image_note": "Imagen demo estilo packshot, no corresponde a fotografía oficial de Alkosto."
   },
   {
     "catalog_version": "demo-v0.4",
@@ -1227,7 +1257,7 @@
     ],
     "inventory_status": "Disponible",
     "product_url": "https://www.alkosto.com/",
-    "image_url": "https://placehold.co/640x420?text=Lenovo",
+    "image_url": "assets/NB-LENOVO-IP3-I3.svg",
     "source_type": "demo_catalog",
     "source_note": "Dato demo estructurado. Validar precio, URL e inventario real contra fuente oficial antes de producción.",
     "last_updated": "2026-07-04",
@@ -1255,7 +1285,9 @@
       "computer-use-case-guide",
       "laptop-study-work-guide"
     ],
-    "sales_pitch": "Buena primera opción para estudio con presupuesto controlado."
+    "sales_pitch": "Buena primera opción para estudio con presupuesto controlado.",
+    "image_source": "local_demo_packshot",
+    "image_note": "Imagen demo estilo packshot, no corresponde a fotografía oficial de Alkosto."
   },
   {
     "catalog_version": "demo-v0.4",
@@ -1309,7 +1341,7 @@
     ],
     "inventory_status": "Disponible",
     "product_url": "https://www.alkosto.com/",
-    "image_url": "https://placehold.co/640x420?text=HP",
+    "image_url": "assets/NB-HP-15-R5.svg",
     "source_type": "demo_catalog",
     "source_note": "Dato demo estructurado. Validar precio, URL e inventario real contra fuente oficial antes de producción.",
     "last_updated": "2026-07-04",
@@ -1337,7 +1369,9 @@
       "computer-use-case-guide",
       "laptop-ram-storage-guide"
     ],
-    "sales_pitch": "Recomendar si el cliente quiere que el equipo dure más y soporte multitarea."
+    "sales_pitch": "Recomendar si el cliente quiere que el equipo dure más y soporte multitarea.",
+    "image_source": "local_demo_packshot",
+    "image_note": "Imagen demo estilo packshot, no corresponde a fotografía oficial de Alkosto."
   },
   {
     "catalog_version": "demo-v0.4",
@@ -1391,7 +1425,7 @@
     ],
     "inventory_status": "Disponible",
     "product_url": "https://www.alkosto.com/",
-    "image_url": "https://placehold.co/640x420?text=ASUS",
+    "image_url": "assets/NB-ASUS-VIVOBOOK-I5.svg",
     "source_type": "demo_catalog",
     "source_note": "Dato demo estructurado. Validar precio, URL e inventario real contra fuente oficial antes de producción.",
     "last_updated": "2026-07-04",
@@ -1419,7 +1453,9 @@
       "computer-use-case-guide",
       "laptop-study-work-guide"
     ],
-    "sales_pitch": "Enfatizar Core i5 + 16GB como balance productivo."
+    "sales_pitch": "Enfatizar Core i5 + 16GB como balance productivo.",
+    "image_source": "local_demo_packshot",
+    "image_note": "Imagen demo estilo packshot, no corresponde a fotografía oficial de Alkosto."
   },
   {
     "catalog_version": "demo-v0.4",
@@ -1473,7 +1509,7 @@
     ],
     "inventory_status": "Disponible",
     "product_url": "https://www.alkosto.com/",
-    "image_url": "https://placehold.co/640x420?text=Acer",
+    "image_url": "assets/NB-ACER-ASPIRE-R5.svg",
     "source_type": "demo_catalog",
     "source_note": "Dato demo estructurado. Validar precio, URL e inventario real contra fuente oficial antes de producción.",
     "last_updated": "2026-07-04",
@@ -1501,7 +1537,9 @@
       "computer-use-case-guide",
       "laptop-ram-storage-guide"
     ],
-    "sales_pitch": "Comparar contra HP/ASUS para decisión por precio o marca."
+    "sales_pitch": "Comparar contra HP/ASUS para decisión por precio o marca.",
+    "image_source": "local_demo_packshot",
+    "image_note": "Imagen demo estilo packshot, no corresponde a fotografía oficial de Alkosto."
   },
   {
     "catalog_version": "demo-v0.4",
@@ -1555,7 +1593,7 @@
     ],
     "inventory_status": "Disponible",
     "product_url": "https://www.alkosto.com/",
-    "image_url": "https://placehold.co/640x420?text=Lenovo",
+    "image_url": "assets/NB-LENOVO-YOGA-I5.svg",
     "source_type": "demo_catalog",
     "source_note": "Dato demo estructurado. Validar precio, URL e inventario real contra fuente oficial antes de producción.",
     "last_updated": "2026-07-04",
@@ -1585,7 +1623,9 @@
       "desktop-vs-laptop-guide",
       "computer-use-case-guide"
     ],
-    "sales_pitch": "Para cliente ejecutivo o estudiante móvil, resaltar formato 2 en 1 y portabilidad."
+    "sales_pitch": "Para cliente ejecutivo o estudiante móvil, resaltar formato 2 en 1 y portabilidad.",
+    "image_source": "local_demo_packshot",
+    "image_note": "Imagen demo estilo packshot, no corresponde a fotografía oficial de Alkosto."
   },
   {
     "catalog_version": "demo-v0.4",
@@ -1639,7 +1679,7 @@
     ],
     "inventory_status": "Disponible",
     "product_url": "https://www.alkosto.com/",
-    "image_url": "https://placehold.co/640x420?text=HP",
+    "image_url": "assets/NB-HP-PAVILION-I7.svg",
     "source_type": "demo_catalog",
     "source_note": "Dato demo estructurado. Validar precio, URL e inventario real contra fuente oficial antes de producción.",
     "last_updated": "2026-07-04",
@@ -1667,7 +1707,9 @@
       "laptop-ram-storage-guide",
       "computer-price-objection"
     ],
-    "sales_pitch": "Defender inversión por procesador, RAM y 1TB SSD."
+    "sales_pitch": "Defender inversión por procesador, RAM y 1TB SSD.",
+    "image_source": "local_demo_packshot",
+    "image_note": "Imagen demo estilo packshot, no corresponde a fotografía oficial de Alkosto."
   },
   {
     "catalog_version": "demo-v0.4",
@@ -1721,7 +1763,7 @@
     ],
     "inventory_status": "Disponible",
     "product_url": "https://www.alkosto.com/",
-    "image_url": "https://placehold.co/640x420?text=ASUS",
+    "image_url": "assets/NB-ASUS-TUF-R7.svg",
     "source_type": "demo_catalog",
     "source_note": "Dato demo estructurado. Validar precio, URL e inventario real contra fuente oficial antes de producción.",
     "last_updated": "2026-07-04",
@@ -1750,7 +1792,9 @@
       "gaming-laptop-guide",
       "laptop-ram-storage-guide"
     ],
-    "sales_pitch": "Clave: gráfica dedicada + Ryzen 7 + 1TB para desempeño exigente."
+    "sales_pitch": "Clave: gráfica dedicada + Ryzen 7 + 1TB para desempeño exigente.",
+    "image_source": "local_demo_packshot",
+    "image_note": "Imagen demo estilo packshot, no corresponde a fotografía oficial de Alkosto."
   },
   {
     "catalog_version": "demo-v0.4",
@@ -1804,7 +1848,7 @@
     ],
     "inventory_status": "Disponible",
     "product_url": "https://www.alkosto.com/",
-    "image_url": "https://placehold.co/640x420?text=Lenovo",
+    "image_url": "assets/NB-LENOVO-LOQ-I5.svg",
     "source_type": "demo_catalog",
     "source_note": "Dato demo estructurado. Validar precio, URL e inventario real contra fuente oficial antes de producción.",
     "last_updated": "2026-07-04",
@@ -1831,7 +1875,9 @@
     "related_articles": [
       "gaming-laptop-guide"
     ],
-    "sales_pitch": "Buena opción si quiere gaming sin ir al rango más alto."
+    "sales_pitch": "Buena opción si quiere gaming sin ir al rango más alto.",
+    "image_source": "local_demo_packshot",
+    "image_note": "Imagen demo estilo packshot, no corresponde a fotografía oficial de Alkosto."
   },
   {
     "catalog_version": "demo-v0.4",
@@ -1885,7 +1931,7 @@
     ],
     "inventory_status": "Disponible",
     "product_url": "https://www.alkosto.com/",
-    "image_url": "https://placehold.co/640x420?text=Acer",
+    "image_url": "assets/NB-ACER-NITRO-I5.svg",
     "source_type": "demo_catalog",
     "source_note": "Dato demo estructurado. Validar precio, URL e inventario real contra fuente oficial antes de producción.",
     "last_updated": "2026-07-04",
@@ -1913,7 +1959,9 @@
       "gaming-laptop-guide",
       "computer-price-objection"
     ],
-    "sales_pitch": "Ideal para cliente que quiere GPU dedicada con presupuesto más controlado."
+    "sales_pitch": "Ideal para cliente que quiere GPU dedicada con presupuesto más controlado.",
+    "image_source": "local_demo_packshot",
+    "image_note": "Imagen demo estilo packshot, no corresponde a fotografía oficial de Alkosto."
   },
   {
     "catalog_version": "demo-v0.4",
@@ -1967,7 +2015,7 @@
     ],
     "inventory_status": "Disponible",
     "product_url": "https://www.alkosto.com/",
-    "image_url": "https://placehold.co/640x420?text=Apple",
+    "image_url": "assets/NB-MACBOOK-AIR-M2.svg",
     "source_type": "demo_catalog",
     "source_note": "Dato demo estructurado. Validar precio, URL e inventario real contra fuente oficial antes de producción.",
     "last_updated": "2026-07-04",
@@ -1997,7 +2045,9 @@
       "computer-use-case-guide",
       "desktop-vs-laptop-guide"
     ],
-    "sales_pitch": "Si el cliente usa ecosistema Apple, resaltar portabilidad, batería y experiencia."
+    "sales_pitch": "Si el cliente usa ecosistema Apple, resaltar portabilidad, batería y experiencia.",
+    "image_source": "local_demo_packshot",
+    "image_note": "Imagen demo estilo packshot, no corresponde a fotografía oficial de Alkosto."
   },
   {
     "catalog_version": "demo-v0.4",
@@ -2051,7 +2101,7 @@
     ],
     "inventory_status": "Disponible",
     "product_url": "https://www.alkosto.com/",
-    "image_url": "https://placehold.co/640x420?text=HP",
+    "image_url": "assets/AIO-HP-24-I5.svg",
     "source_type": "demo_catalog",
     "source_note": "Dato demo estructurado. Validar precio, URL e inventario real contra fuente oficial antes de producción.",
     "last_updated": "2026-07-04",
@@ -2078,7 +2128,9 @@
     "related_articles": [
       "desktop-vs-laptop-guide"
     ],
-    "sales_pitch": "Ideal si estará fijo y se busca escritorio limpio con pantalla incluida."
+    "sales_pitch": "Ideal si estará fijo y se busca escritorio limpio con pantalla incluida.",
+    "image_source": "local_demo_packshot",
+    "image_note": "Imagen demo estilo packshot, no corresponde a fotografía oficial de Alkosto."
   },
   {
     "catalog_version": "demo-v0.4",
@@ -2132,7 +2184,7 @@
     ],
     "inventory_status": "Disponible",
     "product_url": "https://www.alkosto.com/",
-    "image_url": "https://placehold.co/640x420?text=Lenovo",
+    "image_url": "assets/AIO-LENOVO-24-R5.svg",
     "source_type": "demo_catalog",
     "source_note": "Dato demo estructurado. Validar precio, URL e inventario real contra fuente oficial antes de producción.",
     "last_updated": "2026-07-04",
@@ -2160,7 +2212,9 @@
       "desktop-vs-laptop-guide",
       "laptop-ram-storage-guide"
     ],
-    "sales_pitch": "Frente a un portátil, resaltar comodidad de pantalla y puesto fijo."
+    "sales_pitch": "Frente a un portátil, resaltar comodidad de pantalla y puesto fijo.",
+    "image_source": "local_demo_packshot",
+    "image_note": "Imagen demo estilo packshot, no corresponde a fotografía oficial de Alkosto."
   },
   {
     "catalog_version": "demo-v0.4",
@@ -2214,7 +2268,7 @@
     ],
     "inventory_status": "Disponible",
     "product_url": "https://www.alkosto.com/",
-    "image_url": "https://placehold.co/640x420?text=HP",
+    "image_url": "assets/DT-HP-SLIM-I5.svg",
     "source_type": "demo_catalog",
     "source_note": "Dato demo estructurado. Validar precio, URL e inventario real contra fuente oficial antes de producción.",
     "last_updated": "2026-07-04",
@@ -2241,7 +2295,9 @@
     "related_articles": [
       "desktop-vs-laptop-guide"
     ],
-    "sales_pitch": "Si ya tiene monitor, puede ahorrar frente a portátil o todo en uno."
+    "sales_pitch": "Si ya tiene monitor, puede ahorrar frente a portátil o todo en uno.",
+    "image_source": "local_demo_packshot",
+    "image_note": "Imagen demo estilo packshot, no corresponde a fotografía oficial de Alkosto."
   },
   {
     "catalog_version": "demo-v0.4",
@@ -2295,7 +2351,7 @@
     ],
     "inventory_status": "Disponible",
     "product_url": "https://www.alkosto.com/",
-    "image_url": "https://placehold.co/640x420?text=Clon+Gamer",
+    "image_url": "assets/DT-GAMER-R5-RTX.svg",
     "source_type": "demo_catalog",
     "source_note": "Dato demo estructurado. Validar precio, URL e inventario real contra fuente oficial antes de producción.",
     "last_updated": "2026-07-04",
@@ -2323,7 +2379,9 @@
       "gaming-laptop-guide",
       "desktop-vs-laptop-guide"
     ],
-    "sales_pitch": "Comparar contra portátil gaming por potencia, expansión y espacio fijo."
+    "sales_pitch": "Comparar contra portátil gaming por potencia, expansión y espacio fijo.",
+    "image_source": "local_demo_packshot",
+    "image_note": "Imagen demo estilo packshot, no corresponde a fotografía oficial de Alkosto."
   },
   {
     "catalog_version": "demo-v0.4",
@@ -2377,7 +2435,7 @@
     ],
     "inventory_status": "Disponible",
     "product_url": "https://www.alkosto.com/",
-    "image_url": "https://placehold.co/640x420?text=Samsung",
+    "image_url": "assets/MON-SAMSUNG-27.svg",
     "source_type": "demo_catalog",
     "source_note": "Dato demo estructurado. Validar precio, URL e inventario real contra fuente oficial antes de producción.",
     "last_updated": "2026-07-04",
@@ -2404,6 +2462,8 @@
     "related_articles": [
       "desktop-vs-laptop-guide"
     ],
-    "sales_pitch": "Ofrecer como complemento si compra portátil o desktop para productividad."
+    "sales_pitch": "Ofrecer como complemento si compra portátil o desktop para productividad.",
+    "image_source": "local_demo_packshot",
+    "image_note": "Imagen demo estilo packshot, no corresponde a fotografía oficial de Alkosto."
   }
 ]

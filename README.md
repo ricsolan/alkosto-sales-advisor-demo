@@ -46,3 +46,10 @@ https://TU_USUARIO.github.io/alkosto-sales-advisor-demo/?category=Computadores&b
 ## Nota
 
 Los datos de producto, precio e inventario son demo estructurado. En producción deben reemplazarse por APIs oficiales, fuente de catálogo gobernada o ingesta controlada.
+
+
+## v0.4.1 - Imágenes locales tipo catálogo
+
+- Se agregó carpeta `assets/` con imágenes SVG tipo packshot para cada producto.
+- `products.json` ahora apunta a imágenes relativas `assets/<sku>.svg`, evitando depender de placeholders externos.
+- Las imágenes son mockups visuales para demo; no son fotografías oficiales de Alkosto ni validan producto real.
