@@ -1,0 +1,369 @@
+[
+  {
+    "id": "tv-distance-55",
+    "title": "Distancia recomendada para televisores de 55 pulgadas",
+    "category": "Televisores",
+    "article_type": "guía comercial",
+    "triggers": [
+      "55 pulgadas",
+      "distancia",
+      "tamaño",
+      "sala",
+      "habitación"
+    ],
+    "summary": "Un televisor de 55 pulgadas suele ser adecuado para salas medianas. La distancia ideal depende de la resolución, el espacio disponible y el uso principal.",
+    "key_points": [
+      "Para contenido 4K, el cliente puede sentarse más cerca sin perder calidad percibida.",
+      "Es una buena opción para deportes, películas y streaming.",
+      "Antes de cerrar la venta, conviene validar el espacio donde será instalado."
+    ],
+    "advisor_phrase": "Por el tamaño que me indicas, un televisor de 55 pulgadas puede funcionar muy bien si la distancia de visualización es adecuada para tu sala.",
+    "recommended_questions": [
+      "¿A qué distancia estará ubicado el sofá o cama?",
+      "¿Lo usarás principalmente en sala, habitación o estudio?",
+      "¿Quieres priorizar tamaño o calidad de imagen?"
+    ],
+    "do_not_say": [
+      "No asegurar que 55 pulgadas sirve para cualquier espacio sin validar distancia."
+    ],
+    "next_best_action": "Validar espacio y mostrar una opción 55 pulgadas balanceada dentro del presupuesto."
+  },
+  {
+    "id": "tv-screen-size-guide",
+    "title": "Cómo elegir tamaño de pantalla: 43, 50, 55, 65 y 75 pulgadas",
+    "category": "Televisores",
+    "article_type": "guía de perfilamiento",
+    "triggers": [
+      "tamaño",
+      "pulgadas",
+      "sala grande",
+      "habitación",
+      "pantalla grande"
+    ],
+    "summary": "El tamaño correcto depende de distancia de visualización, espacio físico y presupuesto. 43–50 pulgadas suele funcionar en habitaciones; 55 pulgadas es balanceado; 65+ mejora experiencia en salas grandes.",
+    "key_points": [
+      "43–50 pulgadas: habitaciones, estudios o presupuestos ajustados.",
+      "55 pulgadas: punto medio para sala y entretenimiento familiar.",
+      "65 pulgadas o más: experiencia inmersiva para salas grandes."
+    ],
+    "advisor_phrase": "Podemos escoger el tamaño según el espacio: si es sala principal, 55 o 65 pulgadas suelen ser los tamaños más consultados; si es habitación, 43 o 50 puede ser suficiente.",
+    "recommended_questions": [
+      "¿Dónde se instalará el televisor?",
+      "¿Qué distancia hay desde donde lo verán?",
+      "¿Prefieres pantalla más grande o mantenerte en presupuesto?"
+    ],
+    "do_not_say": [
+      "No forzar pantalla grande si el cliente tiene espacio pequeño o presupuesto limitado."
+    ],
+    "next_best_action": "Proponer 2 tamaños dentro del presupuesto y comparar beneficio."
+  },
+  {
+    "id": "uhd-vs-qled",
+    "title": "Diferencia entre UHD, QLED, QNED y OLED",
+    "category": "Televisores",
+    "article_type": "comparativo tecnológico",
+    "triggers": [
+      "qled",
+      "oled",
+      "qned",
+      "uhd",
+      "4k",
+      "calidad de imagen",
+      "tecnología"
+    ],
+    "summary": "UHD/4K se refiere a resolución. QLED, QNED y OLED son tecnologías de pantalla que mejoran color, brillo o contraste según el caso.",
+    "key_points": [
+      "UHD/4K indica mayor resolución de imagen.",
+      "QLED suele destacar por brillo y color.",
+      "QNED combina tecnologías para mejorar color y contraste frente a LED tradicional.",
+      "OLED ofrece contraste superior, especialmente en escenas oscuras."
+    ],
+    "advisor_phrase": "Si buscas buena calidad sin subir demasiado el presupuesto, un 4K UHD puede ser suficiente; si quieres una experiencia superior en color y contraste, revisamos QLED, QNED u OLED.",
+    "recommended_questions": [
+      "¿Ves más deportes, películas o videojuegos?",
+      "¿La sala tiene mucha luz?",
+      "¿Priorizas presupuesto o experiencia visual?"
+    ],
+    "do_not_say": [
+      "No decir que QLED u OLED siempre son necesarios para todos los clientes."
+    ],
+    "next_best_action": "Alinear tecnología al presupuesto y al uso principal."
+  },
+  {
+    "id": "tv-price-objection",
+    "title": "Cómo manejar objeción de precio en televisores",
+    "category": "Televisores",
+    "article_type": "manejo de objeciones",
+    "triggers": [
+      "caro",
+      "precio",
+      "lo voy a pensar",
+      "más barato",
+      "descuento"
+    ],
+    "summary": "Cuando el cliente objeta precio, conviene reforzar valor, comparar beneficios y ofrecer alternativas dentro del presupuesto sin prometer descuentos no autorizados.",
+    "key_points": [
+      "Validar qué aspecto del precio genera duda.",
+      "Comparar una opción económica, balanceada y premium.",
+      "Resaltar garantía, disponibilidad, marca, tecnología y promoción vigente.",
+      "Evitar prometer descuentos no autorizados."
+    ],
+    "advisor_phrase": "Entiendo que el precio es importante. Podemos comparar una opción más económica frente a esta para que veas qué beneficios ganas o pierdes antes de decidir.",
+    "recommended_questions": [
+      "¿Quieres que prioricemos precio o calidad de imagen?",
+      "¿Cuál sería el presupuesto máximo cómodo para ti?",
+      "¿Te gustaría comparar contra una opción más económica?"
+    ],
+    "do_not_say": [
+      "No inventar descuentos, bonos o beneficios no aprobados."
+    ],
+    "next_best_action": "Mostrar alternativa económica y explicar trade-offs."
+  },
+  {
+    "id": "tv-gaming-sports-guide",
+    "title": "Televisor para deportes y gaming: qué características resaltar",
+    "category": "Televisores",
+    "article_type": "guía comercial",
+    "triggers": [
+      "deportes",
+      "fútbol",
+      "gaming",
+      "videojuegos",
+      "fluidez",
+      "partidos"
+    ],
+    "summary": "Para deportes y gaming se debe resaltar tamaño, fluidez, conectividad, modo juego y calidad de imagen en movimiento.",
+    "key_points": [
+      "Para deportes, una pantalla grande y buena gestión de movimiento mejora la experiencia.",
+      "Para gaming, validar HDMI, modo juego y latencia.",
+      "Si el presupuesto lo permite, tecnologías superiores como QLED/QNED pueden mejorar color y brillo."
+    ],
+    "advisor_phrase": "Como lo usarás para deportes o juegos, te mostraré opciones que priorizan pantalla, fluidez y buena calidad de imagen en movimiento.",
+    "recommended_questions": [
+      "¿Lo usarás con consola?",
+      "¿Ves más fútbol, películas o videojuegos?",
+      "¿Buscas pantalla grande o mejor calidad de imagen?"
+    ],
+    "do_not_say": [
+      "No prometer desempeño gaming avanzado si el modelo no tiene especificaciones confirmadas."
+    ],
+    "next_best_action": "Filtrar por 55 o 65 pulgadas y priorizar modelos con mejor experiencia visual."
+  },
+  {
+    "id": "computer-use-case-guide",
+    "title": "Cómo perfilar compra de computador según uso",
+    "category": "Computadores",
+    "article_type": "guía de perfilamiento",
+    "triggers": [
+      "computador",
+      "portátil",
+      "laptop",
+      "trabajo",
+      "estudio",
+      "gaming",
+      "diseño"
+    ],
+    "summary": "La recomendación de computador debe partir del uso: estudio/ofimática, trabajo/multitarea, diseño/gaming o portabilidad.",
+    "key_points": [
+      "Estudio/ofimática: Core i3/Ryzen 3 o superior, 8GB RAM, SSD.",
+      "Trabajo/multitarea: Core i5/Ryzen 5, idealmente 16GB RAM.",
+      "Gaming/diseño: procesador potente y gráfica dedicada.",
+      "Portabilidad: equipos de 13–14 pulgadas o 2 en 1."
+    ],
+    "advisor_phrase": "Para recomendarte bien el computador, primero validemos si lo necesitas para estudio, trabajo, diseño, gaming o portabilidad.",
+    "recommended_questions": [
+      "¿Lo usarás para estudiar, trabajar o jugar?",
+      "¿Necesitas programas pesados de diseño o edición?",
+      "¿Prefieres portabilidad o pantalla más grande?"
+    ],
+    "do_not_say": [
+      "No recomendar gaming si el cliente solo necesita tareas básicas."
+    ],
+    "next_best_action": "Clasificar uso y filtrar por presupuesto."
+  },
+  {
+    "id": "laptop-study-work-guide",
+    "title": "Portátil para estudio y trabajo remoto",
+    "category": "Computadores",
+    "article_type": "guía comercial",
+    "triggers": [
+      "estudio",
+      "universidad",
+      "colegio",
+      "trabajo remoto",
+      "ofimática",
+      "videollamadas"
+    ],
+    "summary": "Para estudio y trabajo remoto conviene priorizar SSD, memoria RAM suficiente, buena pantalla y conectividad para videollamadas.",
+    "key_points": [
+      "8GB RAM puede servir para tareas básicas; 16GB ofrece mayor vida útil y multitarea.",
+      "SSD mejora velocidad de encendido y apertura de programas.",
+      "Pantalla de 15.6 pulgadas es cómoda para tareas largas.",
+      "Validar cámara, micrófono y conectividad si hará videollamadas."
+    ],
+    "advisor_phrase": "Para estudio y trabajo remoto buscaría un equipo con SSD y buena memoria RAM para que se sienta rápido y dure más tiempo.",
+    "recommended_questions": [
+      "¿Cuántas horas al día lo usarás?",
+      "¿Usas muchas pestañas o programas al tiempo?",
+      "¿Necesitas transportarlo todos los días?"
+    ],
+    "do_not_say": [
+      "No decir que 8GB siempre es suficiente para todo tipo de usuario."
+    ],
+    "next_best_action": "Ofrecer una opción económica y una con 16GB RAM como balance."
+  },
+  {
+    "id": "laptop-ram-storage-guide",
+    "title": "RAM y almacenamiento: cómo explicarlo al cliente",
+    "category": "Computadores",
+    "article_type": "explicación técnica simple",
+    "triggers": [
+      "ram",
+      "memoria",
+      "almacenamiento",
+      "ssd",
+      "disco",
+      "512",
+      "1tb"
+    ],
+    "summary": "RAM afecta multitarea; almacenamiento SSD afecta velocidad y espacio para archivos/programas. Para la mayoría de usuarios, 16GB RAM y 512GB SSD es un punto balanceado.",
+    "key_points": [
+      "RAM: ayuda a trabajar con varias apps o pestañas abiertas.",
+      "SSD: mejora velocidad del equipo frente a discos tradicionales.",
+      "512GB suele ser suficiente para uso general; 1TB conviene si guarda muchos archivos o juegos.",
+      "Para gaming/diseño, 16GB RAM o más es recomendable."
+    ],
+    "advisor_phrase": "La RAM ayuda a que el equipo responda bien con varias cosas abiertas; el SSD hace que prenda y abra programas más rápido.",
+    "recommended_questions": [
+      "¿Guardas muchos archivos, fotos o videos?",
+      "¿Usas programas pesados?",
+      "¿Quieres un equipo para varios años?"
+    ],
+    "do_not_say": [
+      "No confundir RAM con almacenamiento."
+    ],
+    "next_best_action": "Comparar 8GB vs 16GB y 512GB vs 1TB según presupuesto."
+  },
+  {
+    "id": "gaming-laptop-guide",
+    "title": "Cómo recomendar portátil gaming",
+    "category": "Computadores",
+    "article_type": "guía comercial",
+    "triggers": [
+      "gaming",
+      "juegos",
+      "gamer",
+      "tarjeta gráfica",
+      "rtx",
+      "diseño",
+      "edición"
+    ],
+    "summary": "Un portátil gaming debe evaluarse por procesador, gráfica dedicada, RAM, almacenamiento, pantalla y refrigeración. No todos los equipos con buen procesador son aptos para jugar.",
+    "key_points": [
+      "La gráfica dedicada es clave para juegos y diseño 3D.",
+      "16GB RAM es recomendable para gaming actual.",
+      "SSD mejora tiempos de carga.",
+      "Validar peso, ventilación y autonomía esperada."
+    ],
+    "advisor_phrase": "Para juegos o diseño, lo más importante es que tenga gráfica dedicada; así no dependemos solo del procesador.",
+    "recommended_questions": [
+      "¿Qué juegos o programas usarás?",
+      "¿Quieres jugar ocasionalmente o de forma frecuente?",
+      "¿Lo transportarás mucho?"
+    ],
+    "do_not_say": [
+      "No vender un portátil básico como gamer si no tiene gráfica dedicada."
+    ],
+    "next_best_action": "Mostrar una opción RTX económica y una opción de mayor rendimiento."
+  },
+  {
+    "id": "computer-price-objection",
+    "title": "Cómo manejar objeción de precio en computadores",
+    "category": "Computadores",
+    "article_type": "manejo de objeciones",
+    "triggers": [
+      "caro",
+      "precio",
+      "lo voy a pensar",
+      "más barato",
+      "presupuesto"
+    ],
+    "summary": "En computadores, la objeción de precio se maneja explicando vida útil, rendimiento, RAM, SSD, garantía y adecuación al uso real del cliente.",
+    "key_points": [
+      "Validar si el cliente compara equipos con especificaciones equivalentes.",
+      "Explicar el impacto de RAM, procesador y SSD en duración y desempeño.",
+      "Ofrecer alternativa más económica sin ocultar limitaciones.",
+      "No prometer descuentos no autorizados."
+    ],
+    "advisor_phrase": "Podemos mirar una opción más económica, pero te explico qué cambiaría en rendimiento para que tomes una decisión segura.",
+    "recommended_questions": [
+      "¿Quieres priorizar precio o que el equipo te dure más tiempo?",
+      "¿Qué programas necesitas usar?",
+      "¿Comparaste contra un equipo con la misma RAM y almacenamiento?"
+    ],
+    "do_not_say": [
+      "No decir que dos computadores son iguales solo por tener el mismo tamaño de pantalla."
+    ],
+    "next_best_action": "Comparar especificaciones clave y presentar alternativa dentro del presupuesto."
+  },
+  {
+    "id": "desktop-vs-laptop-guide",
+    "title": "Portátil, todo en uno o computador de escritorio: cuál recomendar",
+    "category": "Computadores",
+    "article_type": "comparativo",
+    "triggers": [
+      "todo en uno",
+      "escritorio",
+      "portátil",
+      "desktop",
+      "oficina",
+      "casa"
+    ],
+    "summary": "La elección depende de movilidad, espacio y potencia. Portátil sirve si se mueve; todo en uno ahorra espacio; escritorio puede ser más económico o expandible.",
+    "key_points": [
+      "Portátil: movilidad y flexibilidad.",
+      "Todo en uno: escritorio limpio y pantalla integrada.",
+      "Torre/escritorio: puede ofrecer mejor relación costo/potencia o expansión.",
+      "Para gaming, escritorio puede ser más potente en el mismo rango de precio."
+    ],
+    "advisor_phrase": "Si necesitas moverlo, vamos por portátil; si será fijo en casa u oficina, podemos comparar todo en uno o escritorio para mejorar valor.",
+    "recommended_questions": [
+      "¿Lo vas a transportar?",
+      "¿Tienes monitor o necesitas pantalla incluida?",
+      "¿Quieres posibilidad de actualizar componentes?"
+    ],
+    "do_not_say": [
+      "No asumir que portátil siempre es mejor; depende del uso."
+    ],
+    "next_best_action": "Definir movilidad antes de filtrar modelos."
+  },
+  {
+    "id": "copilot-article-router",
+    "title": "Cómo usar artículos sugeridos por Copilot en venta asistida",
+    "category": "General",
+    "article_type": "operación asesor",
+    "triggers": [
+      "artículo",
+      "copilot",
+      "ayuda",
+      "base de conocimiento",
+      "kb"
+    ],
+    "summary": "Cuando Copilot sugiera un artículo, la Client App puede mostrar resumen, puntos clave y frase sugerida dentro del mismo panel para evitar que el asesor cambie de pantalla.",
+    "key_points": [
+      "Mostrar solo lo relevante para la conversación.",
+      "Mantener frase sugerida lista para copiar.",
+      "Registrar el artículo usado en el historial de acciones.",
+      "Evitar saturar al asesor con información extensa."
+    ],
+    "advisor_phrase": "Te estoy mostrando una guía corta para responder más rápido sin salir de la conversación.",
+    "recommended_questions": [
+      "¿Quieres que copie la frase sugerida?",
+      "¿Necesitas ver puntos clave o detalle completo?"
+    ],
+    "do_not_say": [
+      "No abrir múltiples ventanas o artículos innecesarios durante la llamada."
+    ],
+    "next_best_action": "Mostrar resumen corto y frase accionable."
+  }
+]

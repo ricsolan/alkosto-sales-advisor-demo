@@ -1,0 +1,2409 @@
+[
+  {
+    "catalog_version": "demo-v0.4",
+    "sku": "TV-TCL-43-S5400",
+    "brand": "TCL",
+    "name": "TV TCL 43 pulgadas FHD Smart TV Google TV",
+    "category": "Televisores",
+    "price": 899900,
+    "previous_price": 1099900,
+    "currency": "COP",
+    "promotion": "Precio especial online",
+    "city_inventory": {
+      "Barranquilla": {
+        "status": "Disponible",
+        "quantity": 8,
+        "delivery_eta": "24-48 horas"
+      },
+      "Bogotá": {
+        "status": "Disponible",
+        "quantity": 12,
+        "delivery_eta": "24-48 horas"
+      },
+      "Medellín": {
+        "status": "Disponible",
+        "quantity": 6,
+        "delivery_eta": "24-48 horas"
+      },
+      "Cali": {
+        "status": "Disponible",
+        "quantity": 4,
+        "delivery_eta": "24-48 horas"
+      },
+      "Cartagena": {
+        "status": "Pocas unidades",
+        "quantity": 3,
+        "delivery_eta": "48-72 horas"
+      },
+      "Bucaramanga": {
+        "status": "Pocas unidades",
+        "quantity": 2,
+        "delivery_eta": "48-72 horas"
+      }
+    },
+    "cities_available": [
+      "Barranquilla",
+      "Bogotá",
+      "Medellín",
+      "Cali",
+      "Cartagena",
+      "Bucaramanga"
+    ],
+    "inventory_status": "Disponible",
+    "product_url": "https://www.alkosto.com/",
+    "image_url": "https://placehold.co/640x420?text=TCL",
+    "source_type": "demo_catalog",
+    "source_note": "Dato demo estructurado. Validar precio, URL e inventario real contra fuente oficial antes de producción.",
+    "last_updated": "2026-07-04",
+    "availability_confidence": "demo",
+    "advisor_warning": "No prometer disponibilidad, financiación, descuentos ni tiempos de entrega sin validar en sistema oficial.",
+    "screen_size": 43,
+    "technology": "LED FHD",
+    "os": "Google TV",
+    "use_cases": [
+      "uso básico",
+      "streaming",
+      "precio"
+    ],
+    "priority_tags": [
+      "precio",
+      "económico"
+    ],
+    "badge": "MEJOR PRECIO",
+    "key_benefit": "Ideal para habitaciones o espacios pequeños con presupuesto controlado.",
+    "related_articles": [
+      "tv-screen-size-guide",
+      "tv-price-objection"
+    ],
+    "sales_pitch": "Recomendable si el cliente quiere una TV económica para habitación o uso básico."
+  },
+  {
+    "catalog_version": "demo-v0.4",
+    "sku": "TV-KALLEY-43-4K",
+    "brand": "Kalley",
+    "name": "TV Kalley 43 pulgadas 4K Smart TV",
+    "category": "Televisores",
+    "price": 1049900,
+    "previous_price": 1249900,
+    "currency": "COP",
+    "promotion": "Precio especial online",
+    "city_inventory": {
+      "Barranquilla": {
+        "status": "Disponible",
+        "quantity": 8,
+        "delivery_eta": "24-48 horas"
+      },
+      "Bogotá": {
+        "status": "Disponible",
+        "quantity": 12,
+        "delivery_eta": "24-48 horas"
+      },
+      "Medellín": {
+        "status": "Disponible",
+        "quantity": 6,
+        "delivery_eta": "24-48 horas"
+      },
+      "Cali": {
+        "status": "Disponible",
+        "quantity": 4,
+        "delivery_eta": "24-48 horas"
+      },
+      "Cartagena": {
+        "status": "Pocas unidades",
+        "quantity": 3,
+        "delivery_eta": "48-72 horas"
+      },
+      "Bucaramanga": {
+        "status": "Pocas unidades",
+        "quantity": 2,
+        "delivery_eta": "48-72 horas"
+      }
+    },
+    "cities_available": [
+      "Barranquilla",
+      "Bogotá",
+      "Medellín",
+      "Cali",
+      "Cartagena",
+      "Bucaramanga"
+    ],
+    "inventory_status": "Disponible",
+    "product_url": "https://www.alkosto.com/",
+    "image_url": "https://placehold.co/640x420?text=Kalley",
+    "source_type": "demo_catalog",
+    "source_note": "Dato demo estructurado. Validar precio, URL e inventario real contra fuente oficial antes de producción.",
+    "last_updated": "2026-07-04",
+    "availability_confidence": "demo",
+    "advisor_warning": "No prometer disponibilidad, financiación, descuentos ni tiempos de entrega sin validar en sistema oficial.",
+    "screen_size": 43,
+    "technology": "LED 4K UHD",
+    "os": "Smart TV",
+    "use_cases": [
+      "streaming",
+      "uso básico"
+    ],
+    "priority_tags": [
+      "precio",
+      "4k económico"
+    ],
+    "badge": "4K ECONÓMICO",
+    "key_benefit": "Entrada económica a resolución 4K en tamaño compacto.",
+    "related_articles": [
+      "uhd-vs-qled",
+      "tv-price-objection"
+    ],
+    "sales_pitch": "Buen puente entre precio bajo y resolución 4K."
+  },
+  {
+    "catalog_version": "demo-v0.4",
+    "sku": "TV-XIAOMI-50-A",
+    "brand": "Xiaomi",
+    "name": "TV Xiaomi 50 pulgadas 4K Google TV",
+    "category": "Televisores",
+    "price": 1399900,
+    "previous_price": 1599900,
+    "currency": "COP",
+    "promotion": "Precio especial online",
+    "city_inventory": {
+      "Barranquilla": {
+        "status": "Disponible",
+        "quantity": 8,
+        "delivery_eta": "24-48 horas"
+      },
+      "Bogotá": {
+        "status": "Disponible",
+        "quantity": 12,
+        "delivery_eta": "24-48 horas"
+      },
+      "Medellín": {
+        "status": "Disponible",
+        "quantity": 6,
+        "delivery_eta": "24-48 horas"
+      },
+      "Cali": {
+        "status": "Disponible",
+        "quantity": 4,
+        "delivery_eta": "24-48 horas"
+      },
+      "Cartagena": {
+        "status": "Pocas unidades",
+        "quantity": 3,
+        "delivery_eta": "48-72 horas"
+      },
+      "Bucaramanga": {
+        "status": "Pocas unidades",
+        "quantity": 2,
+        "delivery_eta": "48-72 horas"
+      }
+    },
+    "cities_available": [
+      "Barranquilla",
+      "Bogotá",
+      "Medellín",
+      "Cali",
+      "Cartagena",
+      "Bucaramanga"
+    ],
+    "inventory_status": "Disponible",
+    "product_url": "https://www.alkosto.com/",
+    "image_url": "https://placehold.co/640x420?text=Xiaomi",
+    "source_type": "demo_catalog",
+    "source_note": "Dato demo estructurado. Validar precio, URL e inventario real contra fuente oficial antes de producción.",
+    "last_updated": "2026-07-04",
+    "availability_confidence": "demo",
+    "advisor_warning": "No prometer disponibilidad, financiación, descuentos ni tiempos de entrega sin validar en sistema oficial.",
+    "screen_size": 50,
+    "technology": "LED 4K UHD",
+    "os": "Google TV",
+    "use_cases": [
+      "streaming",
+      "películas",
+      "precio"
+    ],
+    "priority_tags": [
+      "precio y calidad",
+      "apps"
+    ],
+    "badge": "BUEN BALANCE",
+    "key_benefit": "Buena experiencia de apps y sistema operativo amigable.",
+    "related_articles": [
+      "uhd-vs-qled",
+      "tv-screen-size-guide"
+    ],
+    "sales_pitch": "Ideal para cliente que quiere sistema fácil y buen tamaño sin subir mucho el presupuesto."
+  },
+  {
+    "catalog_version": "demo-v0.4",
+    "sku": "TV-CHALLENGER-55-4K",
+    "brand": "Challenger",
+    "name": "TV Challenger 55 pulgadas 4K UHD Smart TV",
+    "category": "Televisores",
+    "price": 1479900,
+    "previous_price": 1649900,
+    "currency": "COP",
+    "promotion": "Precio especial online",
+    "city_inventory": {
+      "Barranquilla": {
+        "status": "Disponible",
+        "quantity": 8,
+        "delivery_eta": "24-48 horas"
+      },
+      "Bogotá": {
+        "status": "Disponible",
+        "quantity": 12,
+        "delivery_eta": "24-48 horas"
+      },
+      "Medellín": {
+        "status": "Disponible",
+        "quantity": 6,
+        "delivery_eta": "24-48 horas"
+      },
+      "Cali": {
+        "status": "Disponible",
+        "quantity": 4,
+        "delivery_eta": "24-48 horas"
+      },
+      "Cartagena": {
+        "status": "Pocas unidades",
+        "quantity": 3,
+        "delivery_eta": "48-72 horas"
+      },
+      "Bucaramanga": {
+        "status": "Pocas unidades",
+        "quantity": 2,
+        "delivery_eta": "48-72 horas"
+      }
+    },
+    "cities_available": [
+      "Barranquilla",
+      "Bogotá",
+      "Medellín",
+      "Cali",
+      "Cartagena",
+      "Bucaramanga"
+    ],
+    "inventory_status": "Disponible",
+    "product_url": "https://www.alkosto.com/",
+    "image_url": "https://placehold.co/640x420?text=Challenger",
+    "source_type": "demo_catalog",
+    "source_note": "Dato demo estructurado. Validar precio, URL e inventario real contra fuente oficial antes de producción.",
+    "last_updated": "2026-07-04",
+    "availability_confidence": "demo",
+    "advisor_warning": "No prometer disponibilidad, financiación, descuentos ni tiempos de entrega sin validar en sistema oficial.",
+    "screen_size": 55,
+    "technology": "LED 4K UHD",
+    "os": "Android TV",
+    "use_cases": [
+      "streaming",
+      "uso básico",
+      "precio"
+    ],
+    "priority_tags": [
+      "precio",
+      "económico"
+    ],
+    "badge": "MEJOR PRECIO",
+    "key_benefit": "Opción económica para clientes que priorizan tamaño y precio.",
+    "related_articles": [
+      "tv-distance-55",
+      "tv-price-objection"
+    ],
+    "sales_pitch": "Opción fuerte cuando el cliente quiere 55 pulgadas con presupuesto ajustado."
+  },
+  {
+    "catalog_version": "demo-v0.4",
+    "sku": "TV-TCL-55V6C",
+    "brand": "TCL",
+    "name": "TV TCL 55V6C 55 pulgadas 4K Google TV",
+    "category": "Televisores",
+    "price": 1634800,
+    "previous_price": 1899900,
+    "currency": "COP",
+    "promotion": "Precio especial online",
+    "city_inventory": {
+      "Barranquilla": {
+        "status": "Disponible",
+        "quantity": 8,
+        "delivery_eta": "24-48 horas"
+      },
+      "Bogotá": {
+        "status": "Disponible",
+        "quantity": 12,
+        "delivery_eta": "24-48 horas"
+      },
+      "Medellín": {
+        "status": "Disponible",
+        "quantity": 6,
+        "delivery_eta": "24-48 horas"
+      },
+      "Cali": {
+        "status": "Disponible",
+        "quantity": 4,
+        "delivery_eta": "24-48 horas"
+      },
+      "Cartagena": {
+        "status": "Pocas unidades",
+        "quantity": 3,
+        "delivery_eta": "48-72 horas"
+      },
+      "Bucaramanga": {
+        "status": "Pocas unidades",
+        "quantity": 2,
+        "delivery_eta": "48-72 horas"
+      }
+    },
+    "cities_available": [
+      "Barranquilla",
+      "Bogotá",
+      "Medellín",
+      "Cali",
+      "Cartagena",
+      "Bucaramanga"
+    ],
+    "inventory_status": "Disponible",
+    "product_url": "https://www.alkosto.com/",
+    "image_url": "https://placehold.co/640x420?text=TCL",
+    "source_type": "demo_catalog",
+    "source_note": "Dato demo estructurado. Validar precio, URL e inventario real contra fuente oficial antes de producción.",
+    "last_updated": "2026-07-04",
+    "availability_confidence": "demo",
+    "advisor_warning": "No prometer disponibilidad, financiación, descuentos ni tiempos de entrega sin validar en sistema oficial.",
+    "screen_size": 55,
+    "technology": "LED 4K UHD",
+    "os": "Google TV",
+    "use_cases": [
+      "deportes",
+      "streaming",
+      "películas"
+    ],
+    "priority_tags": [
+      "precio y calidad",
+      "mejor balance"
+    ],
+    "badge": "MEJOR BALANCE",
+    "key_benefit": "Excelente balance entre precio, tamaño y calidad de imagen.",
+    "related_articles": [
+      "tv-distance-55",
+      "uhd-vs-qled",
+      "tv-gaming-sports-guide"
+    ],
+    "sales_pitch": "Para deportes y streaming, destaca tamaño, 4K y facilidad de uso con Google TV."
+  },
+  {
+    "catalog_version": "demo-v0.4",
+    "sku": "TV-HISENSE-55-UHD",
+    "brand": "Hisense",
+    "name": "TV Hisense 55 pulgadas 4K UHD Smart TV",
+    "category": "Televisores",
+    "price": 1699900,
+    "previous_price": 1999900,
+    "currency": "COP",
+    "promotion": "Precio especial online",
+    "city_inventory": {
+      "Barranquilla": {
+        "status": "Disponible",
+        "quantity": 8,
+        "delivery_eta": "24-48 horas"
+      },
+      "Bogotá": {
+        "status": "Disponible",
+        "quantity": 12,
+        "delivery_eta": "24-48 horas"
+      },
+      "Medellín": {
+        "status": "Disponible",
+        "quantity": 6,
+        "delivery_eta": "24-48 horas"
+      },
+      "Cali": {
+        "status": "Disponible",
+        "quantity": 4,
+        "delivery_eta": "24-48 horas"
+      },
+      "Cartagena": {
+        "status": "Pocas unidades",
+        "quantity": 3,
+        "delivery_eta": "48-72 horas"
+      },
+      "Bucaramanga": {
+        "status": "Pocas unidades",
+        "quantity": 2,
+        "delivery_eta": "48-72 horas"
+      }
+    },
+    "cities_available": [
+      "Barranquilla",
+      "Bogotá",
+      "Medellín",
+      "Cali",
+      "Cartagena",
+      "Bucaramanga"
+    ],
+    "inventory_status": "Disponible",
+    "product_url": "https://www.alkosto.com/",
+    "image_url": "https://placehold.co/640x420?text=Hisense",
+    "source_type": "demo_catalog",
+    "source_note": "Dato demo estructurado. Validar precio, URL e inventario real contra fuente oficial antes de producción.",
+    "last_updated": "2026-07-04",
+    "availability_confidence": "demo",
+    "advisor_warning": "No prometer disponibilidad, financiación, descuentos ni tiempos de entrega sin validar en sistema oficial.",
+    "screen_size": 55,
+    "technology": "LED 4K UHD",
+    "os": "VIDAA",
+    "use_cases": [
+      "deportes",
+      "streaming",
+      "precio"
+    ],
+    "priority_tags": [
+      "precio y calidad",
+      "económico"
+    ],
+    "badge": "ALTERNATIVA BALANCEADA",
+    "key_benefit": "Buena opción si el cliente quiere 55 pulgadas sin subir mucho el presupuesto.",
+    "related_articles": [
+      "tv-distance-55",
+      "tv-price-objection"
+    ],
+    "sales_pitch": "Alternativa costo-beneficio para comparar contra TCL o Challenger."
+  },
+  {
+    "catalog_version": "demo-v0.4",
+    "sku": "TV-SAMSUNG-55-CU",
+    "brand": "Samsung",
+    "name": "TV Samsung 55 pulgadas Crystal UHD 4K",
+    "category": "Televisores",
+    "price": 2299900,
+    "previous_price": 2599900,
+    "currency": "COP",
+    "promotion": "Precio especial online",
+    "city_inventory": {
+      "Barranquilla": {
+        "status": "Disponible",
+        "quantity": 8,
+        "delivery_eta": "24-48 horas"
+      },
+      "Bogotá": {
+        "status": "Disponible",
+        "quantity": 12,
+        "delivery_eta": "24-48 horas"
+      },
+      "Medellín": {
+        "status": "Disponible",
+        "quantity": 6,
+        "delivery_eta": "24-48 horas"
+      },
+      "Cali": {
+        "status": "Disponible",
+        "quantity": 4,
+        "delivery_eta": "24-48 horas"
+      },
+      "Cartagena": {
+        "status": "Pocas unidades",
+        "quantity": 3,
+        "delivery_eta": "48-72 horas"
+      },
+      "Bucaramanga": {
+        "status": "Pocas unidades",
+        "quantity": 2,
+        "delivery_eta": "48-72 horas"
+      }
+    },
+    "cities_available": [
+      "Barranquilla",
+      "Bogotá",
+      "Medellín",
+      "Cali",
+      "Cartagena",
+      "Bucaramanga"
+    ],
+    "inventory_status": "Disponible",
+    "product_url": "https://www.alkosto.com/",
+    "image_url": "https://placehold.co/640x420?text=Samsung",
+    "source_type": "demo_catalog",
+    "source_note": "Dato demo estructurado. Validar precio, URL e inventario real contra fuente oficial antes de producción.",
+    "last_updated": "2026-07-04",
+    "availability_confidence": "demo",
+    "advisor_warning": "No prometer disponibilidad, financiación, descuentos ni tiempos de entrega sin validar en sistema oficial.",
+    "screen_size": 55,
+    "technology": "Crystal UHD 4K",
+    "os": "Tizen",
+    "use_cases": [
+      "deportes",
+      "streaming",
+      "marca"
+    ],
+    "priority_tags": [
+      "marca",
+      "calidad",
+      "precio y calidad"
+    ],
+    "badge": "MARCA RECOMENDADA",
+    "key_benefit": "Buena opción para quien busca marca reconocida y calidad de imagen.",
+    "related_articles": [
+      "tv-distance-55",
+      "uhd-vs-qled"
+    ],
+    "sales_pitch": "Útil cuando el cliente quiere respaldo de marca y buena experiencia para contenido diario."
+  },
+  {
+    "catalog_version": "demo-v0.4",
+    "sku": "TV-LG-55-AI",
+    "brand": "LG",
+    "name": "TV LG 55 pulgadas 4K Smart TV con IA",
+    "category": "Televisores",
+    "price": 2499900,
+    "previous_price": 2799900,
+    "currency": "COP",
+    "promotion": "Precio especial online",
+    "city_inventory": {
+      "Barranquilla": {
+        "status": "Disponible",
+        "quantity": 8,
+        "delivery_eta": "24-48 horas"
+      },
+      "Bogotá": {
+        "status": "Disponible",
+        "quantity": 12,
+        "delivery_eta": "24-48 horas"
+      },
+      "Medellín": {
+        "status": "Disponible",
+        "quantity": 6,
+        "delivery_eta": "24-48 horas"
+      },
+      "Cali": {
+        "status": "Disponible",
+        "quantity": 4,
+        "delivery_eta": "24-48 horas"
+      },
+      "Cartagena": {
+        "status": "Pocas unidades",
+        "quantity": 3,
+        "delivery_eta": "48-72 horas"
+      },
+      "Bucaramanga": {
+        "status": "Pocas unidades",
+        "quantity": 2,
+        "delivery_eta": "48-72 horas"
+      }
+    },
+    "cities_available": [
+      "Barranquilla",
+      "Bogotá",
+      "Medellín",
+      "Cali",
+      "Cartagena",
+      "Bucaramanga"
+    ],
+    "inventory_status": "Disponible",
+    "product_url": "https://www.alkosto.com/",
+    "image_url": "https://placehold.co/640x420?text=LG",
+    "source_type": "demo_catalog",
+    "source_note": "Dato demo estructurado. Validar precio, URL e inventario real contra fuente oficial antes de producción.",
+    "last_updated": "2026-07-04",
+    "availability_confidence": "demo",
+    "advisor_warning": "No prometer disponibilidad, financiación, descuentos ni tiempos de entrega sin validar en sistema oficial.",
+    "screen_size": 55,
+    "technology": "4K UHD AI",
+    "os": "webOS",
+    "use_cases": [
+      "streaming",
+      "películas",
+      "marca"
+    ],
+    "priority_tags": [
+      "marca",
+      "experiencia",
+      "funciones inteligentes"
+    ],
+    "badge": "MEJOR EXPERIENCIA",
+    "key_benefit": "Ideal para clientes que valoran experiencia inteligente y marca.",
+    "related_articles": [
+      "tv-distance-55",
+      "uhd-vs-qled"
+    ],
+    "sales_pitch": "Resaltar webOS, experiencia inteligente y marca si el cliente quiere algo más premium."
+  },
+  {
+    "catalog_version": "demo-v0.4",
+    "sku": "TV-SAMSUNG-55-QLED",
+    "brand": "Samsung",
+    "name": "TV Samsung 55 pulgadas QLED 4K Smart TV",
+    "category": "Televisores",
+    "price": 2899900,
+    "previous_price": 3299900,
+    "currency": "COP",
+    "promotion": "Precio especial online",
+    "city_inventory": {
+      "Barranquilla": {
+        "status": "Disponible",
+        "quantity": 8,
+        "delivery_eta": "24-48 horas"
+      },
+      "Bogotá": {
+        "status": "Disponible",
+        "quantity": 12,
+        "delivery_eta": "24-48 horas"
+      },
+      "Medellín": {
+        "status": "Disponible",
+        "quantity": 6,
+        "delivery_eta": "24-48 horas"
+      },
+      "Cali": {
+        "status": "Disponible",
+        "quantity": 4,
+        "delivery_eta": "24-48 horas"
+      },
+      "Cartagena": {
+        "status": "Pocas unidades",
+        "quantity": 3,
+        "delivery_eta": "48-72 horas"
+      },
+      "Bucaramanga": {
+        "status": "Pocas unidades",
+        "quantity": 2,
+        "delivery_eta": "48-72 horas"
+      }
+    },
+    "cities_available": [
+      "Barranquilla",
+      "Bogotá",
+      "Medellín",
+      "Cali",
+      "Cartagena",
+      "Bucaramanga"
+    ],
+    "inventory_status": "Disponible",
+    "product_url": "https://www.alkosto.com/",
+    "image_url": "https://placehold.co/640x420?text=Samsung",
+    "source_type": "demo_catalog",
+    "source_note": "Dato demo estructurado. Validar precio, URL e inventario real contra fuente oficial antes de producción.",
+    "last_updated": "2026-07-04",
+    "availability_confidence": "demo",
+    "advisor_warning": "No prometer disponibilidad, financiación, descuentos ni tiempos de entrega sin validar en sistema oficial.",
+    "screen_size": 55,
+    "technology": "QLED 4K",
+    "os": "Tizen",
+    "use_cases": [
+      "deportes",
+      "películas",
+      "gaming"
+    ],
+    "priority_tags": [
+      "calidad",
+      "marca",
+      "experiencia"
+    ],
+    "badge": "QLED RECOMENDADO",
+    "key_benefit": "Mejor color y brillo para clientes que buscan experiencia visual superior.",
+    "related_articles": [
+      "uhd-vs-qled",
+      "tv-gaming-sports-guide"
+    ],
+    "sales_pitch": "Si el presupuesto llega a 3 millones, esta opción eleva color, brillo y percepción premium."
+  },
+  {
+    "catalog_version": "demo-v0.4",
+    "sku": "TV-LG-55-QNED",
+    "brand": "LG",
+    "name": "TV LG 55 pulgadas QNED 4K Smart TV",
+    "category": "Televisores",
+    "price": 3099900,
+    "previous_price": 3599900,
+    "currency": "COP",
+    "promotion": "Precio especial online",
+    "city_inventory": {
+      "Barranquilla": {
+        "status": "Disponible",
+        "quantity": 8,
+        "delivery_eta": "24-48 horas"
+      },
+      "Bogotá": {
+        "status": "Disponible",
+        "quantity": 12,
+        "delivery_eta": "24-48 horas"
+      },
+      "Medellín": {
+        "status": "Disponible",
+        "quantity": 6,
+        "delivery_eta": "24-48 horas"
+      },
+      "Cali": {
+        "status": "Disponible",
+        "quantity": 4,
+        "delivery_eta": "24-48 horas"
+      },
+      "Cartagena": {
+        "status": "Pocas unidades",
+        "quantity": 3,
+        "delivery_eta": "48-72 horas"
+      },
+      "Bucaramanga": {
+        "status": "Pocas unidades",
+        "quantity": 2,
+        "delivery_eta": "48-72 horas"
+      }
+    },
+    "cities_available": [
+      "Barranquilla",
+      "Bogotá",
+      "Medellín",
+      "Cali",
+      "Cartagena",
+      "Bucaramanga"
+    ],
+    "inventory_status": "Disponible",
+    "product_url": "https://www.alkosto.com/",
+    "image_url": "https://placehold.co/640x420?text=LG",
+    "source_type": "demo_catalog",
+    "source_note": "Dato demo estructurado. Validar precio, URL e inventario real contra fuente oficial antes de producción.",
+    "last_updated": "2026-07-04",
+    "availability_confidence": "demo",
+    "advisor_warning": "No prometer disponibilidad, financiación, descuentos ni tiempos de entrega sin validar en sistema oficial.",
+    "screen_size": 55,
+    "technology": "QNED 4K",
+    "os": "webOS",
+    "use_cases": [
+      "películas",
+      "gaming",
+      "streaming"
+    ],
+    "priority_tags": [
+      "experiencia",
+      "calidad",
+      "marca"
+    ],
+    "badge": "PREMIUM 55",
+    "key_benefit": "Ideal para cliente que quiere calidad superior sin ir a OLED.",
+    "related_articles": [
+      "uhd-vs-qled"
+    ],
+    "sales_pitch": "Para clientes que quieren mejorar imagen y marca, explicar diferencia frente a LED tradicional."
+  },
+  {
+    "catalog_version": "demo-v0.4",
+    "sku": "TV-TCL-65-P635",
+    "brand": "TCL",
+    "name": "TV TCL 65 pulgadas 4K Google TV",
+    "category": "Televisores",
+    "price": 2599900,
+    "previous_price": 2999900,
+    "currency": "COP",
+    "promotion": "Precio especial online",
+    "city_inventory": {
+      "Barranquilla": {
+        "status": "Disponible",
+        "quantity": 8,
+        "delivery_eta": "24-48 horas"
+      },
+      "Bogotá": {
+        "status": "Disponible",
+        "quantity": 12,
+        "delivery_eta": "24-48 horas"
+      },
+      "Medellín": {
+        "status": "Disponible",
+        "quantity": 6,
+        "delivery_eta": "24-48 horas"
+      },
+      "Cali": {
+        "status": "Disponible",
+        "quantity": 4,
+        "delivery_eta": "24-48 horas"
+      },
+      "Cartagena": {
+        "status": "Pocas unidades",
+        "quantity": 3,
+        "delivery_eta": "48-72 horas"
+      },
+      "Bucaramanga": {
+        "status": "Pocas unidades",
+        "quantity": 2,
+        "delivery_eta": "48-72 horas"
+      }
+    },
+    "cities_available": [
+      "Barranquilla",
+      "Bogotá",
+      "Medellín",
+      "Cali",
+      "Cartagena",
+      "Bucaramanga"
+    ],
+    "inventory_status": "Disponible",
+    "product_url": "https://www.alkosto.com/",
+    "image_url": "https://placehold.co/640x420?text=TCL",
+    "source_type": "demo_catalog",
+    "source_note": "Dato demo estructurado. Validar precio, URL e inventario real contra fuente oficial antes de producción.",
+    "last_updated": "2026-07-04",
+    "availability_confidence": "demo",
+    "advisor_warning": "No prometer disponibilidad, financiación, descuentos ni tiempos de entrega sin validar en sistema oficial.",
+    "screen_size": 65,
+    "technology": "LED 4K UHD",
+    "os": "Google TV",
+    "use_cases": [
+      "deportes",
+      "películas",
+      "sala grande"
+    ],
+    "priority_tags": [
+      "tamaño",
+      "precio y calidad"
+    ],
+    "badge": "65 BALANCE",
+    "key_benefit": "Pantalla grande con buena relación precio/tamaño.",
+    "related_articles": [
+      "tv-screen-size-guide",
+      "tv-gaming-sports-guide"
+    ],
+    "sales_pitch": "Si el cliente tiene sala amplia, 65 pulgadas puede ser el salto más visible dentro de presupuesto."
+  },
+  {
+    "catalog_version": "demo-v0.4",
+    "sku": "TV-SAMSUNG-65-QLED",
+    "brand": "Samsung",
+    "name": "TV Samsung 65 pulgadas QLED 4K Smart TV",
+    "category": "Televisores",
+    "price": 3499900,
+    "previous_price": 3999900,
+    "currency": "COP",
+    "promotion": "Precio especial online",
+    "city_inventory": {
+      "Barranquilla": {
+        "status": "Disponible",
+        "quantity": 8,
+        "delivery_eta": "24-48 horas"
+      },
+      "Bogotá": {
+        "status": "Disponible",
+        "quantity": 12,
+        "delivery_eta": "24-48 horas"
+      },
+      "Medellín": {
+        "status": "Disponible",
+        "quantity": 6,
+        "delivery_eta": "24-48 horas"
+      },
+      "Cali": {
+        "status": "Disponible",
+        "quantity": 4,
+        "delivery_eta": "24-48 horas"
+      },
+      "Cartagena": {
+        "status": "Pocas unidades",
+        "quantity": 3,
+        "delivery_eta": "48-72 horas"
+      },
+      "Bucaramanga": {
+        "status": "Pocas unidades",
+        "quantity": 2,
+        "delivery_eta": "48-72 horas"
+      }
+    },
+    "cities_available": [
+      "Barranquilla",
+      "Bogotá",
+      "Medellín",
+      "Cali",
+      "Cartagena",
+      "Bucaramanga"
+    ],
+    "inventory_status": "Disponible",
+    "product_url": "https://www.alkosto.com/",
+    "image_url": "https://placehold.co/640x420?text=Samsung",
+    "source_type": "demo_catalog",
+    "source_note": "Dato demo estructurado. Validar precio, URL e inventario real contra fuente oficial antes de producción.",
+    "last_updated": "2026-07-04",
+    "availability_confidence": "demo",
+    "advisor_warning": "No prometer disponibilidad, financiación, descuentos ni tiempos de entrega sin validar en sistema oficial.",
+    "screen_size": 65,
+    "technology": "QLED 4K",
+    "os": "Tizen",
+    "use_cases": [
+      "deportes",
+      "películas",
+      "gaming",
+      "experiencia"
+    ],
+    "priority_tags": [
+      "marca",
+      "calidad",
+      "experiencia"
+    ],
+    "badge": "PREMIUM",
+    "key_benefit": "Pantalla grande QLED ideal para experiencia inmersiva.",
+    "related_articles": [
+      "tv-screen-size-guide",
+      "uhd-vs-qled"
+    ],
+    "sales_pitch": "Ideal para subir ticket si el cliente quiere pantalla grande y marca."
+  },
+  {
+    "catalog_version": "demo-v0.4",
+    "sku": "TV-LG-65-QNED",
+    "brand": "LG",
+    "name": "TV LG 65 pulgadas QNED 4K Smart TV",
+    "category": "Televisores",
+    "price": 3799900,
+    "previous_price": 4399900,
+    "currency": "COP",
+    "promotion": "Precio especial online",
+    "city_inventory": {
+      "Barranquilla": {
+        "status": "Disponible",
+        "quantity": 8,
+        "delivery_eta": "24-48 horas"
+      },
+      "Bogotá": {
+        "status": "Disponible",
+        "quantity": 12,
+        "delivery_eta": "24-48 horas"
+      },
+      "Medellín": {
+        "status": "Disponible",
+        "quantity": 6,
+        "delivery_eta": "24-48 horas"
+      },
+      "Cali": {
+        "status": "Disponible",
+        "quantity": 4,
+        "delivery_eta": "24-48 horas"
+      },
+      "Cartagena": {
+        "status": "Pocas unidades",
+        "quantity": 3,
+        "delivery_eta": "48-72 horas"
+      },
+      "Bucaramanga": {
+        "status": "Pocas unidades",
+        "quantity": 2,
+        "delivery_eta": "48-72 horas"
+      }
+    },
+    "cities_available": [
+      "Barranquilla",
+      "Bogotá",
+      "Medellín",
+      "Cali",
+      "Cartagena",
+      "Bucaramanga"
+    ],
+    "inventory_status": "Disponible",
+    "product_url": "https://www.alkosto.com/",
+    "image_url": "https://placehold.co/640x420?text=LG",
+    "source_type": "demo_catalog",
+    "source_note": "Dato demo estructurado. Validar precio, URL e inventario real contra fuente oficial antes de producción.",
+    "last_updated": "2026-07-04",
+    "availability_confidence": "demo",
+    "advisor_warning": "No prometer disponibilidad, financiación, descuentos ni tiempos de entrega sin validar en sistema oficial.",
+    "screen_size": 65,
+    "technology": "QNED 4K",
+    "os": "webOS",
+    "use_cases": [
+      "películas",
+      "gaming",
+      "experiencia"
+    ],
+    "priority_tags": [
+      "marca",
+      "experiencia",
+      "calidad"
+    ],
+    "badge": "PREMIUM LG",
+    "key_benefit": "Opción premium para sala grande y consumo intensivo de contenido.",
+    "related_articles": [
+      "tv-screen-size-guide",
+      "uhd-vs-qled"
+    ],
+    "sales_pitch": "Reforzar experiencia de imagen y tamaño para cine en casa."
+  },
+  {
+    "catalog_version": "demo-v0.4",
+    "sku": "TV-SONY-55-BRAVIA",
+    "brand": "Sony",
+    "name": "TV Sony Bravia 55 pulgadas 4K Google TV",
+    "category": "Televisores",
+    "price": 3299900,
+    "previous_price": 3799900,
+    "currency": "COP",
+    "promotion": "Precio especial online",
+    "city_inventory": {
+      "Barranquilla": {
+        "status": "Disponible",
+        "quantity": 8,
+        "delivery_eta": "24-48 horas"
+      },
+      "Bogotá": {
+        "status": "Disponible",
+        "quantity": 12,
+        "delivery_eta": "24-48 horas"
+      },
+      "Medellín": {
+        "status": "Disponible",
+        "quantity": 6,
+        "delivery_eta": "24-48 horas"
+      },
+      "Cali": {
+        "status": "Disponible",
+        "quantity": 4,
+        "delivery_eta": "24-48 horas"
+      },
+      "Cartagena": {
+        "status": "Pocas unidades",
+        "quantity": 3,
+        "delivery_eta": "48-72 horas"
+      },
+      "Bucaramanga": {
+        "status": "Pocas unidades",
+        "quantity": 2,
+        "delivery_eta": "48-72 horas"
+      }
+    },
+    "cities_available": [
+      "Barranquilla",
+      "Bogotá",
+      "Medellín",
+      "Cali",
+      "Cartagena",
+      "Bucaramanga"
+    ],
+    "inventory_status": "Disponible",
+    "product_url": "https://www.alkosto.com/",
+    "image_url": "https://placehold.co/640x420?text=Sony",
+    "source_type": "demo_catalog",
+    "source_note": "Dato demo estructurado. Validar precio, URL e inventario real contra fuente oficial antes de producción.",
+    "last_updated": "2026-07-04",
+    "availability_confidence": "demo",
+    "advisor_warning": "No prometer disponibilidad, financiación, descuentos ni tiempos de entrega sin validar en sistema oficial.",
+    "screen_size": 55,
+    "technology": "LED 4K UHD",
+    "os": "Google TV",
+    "use_cases": [
+      "películas",
+      "deportes",
+      "marca"
+    ],
+    "priority_tags": [
+      "marca",
+      "calidad",
+      "experiencia"
+    ],
+    "badge": "MARCA PREMIUM",
+    "key_benefit": "Recomendable para clientes que priorizan procesamiento de imagen y marca.",
+    "related_articles": [
+      "uhd-vs-qled"
+    ],
+    "sales_pitch": "Para clientes sensibles a marca y calidad percibida, enfocar en procesamiento de imagen."
+  },
+  {
+    "catalog_version": "demo-v0.4",
+    "sku": "TV-SAMSUNG-75-CRYSTAL",
+    "brand": "Samsung",
+    "name": "TV Samsung 75 pulgadas Crystal UHD 4K",
+    "category": "Televisores",
+    "price": 4899900,
+    "previous_price": 5499900,
+    "currency": "COP",
+    "promotion": "Precio especial online",
+    "city_inventory": {
+      "Barranquilla": {
+        "status": "Disponible",
+        "quantity": 8,
+        "delivery_eta": "24-48 horas"
+      },
+      "Bogotá": {
+        "status": "Disponible",
+        "quantity": 12,
+        "delivery_eta": "24-48 horas"
+      },
+      "Medellín": {
+        "status": "Disponible",
+        "quantity": 6,
+        "delivery_eta": "24-48 horas"
+      },
+      "Cali": {
+        "status": "Disponible",
+        "quantity": 4,
+        "delivery_eta": "24-48 horas"
+      },
+      "Cartagena": {
+        "status": "Pocas unidades",
+        "quantity": 3,
+        "delivery_eta": "48-72 horas"
+      },
+      "Bucaramanga": {
+        "status": "Pocas unidades",
+        "quantity": 2,
+        "delivery_eta": "48-72 horas"
+      }
+    },
+    "cities_available": [
+      "Barranquilla",
+      "Bogotá",
+      "Medellín",
+      "Cali",
+      "Cartagena",
+      "Bucaramanga"
+    ],
+    "inventory_status": "Disponible",
+    "product_url": "https://www.alkosto.com/",
+    "image_url": "https://placehold.co/640x420?text=Samsung",
+    "source_type": "demo_catalog",
+    "source_note": "Dato demo estructurado. Validar precio, URL e inventario real contra fuente oficial antes de producción.",
+    "last_updated": "2026-07-04",
+    "availability_confidence": "demo",
+    "advisor_warning": "No prometer disponibilidad, financiación, descuentos ni tiempos de entrega sin validar en sistema oficial.",
+    "screen_size": 75,
+    "technology": "Crystal UHD 4K",
+    "os": "Tizen",
+    "use_cases": [
+      "sala grande",
+      "deportes",
+      "películas"
+    ],
+    "priority_tags": [
+      "tamaño",
+      "marca",
+      "experiencia"
+    ],
+    "badge": "PANTALLA GRANDE",
+    "key_benefit": "Para clientes que buscan experiencia de cine en sala amplia.",
+    "related_articles": [
+      "tv-screen-size-guide"
+    ],
+    "sales_pitch": "Para pantalla grande, validar espacio y presupuesto antes de presentar como upgrade."
+  },
+  {
+    "catalog_version": "demo-v0.4",
+    "sku": "NB-LENOVO-IP3-I3",
+    "brand": "Lenovo",
+    "name": "Portátil Lenovo IdeaPad 3 15.6 pulgadas Intel Core i3 8GB 512GB SSD",
+    "category": "Computadores",
+    "price": 1799900,
+    "previous_price": 2099900,
+    "currency": "COP",
+    "promotion": "Precio especial online",
+    "city_inventory": {
+      "Barranquilla": {
+        "status": "Disponible",
+        "quantity": 8,
+        "delivery_eta": "24-48 horas"
+      },
+      "Bogotá": {
+        "status": "Disponible",
+        "quantity": 12,
+        "delivery_eta": "24-48 horas"
+      },
+      "Medellín": {
+        "status": "Disponible",
+        "quantity": 6,
+        "delivery_eta": "24-48 horas"
+      },
+      "Cali": {
+        "status": "Disponible",
+        "quantity": 4,
+        "delivery_eta": "24-48 horas"
+      },
+      "Cartagena": {
+        "status": "Pocas unidades",
+        "quantity": 3,
+        "delivery_eta": "48-72 horas"
+      },
+      "Bucaramanga": {
+        "status": "Pocas unidades",
+        "quantity": 2,
+        "delivery_eta": "48-72 horas"
+      }
+    },
+    "cities_available": [
+      "Barranquilla",
+      "Bogotá",
+      "Medellín",
+      "Cali",
+      "Cartagena",
+      "Bucaramanga"
+    ],
+    "inventory_status": "Disponible",
+    "product_url": "https://www.alkosto.com/",
+    "image_url": "https://placehold.co/640x420?text=Lenovo",
+    "source_type": "demo_catalog",
+    "source_note": "Dato demo estructurado. Validar precio, URL e inventario real contra fuente oficial antes de producción.",
+    "last_updated": "2026-07-04",
+    "availability_confidence": "demo",
+    "advisor_warning": "No prometer disponibilidad, financiación, descuentos ni tiempos de entrega sin validar en sistema oficial.",
+    "subcategory": "Portátiles",
+    "screen_size": 15.6,
+    "processor": "Intel Core i3",
+    "ram": "8 GB",
+    "storage": "512 GB SSD",
+    "graphics": "Integrada",
+    "os": "Windows 11",
+    "use_cases": [
+      "estudio",
+      "ofimática",
+      "videollamadas"
+    ],
+    "priority_tags": [
+      "precio",
+      "estudio"
+    ],
+    "badge": "ESTUDIO ECONÓMICO",
+    "key_benefit": "Equipo funcional para tareas académicas, navegación y ofimática.",
+    "related_articles": [
+      "computer-use-case-guide",
+      "laptop-study-work-guide"
+    ],
+    "sales_pitch": "Buena primera opción para estudio con presupuesto controlado."
+  },
+  {
+    "catalog_version": "demo-v0.4",
+    "sku": "NB-HP-15-R5",
+    "brand": "HP",
+    "name": "Portátil HP 15.6 pulgadas AMD Ryzen 5 16GB 512GB SSD",
+    "category": "Computadores",
+    "price": 2299900,
+    "previous_price": 2599900,
+    "currency": "COP",
+    "promotion": "Precio especial online",
+    "city_inventory": {
+      "Barranquilla": {
+        "status": "Disponible",
+        "quantity": 8,
+        "delivery_eta": "24-48 horas"
+      },
+      "Bogotá": {
+        "status": "Disponible",
+        "quantity": 12,
+        "delivery_eta": "24-48 horas"
+      },
+      "Medellín": {
+        "status": "Disponible",
+        "quantity": 6,
+        "delivery_eta": "24-48 horas"
+      },
+      "Cali": {
+        "status": "Disponible",
+        "quantity": 4,
+        "delivery_eta": "24-48 horas"
+      },
+      "Cartagena": {
+        "status": "Pocas unidades",
+        "quantity": 3,
+        "delivery_eta": "48-72 horas"
+      },
+      "Bucaramanga": {
+        "status": "Pocas unidades",
+        "quantity": 2,
+        "delivery_eta": "48-72 horas"
+      }
+    },
+    "cities_available": [
+      "Barranquilla",
+      "Bogotá",
+      "Medellín",
+      "Cali",
+      "Cartagena",
+      "Bucaramanga"
+    ],
+    "inventory_status": "Disponible",
+    "product_url": "https://www.alkosto.com/",
+    "image_url": "https://placehold.co/640x420?text=HP",
+    "source_type": "demo_catalog",
+    "source_note": "Dato demo estructurado. Validar precio, URL e inventario real contra fuente oficial antes de producción.",
+    "last_updated": "2026-07-04",
+    "availability_confidence": "demo",
+    "advisor_warning": "No prometer disponibilidad, financiación, descuentos ni tiempos de entrega sin validar en sistema oficial.",
+    "subcategory": "Portátiles",
+    "screen_size": 15.6,
+    "processor": "AMD Ryzen 5",
+    "ram": "16 GB",
+    "storage": "512 GB SSD",
+    "graphics": "Integrada",
+    "os": "Windows 11",
+    "use_cases": [
+      "estudio",
+      "trabajo",
+      "multitarea"
+    ],
+    "priority_tags": [
+      "precio y calidad",
+      "trabajo"
+    ],
+    "badge": "MEJOR BALANCE",
+    "key_benefit": "Buen equilibrio para estudio, trabajo remoto y multitarea.",
+    "related_articles": [
+      "computer-use-case-guide",
+      "laptop-ram-storage-guide"
+    ],
+    "sales_pitch": "Recomendar si el cliente quiere que el equipo dure más y soporte multitarea."
+  },
+  {
+    "catalog_version": "demo-v0.4",
+    "sku": "NB-ASUS-VIVOBOOK-I5",
+    "brand": "ASUS",
+    "name": "Portátil ASUS VivoBook 15 Intel Core i5 16GB 512GB SSD",
+    "category": "Computadores",
+    "price": 2499900,
+    "previous_price": 2899900,
+    "currency": "COP",
+    "promotion": "Precio especial online",
+    "city_inventory": {
+      "Barranquilla": {
+        "status": "Disponible",
+        "quantity": 8,
+        "delivery_eta": "24-48 horas"
+      },
+      "Bogotá": {
+        "status": "Disponible",
+        "quantity": 12,
+        "delivery_eta": "24-48 horas"
+      },
+      "Medellín": {
+        "status": "Disponible",
+        "quantity": 6,
+        "delivery_eta": "24-48 horas"
+      },
+      "Cali": {
+        "status": "Disponible",
+        "quantity": 4,
+        "delivery_eta": "24-48 horas"
+      },
+      "Cartagena": {
+        "status": "Pocas unidades",
+        "quantity": 3,
+        "delivery_eta": "48-72 horas"
+      },
+      "Bucaramanga": {
+        "status": "Pocas unidades",
+        "quantity": 2,
+        "delivery_eta": "48-72 horas"
+      }
+    },
+    "cities_available": [
+      "Barranquilla",
+      "Bogotá",
+      "Medellín",
+      "Cali",
+      "Cartagena",
+      "Bucaramanga"
+    ],
+    "inventory_status": "Disponible",
+    "product_url": "https://www.alkosto.com/",
+    "image_url": "https://placehold.co/640x420?text=ASUS",
+    "source_type": "demo_catalog",
+    "source_note": "Dato demo estructurado. Validar precio, URL e inventario real contra fuente oficial antes de producción.",
+    "last_updated": "2026-07-04",
+    "availability_confidence": "demo",
+    "advisor_warning": "No prometer disponibilidad, financiación, descuentos ni tiempos de entrega sin validar en sistema oficial.",
+    "subcategory": "Portátiles",
+    "screen_size": 15.6,
+    "processor": "Intel Core i5",
+    "ram": "16 GB",
+    "storage": "512 GB SSD",
+    "graphics": "Integrada",
+    "os": "Windows 11",
+    "use_cases": [
+      "trabajo",
+      "estudio",
+      "multitarea"
+    ],
+    "priority_tags": [
+      "precio y calidad",
+      "portabilidad"
+    ],
+    "badge": "BALANCE PRODUCTIVO",
+    "key_benefit": "Ideal para trabajo y estudio con buen rendimiento general.",
+    "related_articles": [
+      "computer-use-case-guide",
+      "laptop-study-work-guide"
+    ],
+    "sales_pitch": "Enfatizar Core i5 + 16GB como balance productivo."
+  },
+  {
+    "catalog_version": "demo-v0.4",
+    "sku": "NB-ACER-ASPIRE-R5",
+    "brand": "Acer",
+    "name": "Portátil Acer Aspire 5 AMD Ryzen 5 16GB 512GB SSD",
+    "category": "Computadores",
+    "price": 2399900,
+    "previous_price": 2799900,
+    "currency": "COP",
+    "promotion": "Precio especial online",
+    "city_inventory": {
+      "Barranquilla": {
+        "status": "Disponible",
+        "quantity": 8,
+        "delivery_eta": "24-48 horas"
+      },
+      "Bogotá": {
+        "status": "Disponible",
+        "quantity": 12,
+        "delivery_eta": "24-48 horas"
+      },
+      "Medellín": {
+        "status": "Disponible",
+        "quantity": 6,
+        "delivery_eta": "24-48 horas"
+      },
+      "Cali": {
+        "status": "Disponible",
+        "quantity": 4,
+        "delivery_eta": "24-48 horas"
+      },
+      "Cartagena": {
+        "status": "Pocas unidades",
+        "quantity": 3,
+        "delivery_eta": "48-72 horas"
+      },
+      "Bucaramanga": {
+        "status": "Pocas unidades",
+        "quantity": 2,
+        "delivery_eta": "48-72 horas"
+      }
+    },
+    "cities_available": [
+      "Barranquilla",
+      "Bogotá",
+      "Medellín",
+      "Cali",
+      "Cartagena",
+      "Bucaramanga"
+    ],
+    "inventory_status": "Disponible",
+    "product_url": "https://www.alkosto.com/",
+    "image_url": "https://placehold.co/640x420?text=Acer",
+    "source_type": "demo_catalog",
+    "source_note": "Dato demo estructurado. Validar precio, URL e inventario real contra fuente oficial antes de producción.",
+    "last_updated": "2026-07-04",
+    "availability_confidence": "demo",
+    "advisor_warning": "No prometer disponibilidad, financiación, descuentos ni tiempos de entrega sin validar en sistema oficial.",
+    "subcategory": "Portátiles",
+    "screen_size": 15.6,
+    "processor": "AMD Ryzen 5",
+    "ram": "16 GB",
+    "storage": "512 GB SSD",
+    "graphics": "Integrada",
+    "os": "Windows 11",
+    "use_cases": [
+      "trabajo",
+      "estudio",
+      "multitarea"
+    ],
+    "priority_tags": [
+      "precio y calidad",
+      "rendimiento"
+    ],
+    "badge": "RENDIMIENTO DIARIO",
+    "key_benefit": "Equipo versátil para productividad diaria y consumo de contenido.",
+    "related_articles": [
+      "computer-use-case-guide",
+      "laptop-ram-storage-guide"
+    ],
+    "sales_pitch": "Comparar contra HP/ASUS para decisión por precio o marca."
+  },
+  {
+    "catalog_version": "demo-v0.4",
+    "sku": "NB-LENOVO-YOGA-I5",
+    "brand": "Lenovo",
+    "name": "Portátil Lenovo Yoga 14 pulgadas Intel Core i5 16GB 512GB SSD 2 en 1",
+    "category": "Computadores",
+    "price": 3399900,
+    "previous_price": 3899900,
+    "currency": "COP",
+    "promotion": "Precio especial online",
+    "city_inventory": {
+      "Barranquilla": {
+        "status": "Disponible",
+        "quantity": 8,
+        "delivery_eta": "24-48 horas"
+      },
+      "Bogotá": {
+        "status": "Disponible",
+        "quantity": 12,
+        "delivery_eta": "24-48 horas"
+      },
+      "Medellín": {
+        "status": "Disponible",
+        "quantity": 6,
+        "delivery_eta": "24-48 horas"
+      },
+      "Cali": {
+        "status": "Disponible",
+        "quantity": 4,
+        "delivery_eta": "24-48 horas"
+      },
+      "Cartagena": {
+        "status": "Pocas unidades",
+        "quantity": 3,
+        "delivery_eta": "48-72 horas"
+      },
+      "Bucaramanga": {
+        "status": "Pocas unidades",
+        "quantity": 2,
+        "delivery_eta": "48-72 horas"
+      }
+    },
+    "cities_available": [
+      "Barranquilla",
+      "Bogotá",
+      "Medellín",
+      "Cali",
+      "Cartagena",
+      "Bucaramanga"
+    ],
+    "inventory_status": "Disponible",
+    "product_url": "https://www.alkosto.com/",
+    "image_url": "https://placehold.co/640x420?text=Lenovo",
+    "source_type": "demo_catalog",
+    "source_note": "Dato demo estructurado. Validar precio, URL e inventario real contra fuente oficial antes de producción.",
+    "last_updated": "2026-07-04",
+    "availability_confidence": "demo",
+    "advisor_warning": "No prometer disponibilidad, financiación, descuentos ni tiempos de entrega sin validar en sistema oficial.",
+    "subcategory": "Portátiles",
+    "screen_size": 14,
+    "processor": "Intel Core i5",
+    "ram": "16 GB",
+    "storage": "512 GB SSD",
+    "graphics": "Integrada",
+    "os": "Windows 11",
+    "use_cases": [
+      "trabajo",
+      "estudio",
+      "portabilidad",
+      "diseño"
+    ],
+    "priority_tags": [
+      "portabilidad",
+      "premium",
+      "trabajo"
+    ],
+    "badge": "2 EN 1",
+    "key_benefit": "Recomendado para usuarios que valoran portabilidad, pantalla táctil y flexibilidad.",
+    "related_articles": [
+      "desktop-vs-laptop-guide",
+      "computer-use-case-guide"
+    ],
+    "sales_pitch": "Para cliente ejecutivo o estudiante móvil, resaltar formato 2 en 1 y portabilidad."
+  },
+  {
+    "catalog_version": "demo-v0.4",
+    "sku": "NB-HP-PAVILION-I7",
+    "brand": "HP",
+    "name": "Portátil HP Pavilion 15 Intel Core i7 16GB 1TB SSD",
+    "category": "Computadores",
+    "price": 3699900,
+    "previous_price": 4199900,
+    "currency": "COP",
+    "promotion": "Precio especial online",
+    "city_inventory": {
+      "Barranquilla": {
+        "status": "Disponible",
+        "quantity": 8,
+        "delivery_eta": "24-48 horas"
+      },
+      "Bogotá": {
+        "status": "Disponible",
+        "quantity": 12,
+        "delivery_eta": "24-48 horas"
+      },
+      "Medellín": {
+        "status": "Disponible",
+        "quantity": 6,
+        "delivery_eta": "24-48 horas"
+      },
+      "Cali": {
+        "status": "Disponible",
+        "quantity": 4,
+        "delivery_eta": "24-48 horas"
+      },
+      "Cartagena": {
+        "status": "Pocas unidades",
+        "quantity": 3,
+        "delivery_eta": "48-72 horas"
+      },
+      "Bucaramanga": {
+        "status": "Pocas unidades",
+        "quantity": 2,
+        "delivery_eta": "48-72 horas"
+      }
+    },
+    "cities_available": [
+      "Barranquilla",
+      "Bogotá",
+      "Medellín",
+      "Cali",
+      "Cartagena",
+      "Bucaramanga"
+    ],
+    "inventory_status": "Disponible",
+    "product_url": "https://www.alkosto.com/",
+    "image_url": "https://placehold.co/640x420?text=HP",
+    "source_type": "demo_catalog",
+    "source_note": "Dato demo estructurado. Validar precio, URL e inventario real contra fuente oficial antes de producción.",
+    "last_updated": "2026-07-04",
+    "availability_confidence": "demo",
+    "advisor_warning": "No prometer disponibilidad, financiación, descuentos ni tiempos de entrega sin validar en sistema oficial.",
+    "subcategory": "Portátiles",
+    "screen_size": 15.6,
+    "processor": "Intel Core i7",
+    "ram": "16 GB",
+    "storage": "1 TB SSD",
+    "graphics": "Integrada",
+    "os": "Windows 11",
+    "use_cases": [
+      "trabajo",
+      "multitarea",
+      "productividad"
+    ],
+    "priority_tags": [
+      "rendimiento",
+      "trabajo"
+    ],
+    "badge": "ALTO RENDIMIENTO",
+    "key_benefit": "Para clientes que necesitan más potencia para multitarea y productividad.",
+    "related_articles": [
+      "laptop-ram-storage-guide",
+      "computer-price-objection"
+    ],
+    "sales_pitch": "Defender inversión por procesador, RAM y 1TB SSD."
+  },
+  {
+    "catalog_version": "demo-v0.4",
+    "sku": "NB-ASUS-TUF-R7",
+    "brand": "ASUS",
+    "name": "Portátil ASUS TUF Gaming 15 Ryzen 7 16GB 1TB SSD RTX 4050",
+    "category": "Computadores",
+    "price": 4899900,
+    "previous_price": 5499900,
+    "currency": "COP",
+    "promotion": "Precio especial online",
+    "city_inventory": {
+      "Barranquilla": {
+        "status": "Disponible",
+        "quantity": 8,
+        "delivery_eta": "24-48 horas"
+      },
+      "Bogotá": {
+        "status": "Disponible",
+        "quantity": 12,
+        "delivery_eta": "24-48 horas"
+      },
+      "Medellín": {
+        "status": "Disponible",
+        "quantity": 6,
+        "delivery_eta": "24-48 horas"
+      },
+      "Cali": {
+        "status": "Disponible",
+        "quantity": 4,
+        "delivery_eta": "24-48 horas"
+      },
+      "Cartagena": {
+        "status": "Pocas unidades",
+        "quantity": 3,
+        "delivery_eta": "48-72 horas"
+      },
+      "Bucaramanga": {
+        "status": "Pocas unidades",
+        "quantity": 2,
+        "delivery_eta": "48-72 horas"
+      }
+    },
+    "cities_available": [
+      "Barranquilla",
+      "Bogotá",
+      "Medellín",
+      "Cali",
+      "Cartagena",
+      "Bucaramanga"
+    ],
+    "inventory_status": "Disponible",
+    "product_url": "https://www.alkosto.com/",
+    "image_url": "https://placehold.co/640x420?text=ASUS",
+    "source_type": "demo_catalog",
+    "source_note": "Dato demo estructurado. Validar precio, URL e inventario real contra fuente oficial antes de producción.",
+    "last_updated": "2026-07-04",
+    "availability_confidence": "demo",
+    "advisor_warning": "No prometer disponibilidad, financiación, descuentos ni tiempos de entrega sin validar en sistema oficial.",
+    "subcategory": "Portátiles Gaming",
+    "screen_size": 15.6,
+    "processor": "AMD Ryzen 7",
+    "ram": "16 GB",
+    "storage": "1 TB SSD",
+    "graphics": "NVIDIA RTX 4050",
+    "os": "Windows 11",
+    "use_cases": [
+      "gaming",
+      "diseño",
+      "alto rendimiento"
+    ],
+    "priority_tags": [
+      "gaming",
+      "rendimiento",
+      "gráfica dedicada"
+    ],
+    "badge": "GAMING BALANCE",
+    "key_benefit": "Ideal para juegos, diseño y tareas exigentes con gráfica dedicada.",
+    "related_articles": [
+      "gaming-laptop-guide",
+      "laptop-ram-storage-guide"
+    ],
+    "sales_pitch": "Clave: gráfica dedicada + Ryzen 7 + 1TB para desempeño exigente."
+  },
+  {
+    "catalog_version": "demo-v0.4",
+    "sku": "NB-LENOVO-LOQ-I5",
+    "brand": "Lenovo",
+    "name": "Portátil Lenovo LOQ 15 Intel Core i5 16GB 512GB SSD RTX 4050",
+    "category": "Computadores",
+    "price": 4599900,
+    "previous_price": 5199900,
+    "currency": "COP",
+    "promotion": "Precio especial online",
+    "city_inventory": {
+      "Barranquilla": {
+        "status": "Disponible",
+        "quantity": 8,
+        "delivery_eta": "24-48 horas"
+      },
+      "Bogotá": {
+        "status": "Disponible",
+        "quantity": 12,
+        "delivery_eta": "24-48 horas"
+      },
+      "Medellín": {
+        "status": "Disponible",
+        "quantity": 6,
+        "delivery_eta": "24-48 horas"
+      },
+      "Cali": {
+        "status": "Disponible",
+        "quantity": 4,
+        "delivery_eta": "24-48 horas"
+      },
+      "Cartagena": {
+        "status": "Pocas unidades",
+        "quantity": 3,
+        "delivery_eta": "48-72 horas"
+      },
+      "Bucaramanga": {
+        "status": "Pocas unidades",
+        "quantity": 2,
+        "delivery_eta": "48-72 horas"
+      }
+    },
+    "cities_available": [
+      "Barranquilla",
+      "Bogotá",
+      "Medellín",
+      "Cali",
+      "Cartagena",
+      "Bucaramanga"
+    ],
+    "inventory_status": "Disponible",
+    "product_url": "https://www.alkosto.com/",
+    "image_url": "https://placehold.co/640x420?text=Lenovo",
+    "source_type": "demo_catalog",
+    "source_note": "Dato demo estructurado. Validar precio, URL e inventario real contra fuente oficial antes de producción.",
+    "last_updated": "2026-07-04",
+    "availability_confidence": "demo",
+    "advisor_warning": "No prometer disponibilidad, financiación, descuentos ni tiempos de entrega sin validar en sistema oficial.",
+    "subcategory": "Portátiles Gaming",
+    "screen_size": 15.6,
+    "processor": "Intel Core i5",
+    "ram": "16 GB",
+    "storage": "512 GB SSD",
+    "graphics": "NVIDIA RTX 4050",
+    "os": "Windows 11",
+    "use_cases": [
+      "gaming",
+      "estudio",
+      "alto rendimiento"
+    ],
+    "priority_tags": [
+      "gaming",
+      "precio y calidad"
+    ],
+    "badge": "GAMING COSTO/BENEFICIO",
+    "key_benefit": "Buena entrada a gaming con gráfica dedicada.",
+    "related_articles": [
+      "gaming-laptop-guide"
+    ],
+    "sales_pitch": "Buena opción si quiere gaming sin ir al rango más alto."
+  },
+  {
+    "catalog_version": "demo-v0.4",
+    "sku": "NB-ACER-NITRO-I5",
+    "brand": "Acer",
+    "name": "Portátil Acer Nitro V 15 Intel Core i5 16GB 512GB SSD RTX 3050",
+    "category": "Computadores",
+    "price": 3999900,
+    "previous_price": 4599900,
+    "currency": "COP",
+    "promotion": "Precio especial online",
+    "city_inventory": {
+      "Barranquilla": {
+        "status": "Disponible",
+        "quantity": 8,
+        "delivery_eta": "24-48 horas"
+      },
+      "Bogotá": {
+        "status": "Disponible",
+        "quantity": 12,
+        "delivery_eta": "24-48 horas"
+      },
+      "Medellín": {
+        "status": "Disponible",
+        "quantity": 6,
+        "delivery_eta": "24-48 horas"
+      },
+      "Cali": {
+        "status": "Disponible",
+        "quantity": 4,
+        "delivery_eta": "24-48 horas"
+      },
+      "Cartagena": {
+        "status": "Pocas unidades",
+        "quantity": 3,
+        "delivery_eta": "48-72 horas"
+      },
+      "Bucaramanga": {
+        "status": "Pocas unidades",
+        "quantity": 2,
+        "delivery_eta": "48-72 horas"
+      }
+    },
+    "cities_available": [
+      "Barranquilla",
+      "Bogotá",
+      "Medellín",
+      "Cali",
+      "Cartagena",
+      "Bucaramanga"
+    ],
+    "inventory_status": "Disponible",
+    "product_url": "https://www.alkosto.com/",
+    "image_url": "https://placehold.co/640x420?text=Acer",
+    "source_type": "demo_catalog",
+    "source_note": "Dato demo estructurado. Validar precio, URL e inventario real contra fuente oficial antes de producción.",
+    "last_updated": "2026-07-04",
+    "availability_confidence": "demo",
+    "advisor_warning": "No prometer disponibilidad, financiación, descuentos ni tiempos de entrega sin validar en sistema oficial.",
+    "subcategory": "Portátiles Gaming",
+    "screen_size": 15.6,
+    "processor": "Intel Core i5",
+    "ram": "16 GB",
+    "storage": "512 GB SSD",
+    "graphics": "NVIDIA RTX 3050",
+    "os": "Windows 11",
+    "use_cases": [
+      "gaming",
+      "estudio",
+      "diseño básico"
+    ],
+    "priority_tags": [
+      "gaming",
+      "precio"
+    ],
+    "badge": "GAMING ECONÓMICO",
+    "key_benefit": "Opción gaming más accesible para iniciar con GPU dedicada.",
+    "related_articles": [
+      "gaming-laptop-guide",
+      "computer-price-objection"
+    ],
+    "sales_pitch": "Ideal para cliente que quiere GPU dedicada con presupuesto más controlado."
+  },
+  {
+    "catalog_version": "demo-v0.4",
+    "sku": "NB-MACBOOK-AIR-M2",
+    "brand": "Apple",
+    "name": "MacBook Air 13 pulgadas Chip M2 8GB 256GB",
+    "category": "Computadores",
+    "price": 4399900,
+    "previous_price": 4899900,
+    "currency": "COP",
+    "promotion": "Precio especial online",
+    "city_inventory": {
+      "Barranquilla": {
+        "status": "Disponible",
+        "quantity": 8,
+        "delivery_eta": "24-48 horas"
+      },
+      "Bogotá": {
+        "status": "Disponible",
+        "quantity": 12,
+        "delivery_eta": "24-48 horas"
+      },
+      "Medellín": {
+        "status": "Disponible",
+        "quantity": 6,
+        "delivery_eta": "24-48 horas"
+      },
+      "Cali": {
+        "status": "Disponible",
+        "quantity": 4,
+        "delivery_eta": "24-48 horas"
+      },
+      "Cartagena": {
+        "status": "Pocas unidades",
+        "quantity": 3,
+        "delivery_eta": "48-72 horas"
+      },
+      "Bucaramanga": {
+        "status": "Pocas unidades",
+        "quantity": 2,
+        "delivery_eta": "48-72 horas"
+      }
+    },
+    "cities_available": [
+      "Barranquilla",
+      "Bogotá",
+      "Medellín",
+      "Cali",
+      "Cartagena",
+      "Bucaramanga"
+    ],
+    "inventory_status": "Disponible",
+    "product_url": "https://www.alkosto.com/",
+    "image_url": "https://placehold.co/640x420?text=Apple",
+    "source_type": "demo_catalog",
+    "source_note": "Dato demo estructurado. Validar precio, URL e inventario real contra fuente oficial antes de producción.",
+    "last_updated": "2026-07-04",
+    "availability_confidence": "demo",
+    "advisor_warning": "No prometer disponibilidad, financiación, descuentos ni tiempos de entrega sin validar en sistema oficial.",
+    "subcategory": "Portátiles",
+    "screen_size": 13.6,
+    "processor": "Apple M2",
+    "ram": "8 GB",
+    "storage": "256 GB SSD",
+    "graphics": "Integrada Apple",
+    "os": "macOS",
+    "use_cases": [
+      "trabajo",
+      "estudio",
+      "portabilidad",
+      "diseño"
+    ],
+    "priority_tags": [
+      "premium",
+      "portabilidad",
+      "marca"
+    ],
+    "badge": "PREMIUM PORTÁTIL",
+    "key_benefit": "Para clientes que priorizan ecosistema, batería y portabilidad.",
+    "related_articles": [
+      "computer-use-case-guide",
+      "desktop-vs-laptop-guide"
+    ],
+    "sales_pitch": "Si el cliente usa ecosistema Apple, resaltar portabilidad, batería y experiencia."
+  },
+  {
+    "catalog_version": "demo-v0.4",
+    "sku": "AIO-HP-24-I5",
+    "brand": "HP",
+    "name": "Computador Todo en Uno HP 24 pulgadas Intel Core i5 8GB 512GB SSD",
+    "category": "Computadores",
+    "price": 2899900,
+    "previous_price": 3299900,
+    "currency": "COP",
+    "promotion": "Precio especial online",
+    "city_inventory": {
+      "Barranquilla": {
+        "status": "Disponible",
+        "quantity": 8,
+        "delivery_eta": "24-48 horas"
+      },
+      "Bogotá": {
+        "status": "Disponible",
+        "quantity": 12,
+        "delivery_eta": "24-48 horas"
+      },
+      "Medellín": {
+        "status": "Disponible",
+        "quantity": 6,
+        "delivery_eta": "24-48 horas"
+      },
+      "Cali": {
+        "status": "Disponible",
+        "quantity": 4,
+        "delivery_eta": "24-48 horas"
+      },
+      "Cartagena": {
+        "status": "Pocas unidades",
+        "quantity": 3,
+        "delivery_eta": "48-72 horas"
+      },
+      "Bucaramanga": {
+        "status": "Pocas unidades",
+        "quantity": 2,
+        "delivery_eta": "48-72 horas"
+      }
+    },
+    "cities_available": [
+      "Barranquilla",
+      "Bogotá",
+      "Medellín",
+      "Cali",
+      "Cartagena",
+      "Bucaramanga"
+    ],
+    "inventory_status": "Disponible",
+    "product_url": "https://www.alkosto.com/",
+    "image_url": "https://placehold.co/640x420?text=HP",
+    "source_type": "demo_catalog",
+    "source_note": "Dato demo estructurado. Validar precio, URL e inventario real contra fuente oficial antes de producción.",
+    "last_updated": "2026-07-04",
+    "availability_confidence": "demo",
+    "advisor_warning": "No prometer disponibilidad, financiación, descuentos ni tiempos de entrega sin validar en sistema oficial.",
+    "subcategory": "Computadores de escritorio",
+    "screen_size": 24,
+    "processor": "Intel Core i5",
+    "ram": "8 GB",
+    "storage": "512 GB SSD",
+    "graphics": "Integrada",
+    "os": "Windows 11",
+    "use_cases": [
+      "hogar",
+      "oficina",
+      "estudio"
+    ],
+    "priority_tags": [
+      "ahorro espacio",
+      "trabajo"
+    ],
+    "badge": "TODO EN UNO",
+    "key_benefit": "Solución compacta para hogar u oficina sin torre adicional.",
+    "related_articles": [
+      "desktop-vs-laptop-guide"
+    ],
+    "sales_pitch": "Ideal si estará fijo y se busca escritorio limpio con pantalla incluida."
+  },
+  {
+    "catalog_version": "demo-v0.4",
+    "sku": "AIO-LENOVO-24-R5",
+    "brand": "Lenovo",
+    "name": "Computador Todo en Uno Lenovo 24 pulgadas Ryzen 5 16GB 512GB SSD",
+    "category": "Computadores",
+    "price": 3099900,
+    "previous_price": 3599900,
+    "currency": "COP",
+    "promotion": "Precio especial online",
+    "city_inventory": {
+      "Barranquilla": {
+        "status": "Disponible",
+        "quantity": 8,
+        "delivery_eta": "24-48 horas"
+      },
+      "Bogotá": {
+        "status": "Disponible",
+        "quantity": 12,
+        "delivery_eta": "24-48 horas"
+      },
+      "Medellín": {
+        "status": "Disponible",
+        "quantity": 6,
+        "delivery_eta": "24-48 horas"
+      },
+      "Cali": {
+        "status": "Disponible",
+        "quantity": 4,
+        "delivery_eta": "24-48 horas"
+      },
+      "Cartagena": {
+        "status": "Pocas unidades",
+        "quantity": 3,
+        "delivery_eta": "48-72 horas"
+      },
+      "Bucaramanga": {
+        "status": "Pocas unidades",
+        "quantity": 2,
+        "delivery_eta": "48-72 horas"
+      }
+    },
+    "cities_available": [
+      "Barranquilla",
+      "Bogotá",
+      "Medellín",
+      "Cali",
+      "Cartagena",
+      "Bucaramanga"
+    ],
+    "inventory_status": "Disponible",
+    "product_url": "https://www.alkosto.com/",
+    "image_url": "https://placehold.co/640x420?text=Lenovo",
+    "source_type": "demo_catalog",
+    "source_note": "Dato demo estructurado. Validar precio, URL e inventario real contra fuente oficial antes de producción.",
+    "last_updated": "2026-07-04",
+    "availability_confidence": "demo",
+    "advisor_warning": "No prometer disponibilidad, financiación, descuentos ni tiempos de entrega sin validar en sistema oficial.",
+    "subcategory": "Computadores de escritorio",
+    "screen_size": 24,
+    "processor": "AMD Ryzen 5",
+    "ram": "16 GB",
+    "storage": "512 GB SSD",
+    "graphics": "Integrada",
+    "os": "Windows 11",
+    "use_cases": [
+      "hogar",
+      "oficina",
+      "multitarea"
+    ],
+    "priority_tags": [
+      "ahorro espacio",
+      "precio y calidad"
+    ],
+    "badge": "AIO BALANCE",
+    "key_benefit": "Pantalla y CPU integrados para escritorio limpio y productivo.",
+    "related_articles": [
+      "desktop-vs-laptop-guide",
+      "laptop-ram-storage-guide"
+    ],
+    "sales_pitch": "Frente a un portátil, resaltar comodidad de pantalla y puesto fijo."
+  },
+  {
+    "catalog_version": "demo-v0.4",
+    "sku": "DT-HP-SLIM-I5",
+    "brand": "HP",
+    "name": "Computador de escritorio HP Slim Intel Core i5 8GB 512GB SSD",
+    "category": "Computadores",
+    "price": 2199900,
+    "previous_price": 2499900,
+    "currency": "COP",
+    "promotion": "Precio especial online",
+    "city_inventory": {
+      "Barranquilla": {
+        "status": "Disponible",
+        "quantity": 8,
+        "delivery_eta": "24-48 horas"
+      },
+      "Bogotá": {
+        "status": "Disponible",
+        "quantity": 12,
+        "delivery_eta": "24-48 horas"
+      },
+      "Medellín": {
+        "status": "Disponible",
+        "quantity": 6,
+        "delivery_eta": "24-48 horas"
+      },
+      "Cali": {
+        "status": "Disponible",
+        "quantity": 4,
+        "delivery_eta": "24-48 horas"
+      },
+      "Cartagena": {
+        "status": "Pocas unidades",
+        "quantity": 3,
+        "delivery_eta": "48-72 horas"
+      },
+      "Bucaramanga": {
+        "status": "Pocas unidades",
+        "quantity": 2,
+        "delivery_eta": "48-72 horas"
+      }
+    },
+    "cities_available": [
+      "Barranquilla",
+      "Bogotá",
+      "Medellín",
+      "Cali",
+      "Cartagena",
+      "Bucaramanga"
+    ],
+    "inventory_status": "Disponible",
+    "product_url": "https://www.alkosto.com/",
+    "image_url": "https://placehold.co/640x420?text=HP",
+    "source_type": "demo_catalog",
+    "source_note": "Dato demo estructurado. Validar precio, URL e inventario real contra fuente oficial antes de producción.",
+    "last_updated": "2026-07-04",
+    "availability_confidence": "demo",
+    "advisor_warning": "No prometer disponibilidad, financiación, descuentos ni tiempos de entrega sin validar en sistema oficial.",
+    "subcategory": "Computadores de escritorio",
+    "screen_size": 0,
+    "processor": "Intel Core i5",
+    "ram": "8 GB",
+    "storage": "512 GB SSD",
+    "graphics": "Integrada",
+    "os": "Windows 11",
+    "use_cases": [
+      "oficina",
+      "estudio",
+      "hogar"
+    ],
+    "priority_tags": [
+      "precio",
+      "trabajo"
+    ],
+    "badge": "ESCRITORIO ECONÓMICO",
+    "key_benefit": "Opción estable para oficina o estudio con monitor externo.",
+    "related_articles": [
+      "desktop-vs-laptop-guide"
+    ],
+    "sales_pitch": "Si ya tiene monitor, puede ahorrar frente a portátil o todo en uno."
+  },
+  {
+    "catalog_version": "demo-v0.4",
+    "sku": "DT-GAMER-R5-RTX",
+    "brand": "Clon Gamer",
+    "name": "Computador Gamer Ryzen 5 16GB 1TB SSD RTX 4060",
+    "category": "Computadores",
+    "price": 4999900,
+    "previous_price": 5799900,
+    "currency": "COP",
+    "promotion": "Precio especial online",
+    "city_inventory": {
+      "Barranquilla": {
+        "status": "Disponible",
+        "quantity": 8,
+        "delivery_eta": "24-48 horas"
+      },
+      "Bogotá": {
+        "status": "Disponible",
+        "quantity": 12,
+        "delivery_eta": "24-48 horas"
+      },
+      "Medellín": {
+        "status": "Disponible",
+        "quantity": 6,
+        "delivery_eta": "24-48 horas"
+      },
+      "Cali": {
+        "status": "Disponible",
+        "quantity": 4,
+        "delivery_eta": "24-48 horas"
+      },
+      "Cartagena": {
+        "status": "Pocas unidades",
+        "quantity": 3,
+        "delivery_eta": "48-72 horas"
+      },
+      "Bucaramanga": {
+        "status": "Pocas unidades",
+        "quantity": 2,
+        "delivery_eta": "48-72 horas"
+      }
+    },
+    "cities_available": [
+      "Barranquilla",
+      "Bogotá",
+      "Medellín",
+      "Cali",
+      "Cartagena",
+      "Bucaramanga"
+    ],
+    "inventory_status": "Disponible",
+    "product_url": "https://www.alkosto.com/",
+    "image_url": "https://placehold.co/640x420?text=Clon+Gamer",
+    "source_type": "demo_catalog",
+    "source_note": "Dato demo estructurado. Validar precio, URL e inventario real contra fuente oficial antes de producción.",
+    "last_updated": "2026-07-04",
+    "availability_confidence": "demo",
+    "advisor_warning": "No prometer disponibilidad, financiación, descuentos ni tiempos de entrega sin validar en sistema oficial.",
+    "subcategory": "Computadores Gaming",
+    "screen_size": 0,
+    "processor": "AMD Ryzen 5",
+    "ram": "16 GB",
+    "storage": "1 TB SSD",
+    "graphics": "NVIDIA RTX 4060",
+    "os": "Windows 11",
+    "use_cases": [
+      "gaming",
+      "diseño",
+      "alto rendimiento"
+    ],
+    "priority_tags": [
+      "gaming",
+      "rendimiento"
+    ],
+    "badge": "GAMER POTENTE",
+    "key_benefit": "Para clientes que quieren mayor rendimiento y posibilidad de expansión.",
+    "related_articles": [
+      "gaming-laptop-guide",
+      "desktop-vs-laptop-guide"
+    ],
+    "sales_pitch": "Comparar contra portátil gaming por potencia, expansión y espacio fijo."
+  },
+  {
+    "catalog_version": "demo-v0.4",
+    "sku": "MON-SAMSUNG-27",
+    "brand": "Samsung",
+    "name": "Monitor Samsung 27 pulgadas FHD 75Hz",
+    "category": "Computadores",
+    "price": 699900,
+    "previous_price": 849900,
+    "currency": "COP",
+    "promotion": "Precio especial online",
+    "city_inventory": {
+      "Barranquilla": {
+        "status": "Disponible",
+        "quantity": 8,
+        "delivery_eta": "24-48 horas"
+      },
+      "Bogotá": {
+        "status": "Disponible",
+        "quantity": 12,
+        "delivery_eta": "24-48 horas"
+      },
+      "Medellín": {
+        "status": "Disponible",
+        "quantity": 6,
+        "delivery_eta": "24-48 horas"
+      },
+      "Cali": {
+        "status": "Disponible",
+        "quantity": 4,
+        "delivery_eta": "24-48 horas"
+      },
+      "Cartagena": {
+        "status": "Pocas unidades",
+        "quantity": 3,
+        "delivery_eta": "48-72 horas"
+      },
+      "Bucaramanga": {
+        "status": "Pocas unidades",
+        "quantity": 2,
+        "delivery_eta": "48-72 horas"
+      }
+    },
+    "cities_available": [
+      "Barranquilla",
+      "Bogotá",
+      "Medellín",
+      "Cali",
+      "Cartagena",
+      "Bucaramanga"
+    ],
+    "inventory_status": "Disponible",
+    "product_url": "https://www.alkosto.com/",
+    "image_url": "https://placehold.co/640x420?text=Samsung",
+    "source_type": "demo_catalog",
+    "source_note": "Dato demo estructurado. Validar precio, URL e inventario real contra fuente oficial antes de producción.",
+    "last_updated": "2026-07-04",
+    "availability_confidence": "demo",
+    "advisor_warning": "No prometer disponibilidad, financiación, descuentos ni tiempos de entrega sin validar en sistema oficial.",
+    "subcategory": "Monitores",
+    "screen_size": 27,
+    "processor": "N/A",
+    "ram": "N/A",
+    "storage": "N/A",
+    "graphics": "N/A",
+    "os": "N/A",
+    "use_cases": [
+      "oficina",
+      "estudio",
+      "segunda pantalla"
+    ],
+    "priority_tags": [
+      "precio",
+      "productividad"
+    ],
+    "badge": "COMPLEMENTO",
+    "key_benefit": "Mejora productividad con segunda pantalla o escritorio más cómodo.",
+    "related_articles": [
+      "desktop-vs-laptop-guide"
+    ],
+    "sales_pitch": "Ofrecer como complemento si compra portátil o desktop para productividad."
+  }
+]

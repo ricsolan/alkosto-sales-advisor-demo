@@ -1,44 +1,68 @@
 const state = {
-  products: [], selectedProduct: null, article: null,
+  productCatalog: [],
+  knowledgeArticles: [],
+  products: [],
+  selectedProduct: null,
+  article: null,
   context: { intent:'', category:'', need:'', useCase:'', budget:0, city:'', priority:'', origin:'' },
-  history: []
+  history: [],
+  dataLoaded: false
 };
 
-const catalog = [
-  {sku:'TV-KALLEY-43FHD',brand:'Kalley',size:43,name:'TV Kalley 43” FHD Smart TV',price:799900,previous:999900,scoreTags:['price'],ideal:'Habitación / uso general',feature:'Opción económica para espacios pequeños',image:'https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?auto=format&fit=crop&w=700&q=80',os:'Smart TV'},
-  {sku:'TV-KALLEY-50UHD',brand:'Kalley',size:50,name:'TV Kalley 50” 4K Smart TV',price:1199900,previous:1399900,scoreTags:['price'],ideal:'Uso general',feature:'Precio competitivo para uso diario',image:'https://images.unsplash.com/photo-1567690187548-f07b1d7bf5a9?auto=format&fit=crop&w=700&q=80',os:'Smart TV'},
-  {sku:'TV-CHALLENGER-55B067',brand:'Challenger',size:55,name:'TV Challenger 55” 4K Android TV',price:1479900,previous:1649900,scoreTags:['price'],ideal:'Precio bajo',feature:'Opción económica con Android TV',image:'https://images.unsplash.com/photo-1601944177325-f8867652837f?auto=format&fit=crop&w=700&q=80',os:'Android TV'},
-  {sku:'TV-TCL-55V6C',brand:'TCL',size:55,name:'TV TCL 55V6C 55” 4K Google TV',price:1634800,previous:1899900,scoreTags:['balance'],ideal:'Deportes y streaming',feature:'Excelente balance precio/calidad',image:'https://images.unsplash.com/photo-1593305841991-05c297ba4575?auto=format&fit=crop&w=700&q=80',os:'Google TV'},
-  {sku:'TV-SAMSUNG-55DU7000',brand:'Samsung',size:55,name:'TV Samsung 55” DU7000 4K Crystal UHD',price:2149900,previous:2499900,scoreTags:['brand','balance'],ideal:'Marca y calidad de imagen',feature:'Diseño delgado, 4K y buena experiencia Smart',image:'https://images.unsplash.com/photo-1552975084-6e027cd345c2?auto=format&fit=crop&w=700&q=80',os:'Tizen'},
-  {sku:'TV-LG-55UA8050PSA',brand:'LG',size:55,name:'TV LG 55UA8050PSA 55” 4K Smart TV con IA',price:2299900,previous:2699900,scoreTags:['experience','brand'],ideal:'Marca / IA',feature:'Funciones inteligentes y buena experiencia',image:'https://images.unsplash.com/photo-1577979749830-f1d742b96791?auto=format&fit=crop&w=700&q=80',os:'webOS'},
-  {sku:'TV-TCL-65C6K',brand:'TCL',size:65,name:'TV TCL 65” QLED Google TV',price:3199900,previous:3699900,scoreTags:['premium','sports'],ideal:'Sala grande / deportes',feature:'Pantalla grande y experiencia inmersiva',image:'https://images.unsplash.com/photo-1593784991095-a205069470b6?auto=format&fit=crop&w=700&q=80',os:'Google TV'},
-  {sku:'TV-SAMSUNG-65QLED',brand:'Samsung',size:65,name:'TV Samsung 65” QLED 4K Smart TV',price:3999900,previous:4599900,scoreTags:['premium','brand'],ideal:'Imagen premium',feature:'Mayor contraste, color y experiencia premium',image:'https://images.unsplash.com/photo-1461151304267-38535e780c79?auto=format&fit=crop&w=700&q=80',os:'Tizen'},
-  {sku:'TV-LG-65QNED',brand:'LG',size:65,name:'TV LG 65” QNED 4K Smart TV con IA',price:4299900,previous:4999900,scoreTags:['premium','experience'],ideal:'Cine en casa',feature:'Excelente experiencia visual y funciones IA',image:'https://images.unsplash.com/photo-1584905066893-7d5c142ba4e1?auto=format&fit=crop&w=700&q=80',os:'webOS'},
-  {sku:'TV-SONY-55X75K',brand:'Sony',size:55,name:'TV Sony 55” 4K Google TV',price:3299900,previous:3799900,scoreTags:['brand','premium'],ideal:'Películas y sonido',feature:'Marca premium y excelente procesamiento de imagen',image:'https://images.unsplash.com/photo-1615986200762-a1ed9610d3d1?auto=format&fit=crop&w=700&q=80',os:'Google TV'}
+const fallbackProducts = [
+  {
+    sku:'DEMO-TV-TCL-55', brand:'TCL', name:'TV TCL 55 pulgadas 4K Google TV', category:'Televisores',
+    screen_size:55, technology:'LED 4K UHD', os:'Google TV', price:1634800, previous_price:1899900,
+    promotion:'Precio especial online', image_url:'https://placehold.co/640x420?text=TCL+55', product_url:'https://www.alkosto.com/',
+    city_inventory:{Barranquilla:{status:'Disponible',quantity:8,delivery_eta:'24-48 horas'}, Bogotá:{status:'Disponible',quantity:12,delivery_eta:'24-48 horas'}},
+    use_cases:['deportes','streaming'], priority_tags:['precio y calidad','mejor balance'], badge:'MEJOR BALANCE',
+    key_benefit:'Excelente balance entre precio, tamaño y calidad de imagen.', sales_pitch:'Ideal para deportes y streaming con presupuesto controlado.', related_articles:['tv-distance-55']
+  },
+  {
+    sku:'DEMO-NB-LENOVO-I5', brand:'Lenovo', name:'Portátil Lenovo IdeaPad Core i5 16GB 512GB SSD', category:'Computadores',
+    subcategory:'Portátiles', screen_size:15.6, processor:'Intel Core i5', ram:'16 GB', storage:'512 GB SSD', graphics:'Integrada', os:'Windows 11',
+    price:2799900, previous_price:3299900, promotion:'Precio especial online', image_url:'https://placehold.co/640x420?text=Lenovo+i5', product_url:'https://www.alkosto.com/',
+    city_inventory:{Barranquilla:{status:'Disponible',quantity:6,delivery_eta:'24-48 horas'}, Bogotá:{status:'Disponible',quantity:10,delivery_eta:'24-48 horas'}},
+    use_cases:['trabajo','estudio','videollamadas'], priority_tags:['precio y calidad','productividad'], badge:'MEJOR BALANCE',
+    key_benefit:'Buen equilibrio para trabajo remoto, estudio y productividad.', sales_pitch:'Buena opción para un usuario que necesita fluidez en tareas diarias.', related_articles:['laptop-study-work-guide']
+  }
 ];
 
-const articleLibrary = {
-  tv_distance: {
-    title: 'Distancia recomendada para televisores de 55 pulgadas',
-    source: 'Knowledge Base Alkosto · Guía de compra TV',
-    summary: 'Para un televisor 4K de 55 pulgadas, una distancia cómoda suele estar entre 1,7 y 2,5 metros. Si el cliente ve deportes o películas, se recomienda validar tamaño de sala, ángulo de visión y brillo del espacio.',
-    bullets: ['55 pulgadas funciona muy bien para salas medianas.', 'Para deportes, priorizar fluidez, resolución 4K y buen procesamiento.', 'Si el cliente está a más de 3 metros, considerar 65 pulgadas.'],
-    advisorPhrase: 'Para el espacio que me comentas, 55 pulgadas puede ser una buena opción si estás aproximadamente entre 2 y 3 metros del televisor. Si la sala es más amplia, también podríamos revisar 65 pulgadas.'
+const fallbackArticles = [
+  {
+    id:'tv-distance-55', title:'Distancia recomendada para televisores de 55 pulgadas', category:'Televisores', article_type:'guía comercial',
+    triggers:['55 pulgadas','distancia','tamaño','sala'],
+    summary:'Un televisor de 55 pulgadas suele ser adecuado para salas medianas. La distancia ideal depende de la resolución, el espacio disponible y el uso principal.',
+    key_points:['Para contenido 4K, el cliente puede sentarse más cerca sin perder calidad percibida.','Es una buena opción para deportes, películas y streaming.','Antes de cerrar la venta, conviene validar el espacio donde será instalado.'],
+    advisor_phrase:'Por el tamaño que me indicas, un televisor de 55 pulgadas puede funcionar muy bien si la distancia de visualización es adecuada para tu sala.',
+    recommended_questions:['¿A qué distancia estará ubicado el sofá o cama?','¿Lo usarás principalmente en sala, habitación o estudio?'],
+    next_best_action:'Validar espacio y mostrar una opción 55 pulgadas balanceada dentro del presupuesto.'
+  }
+];
+
+const CATEGORY_CONFIG = {
+  Televisores: {
+    sizes: ['43 pulgadas','50 pulgadas','55 pulgadas','65 pulgadas','75 pulgadas'],
+    uses: ['Streaming','Deportes y streaming','Videojuegos','Películas','Uso general','Imagen premium'],
+    priorities: ['Precio y calidad','Mejor precio','Marca','Entrega rápida','Garantía','Imagen premium'],
+    brands: ['Samsung','LG','TCL','Challenger','Kalley','Sony','Xiaomi','Hisense']
   },
-  warranty: {
-    title: 'Cómo explicar garantía extendida en televisores',
-    source: 'Playbook comercial · Garantía extendida',
-    summary: 'La garantía extendida se debe presentar como tranquilidad posterior a la compra, especialmente en productos de mayor valor o cuando el cliente manifiesta preocupación por soporte.',
-    bullets: ['No prometer aprobación automática.', 'Explicar cobertura en términos simples.', 'Ofrecerla después de seleccionar producto.'],
-    advisorPhrase: 'Además de la garantía de fabricante, podemos revisar una garantía extendida para que tengas mayor tranquilidad después de la compra.'
+  Computadores: {
+    sizes: ['13 pulgadas','14 pulgadas','15.6 pulgadas','16 pulgadas','24 pulgadas','27 pulgadas','No aplica'],
+    uses: ['Trabajo y estudio','Trabajo remoto','Estudio','Gaming','Diseño / edición','Ofimática','Videollamadas','Computador familiar'],
+    priorities: ['Precio y calidad','Mejor precio','Rendimiento','Portabilidad','Marca','Gaming','Garantía'],
+    brands: ['Lenovo','HP','ASUS','Acer','Apple','Samsung','Clon Gamer']
   }
 };
 
-function money(n){ return n ? '$' + Number(n).toLocaleString('es-CO') : 'Pendiente'; }
 function qs(id){ return document.getElementById(id); }
-function addHistory(text){ state.history.unshift({text, time:new Date().toLocaleTimeString('es-CO',{hour:'2-digit',minute:'2-digit'})}); renderHistory(); }
-function getParams(){ return Object.fromEntries(new URLSearchParams(location.search).entries()); }
+function money(n){ return n ? '$' + Number(n).toLocaleString('es-CO') : 'Pendiente'; }
 function cleanText(v){ return String(v || '').trim(); }
+function lower(v){ return cleanText(v).toLowerCase(); }
+function getParams(){ return Object.fromEntries(new URLSearchParams(location.search).entries()); }
+function addHistory(text){ state.history.unshift({text, time:new Date().toLocaleTimeString('es-CO',{hour:'2-digit',minute:'2-digit'})}); renderHistory(); }
+function hasContext(){ return !!(state.context.category || state.context.need || state.context.useCase || state.context.budget || state.context.city); }
+
 function normalizeBudget(v){
   const raw = cleanText(v).toLowerCase().replace(',', '.');
   if(!raw) return 0;
@@ -46,20 +70,62 @@ function normalizeBudget(v){
   if(!m) return 0;
   const n = Number(m[0]);
   if(raw.includes('millon') || raw.includes('millón') || raw.includes('millones')) return Math.round(n * 1000000);
-  return Number(raw.replace(/[^\d]/g,'')) || Math.round(n);
+  if(raw.includes('mil') && n < 10000) return Math.round(n * 1000);
+  const digits = raw.replace(/[^\d]/g,'');
+  return digits ? Number(digits) : Math.round(n);
 }
-function hasContext(){ return !!(state.context.category || state.context.need || state.context.useCase || state.context.budget || state.context.city); }
+
+async function loadExternalData(){
+  try {
+    const [productsResponse, articlesResponse] = await Promise.all([
+      fetch('./products.json', { cache: 'no-store' }),
+      fetch('./articles.json', { cache: 'no-store' })
+    ]);
+    if(!productsResponse.ok) throw new Error('No se pudo cargar products.json');
+    if(!articlesResponse.ok) throw new Error('No se pudo cargar articles.json');
+    state.productCatalog = await productsResponse.json();
+    state.knowledgeArticles = await articlesResponse.json();
+    state.dataLoaded = true;
+    addHistory(`Datos cargados: ${state.productCatalog.length} productos y ${state.knowledgeArticles.length} artículos.`);
+  } catch(error){
+    console.error(error);
+    state.productCatalog = fallbackProducts;
+    state.knowledgeArticles = fallbackArticles;
+    addHistory('No se pudo cargar JSON externo. Usando datos locales de respaldo.');
+  }
+}
+
+function setOptions(selectId, options, placeholder){
+  const el = qs(selectId);
+  const current = el.value;
+  el.innerHTML = `<option value="">${placeholder}</option>` + options.map(o => `<option>${o}</option>`).join('');
+  if(options.includes(current)) el.value = current;
+}
+
+function inferCategory(text){
+  const t = lower(text);
+  if(t.includes('computador') || t.includes('portatil') || t.includes('portátil') || t.includes('laptop') || t.includes('pc') || t.includes('gaming')) return 'Computadores';
+  if(t.includes('televisor') || t.includes('tv') || t.includes('qled') || t.includes('oled') || t.includes('pulgadas')) return 'Televisores';
+  return '';
+}
+function inferSize(text){
+  const m = cleanText(text).match(/(13|14|15\.6|16|24|27|43|50|55|65|75)/);
+  return m ? `${m[1]} pulgadas` : '';
+}
 
 function initFromParams(){
   const p = getParams();
   state.context.intent = cleanText(p.intent || p.sales_intent || '');
-  state.context.category = cleanText(p.category || p.sales_category || '');
+  state.context.category = cleanText(p.category || p.sales_category || '') || inferCategory([p.need,p.customer_need,p.useCase,p.use_case].join(' '));
   state.context.budget = normalizeBudget(p.budget || '');
   state.context.city = cleanText(p.city || '');
   state.context.useCase = cleanText(p.useCase || p.use_case || '');
   state.context.priority = cleanText(p.priority || p.customer_priority || '');
   state.context.need = cleanText(p.customerNeed || p.need || p.customer_need || '');
   state.context.origin = hasContext() ? cleanText(p.origin || 'AVA') : '';
+
+  qs('categoryInput').value = state.context.category || '';
+  updateProfileOptions(state.context.category || 'Televisores');
   qs('budgetInput').value = state.context.budget || '';
   qs('cityInput').value = state.context.city || '';
   qs('useInput').value = state.context.useCase || '';
@@ -67,9 +133,17 @@ function initFromParams(){
   qs('sizeInput').value = inferSize(state.context.need) || '';
   qs('brandInput').value = '';
   renderContext();
+  if(hasContext()) updateGuidance();
 }
 
-function inferSize(text){ const m = cleanText(text).match(/(43|50|55|65|75)/); return m ? `${m[1]} pulgadas` : ''; }
+function updateProfileOptions(category){
+  const config = CATEGORY_CONFIG[category] || CATEGORY_CONFIG.Televisores;
+  setOptions('sizeInput', config.sizes, 'Sin definir');
+  setOptions('useInput', config.uses, 'Sin definir');
+  setOptions('priorityInput', config.priorities, 'Sin definir');
+  setOptions('brandInput', config.brands, 'Sin preferencia');
+}
+
 function renderContext(){
   qs('categoryLabel').textContent = state.context.category || 'Sin detectar';
   qs('cityLabel').textContent = state.context.city || 'Sin ciudad';
@@ -85,110 +159,320 @@ function renderContext(){
 }
 
 function collectFilters(){
-  return { budget: Number(qs('budgetInput').value || 0), size: qs('sizeInput').value, useCase: qs('useInput').value, brand: qs('brandInput').value, city: qs('cityInput').value, priority: qs('priorityInput').value };
+  const category = qs('categoryInput').value || state.context.category || '';
+  return {
+    category,
+    budget: Number(qs('budgetInput').value || 0),
+    size: qs('sizeInput').value,
+    useCase: qs('useInput').value,
+    brand: qs('brandInput').value,
+    city: qs('cityInput').value,
+    priority: qs('priorityInput').value
+  };
 }
+
 function labelForSlot(value, fallback){ return value || fallback; }
-function scoreProduct(p,f){
+function normalizeArray(arr){ return Array.isArray(arr) ? arr.map(x => lower(x)) : []; }
+function productSize(product){ return Number(product.screen_size || product.size || 0); }
+function productTech(product){ return product.technology || [product.processor, product.ram, product.storage].filter(Boolean).join(' · ') || product.os || 'Características demo'; }
+function productSpecs(product){
+  if(product.category === 'Computadores') return [product.processor, product.ram, product.storage, product.graphics].filter(Boolean).slice(0,3);
+  return [`${product.screen_size || ''}”`, product.technology, product.os].filter(Boolean).slice(0,3);
+}
+function getInventory(product, city){
+  const normalizedCity = cleanText(city) || 'Barranquilla';
+  const info = product.city_inventory?.[normalizedCity] || product.city_inventory?.['Barranquilla'];
+  if(info) return `${info.status} en ${normalizedCity}${info.quantity ? ` · ${info.quantity} uds` : ''}${info.delivery_eta ? ` · ${info.delivery_eta}` : ''}`;
+  if(product.cities_available?.includes(normalizedCity)) return `${product.inventory_status || 'Disponible'} en ${normalizedCity}`;
+  return `Validar disponibilidad en ${normalizedCity}`;
+}
+function isAvailable(product, city){
+  const normalizedCity = cleanText(city) || 'Barranquilla';
+  const info = product.city_inventory?.[normalizedCity];
+  return !!info && !lower(info.status).includes('agotado');
+}
+
+function scoreProduct(p, f){
   let score = 0;
-  if(!f.budget || p.price <= f.budget) score += 20; else if(p.price <= f.budget * 1.2) score += 8;
-  const size = Number((f.size||'').match(/\d+/)?.[0] || 0); if(size && p.size === size) score += 20; else if(size && Math.abs(p.size-size) <= 10) score += 8;
-  if(f.brand && p.brand === f.brand) score += 25;
-  const use = (f.useCase||'').toLowerCase();
-  if(use.includes('deporte') && (p.scoreTags.includes('sports') || p.scoreTags.includes('balance'))) score += 15;
-  if(use.includes('videojuego') && p.scoreTags.includes('premium')) score += 15;
-  if(use.includes('película') || use.includes('pelicula')) if(p.scoreTags.includes('experience') || p.scoreTags.includes('premium')) score += 12;
-  const pr = (f.priority||'').toLowerCase();
-  if(pr.includes('precio') && p.scoreTags.includes('price')) score += 18;
-  if(pr.includes('marca') && ['LG','Samsung','Sony'].includes(p.brand)) score += 18;
-  if(pr.includes('calidad') && (p.scoreTags.includes('balance') || p.scoreTags.includes('brand'))) score += 12;
+  const category = lower(f.category);
+  if(!category || lower(p.category) === category) score += 30; else score -= 60;
+
+  if(!f.budget || p.price <= f.budget) score += 18;
+  else if(p.price <= f.budget * 1.15) score += 6;
+  else score -= 12;
+
+  const requestedSize = Number((f.size||'').match(/\d+(\.\d+)?/)?.[0] || 0);
+  const size = productSize(p);
+  if(requestedSize && size === requestedSize) score += 18;
+  else if(requestedSize && Math.abs(size-requestedSize) <= (p.category === 'Computadores' ? 1.6 : 10)) score += 6;
+
+  if(f.brand && lower(p.brand) === lower(f.brand)) score += 20;
+  if(f.city && isAvailable(p, f.city)) score += 12;
+
+  const use = lower(f.useCase);
+  const uses = normalizeArray(p.use_cases);
+  if(use && uses.some(u => use.includes(u) || u.includes(use) || use.split(' ').some(w => w.length > 4 && u.includes(w)))) score += 16;
+
+  const pr = lower(f.priority);
+  const tags = normalizeArray(p.priority_tags);
+  if(pr && tags.some(t => pr.includes(t) || t.includes(pr) || pr.split(' ').some(w => w.length > 4 && t.includes(w)))) score += 16;
+
+  if(p.badge) score += 2;
   return score;
 }
 
 function searchProducts(){
   const f = collectFilters();
+  if(f.category) updateProfileOptions(f.category);
   state.context.intent = state.context.intent || 'Compra';
-  state.context.category = state.context.category || 'Televisores';
-  state.context.budget = f.budget; state.context.useCase = f.useCase; state.context.city = f.city; state.context.priority = f.priority; state.context.need = state.context.need || (f.size ? `Televisor de ${f.size}` : 'Televisor'); state.context.origin = 'Asesor';
+  state.context.category = f.category || state.context.category || 'Televisores';
+  state.context.budget = f.budget;
+  state.context.useCase = f.useCase;
+  state.context.city = f.city;
+  state.context.priority = f.priority;
+  state.context.need = state.context.need || buildNeedFromFilters(f);
+  state.context.origin = state.context.origin || 'Asesor';
   renderContext();
-  if(!f.budget && !f.size && !f.useCase && !f.city){ qs('recommendationSummary').textContent = 'Completa al menos presupuesto, tamaño o uso principal para ejecutar una búsqueda más precisa.'; return; }
+
+  if(!f.category && !f.budget && !f.size && !f.useCase && !f.city){
+    qs('recommendationSummary').textContent = 'Completa al menos categoría, presupuesto, tamaño/uso o ciudad para ejecutar una búsqueda más precisa.';
+    return;
+  }
+
   qs('emptyState').hidden = true;
-  qs('productsGrid').innerHTML = '<div class="loading-card">🔎 Buscando productos...<br><span>Validando catálogo, inventario y prioridad comercial.</span></div>';
-  qs('progressStrip').innerHTML = '<span>🔎 Buscando productos...</span><span>→</span><span>📦 Validando inventario...</span><span>→</span><span>✨ Ordenando por recomendación...</span>';
+  qs('productsGrid').innerHTML = '<div class="loading-card">🔎 Buscando productos...<br><span>Leyendo products.json, validando inventario y ordenando por recomendación.</span></div>';
+  qs('progressStrip').innerHTML = '<span>🔎 Consultando catálogo preparado...</span><span>→</span><span>📦 Validando inventario por ciudad...</span><span>→</span><span>✨ Aplicando reglas comerciales...</span>';
   qs('recommendationSummary').textContent = 'Buscando productos recomendados con el contexto actual...';
+
   setTimeout(()=>{
-    let candidates = catalog.map(p => ({...p, _score: scoreProduct(p,f)})).sort((a,b)=> b._score-a._score || a.price-b.price);
-    if(f.budget) candidates = candidates.filter(p => p.price <= f.budget * 1.35 || p._score >= 35);
-    if(!candidates.length) candidates = catalog.map(p=>({...p,_score:0})).sort((a,b)=>a.price-b.price);
-    state.products = candidates.slice(0,4).map((p,i)=> ({...p,
-      inventory: availabilityText(p, f.city || 'Barranquilla', i), promo: promoText(p,i),
-      recommendation: recommendationText(p,i), reason: reasonText(p,f)
+    let candidates = state.productCatalog
+      .map(p => ({...p, _score: scoreProduct(p,f)}))
+      .filter(p => !f.category || lower(p.category) === lower(f.category))
+      .sort((a,b)=> b._score-a._score || a.price-b.price);
+
+    if(f.budget) candidates = candidates.filter(p => p.price <= f.budget * 1.25 || p._score >= 55);
+    if(!candidates.length){
+      candidates = state.productCatalog
+        .filter(p => !f.category || lower(p.category) === lower(f.category))
+        .map(p=>({...p,_score:0}))
+        .sort((a,b)=>a.price-b.price);
+    }
+
+    state.products = candidates.slice(0,5).map((p,i)=> ({
+      ...p,
+      inventory: getInventory(p, f.city || 'Barranquilla'),
+      recommendation: p.badge || recommendationText(p,i),
+      reason: reasonText(p,f)
     }));
-    qs('progressStrip').innerHTML = `<span>✅ ${state.products.length} opciones encontradas ${f.city ? 'en ' + f.city : ''}</span><span>→</span><span>Ranking por ${labelForSlot(f.priority,'relevancia')}</span>`;
-    qs('recommendationSummary').textContent = `Encontré ${state.products.length} opciones ${f.city ? 'para ' + f.city : ''}, con presupuesto ${f.budget ? money(f.budget) : 'pendiente'} y prioridad ${labelForSlot(f.priority,'sin definir')}.`;
-    renderProducts(); renderComparison(); updateGuidance(); addHistory(`Búsqueda ejecutada: ${labelForSlot(f.size,'tamaño no definido')}, ${labelForSlot(f.useCase,'uso no definido')}, ${f.budget ? money(f.budget) : 'sin presupuesto'}, ${labelForSlot(f.city,'sin ciudad')}`);
-  },800);
+
+    qs('progressStrip').innerHTML = `<span>✅ ${state.products.length} opciones encontradas</span><span>→</span><span>${f.city ? 'Inventario para ' + f.city : 'Inventario demo'}</span><span>→</span><span>Ranking por ${labelForSlot(f.priority,'relevancia')}</span>`;
+    qs('recommendationSummary').textContent = `Encontré ${state.products.length} opciones de ${state.context.category}, ${f.city ? 'para ' + f.city + ', ' : ''}con presupuesto ${f.budget ? money(f.budget) : 'pendiente'} y prioridad ${labelForSlot(f.priority,'sin definir')}.`;
+    renderProducts();
+    renderComparison();
+    updateGuidance();
+    addHistory(`Búsqueda ejecutada: ${state.context.category}, ${labelForSlot(f.size,'tamaño no definido')}, ${labelForSlot(f.useCase,'uso no definido')}, ${f.budget ? money(f.budget) : 'sin presupuesto'}, ${labelForSlot(f.city,'sin ciudad')}`);
+  }, 700);
 }
-function availabilityText(p, city, i){ if(p.price > 3500000 && city !== 'Bogotá') return `Bajo pedido en ${city} (2–4 días)`; if(i===0) return `Disponible en ${city}`; if(i===1) return `Disponible en ${city}`; return `Inventario limitado en ${city}`; }
-function promoText(p,i){ if(p.scoreTags.includes('premium')) return 'Garantía extendida con beneficio demo'; if(i===0) return 'Precio especial online'; if(i===1) return 'Precio especial hoy'; return 'Oferta destacada'; }
-function recommendationText(p,i){ if(p.scoreTags.includes('price')) return 'MEJOR PRECIO'; if(p.scoreTags.includes('premium') || p.scoreTags.includes('experience')) return 'MEJOR EXPERIENCIA'; return i===0 ? 'MEJOR BALANCE' : 'RECOMENDADO'; }
-function reasonText(p,f){ return `Ideal para ${labelForSlot(f.useCase,p.ideal).toLowerCase()} por ${p.feature.toLowerCase()}.`; }
+
+function buildNeedFromFilters(f){
+  if(f.category === 'Computadores') return f.size && f.size !== 'No aplica' ? `Computador / portátil ${f.size}` : 'Computador';
+  return f.size ? `Televisor de ${f.size}` : 'Producto';
+}
+function recommendationText(p,i){
+  const tags = normalizeArray(p.priority_tags);
+  if(tags.includes('precio') || tags.includes('económico')) return 'MEJOR PRECIO';
+  if(tags.includes('gaming')) return 'GAMING';
+  if(tags.includes('rendimiento') || tags.includes('productividad')) return 'RENDIMIENTO';
+  if(tags.includes('marca') || tags.includes('experiencia')) return 'MEJOR EXPERIENCIA';
+  return i === 0 ? 'MEJOR BALANCE' : 'RECOMENDADO';
+}
+function reasonText(p,f){
+  const use = labelForSlot(f.useCase, (p.use_cases || [])[0] || 'el uso indicado');
+  return p.sales_pitch || `Ideal para ${use.toLowerCase()} por ${lower(p.key_benefit || 'sus características comerciales')}.`;
+}
 
 function renderProducts(){
   qs('emptyState').hidden = true;
-  const grid = qs('productsGrid'); grid.innerHTML = '';
+  const grid = qs('productsGrid');
+  grid.innerHTML = '';
   state.products.forEach((p,i)=>{
-    const badgeClass = p.recommendation.includes('PRECIO')?'green':p.recommendation.includes('EXPERIENCIA')?'purple':'';
-    const card = document.createElement('div'); card.className = 'product-card' + (state.selectedProduct?.sku===p.sku?' selected':'');
-    card.innerHTML = `<span class="product-badge ${badgeClass}">${p.recommendation}</span><button class="heart">♡</button><div class="product-image"><img src="${p.image}" alt="${p.name}" onerror="this.parentElement.innerHTML='<strong>${p.brand}</strong>'" /></div><h3>${p.brand}</h3><strong>${p.name}</strong><div class="specs"><span>${p.size}”</span><span>4K UHD</span><span>${p.os}</span></div><div class="price">${money(p.price)}</div><div class="previous">Antes: ${money(p.previous)}</div><div class="stock">● ${p.inventory}</div><div class="promo">Promo: ${p.promo}</div><p>${p.reason}</p><div class="product-actions"><button class="secondary" data-detail="${i}">Ver detalle</button><button class="primary" data-select="${i}">Seleccionar</button></div>`;
+    const badge = p.recommendation || 'RECOMENDADO';
+    const badgeClass = badge.includes('PRECIO')?'green':(badge.includes('EXPERIENCIA')||badge.includes('PREMIUM'))?'purple':'';
+    const specs = productSpecs(p).map(s => `<span>${s}</span>`).join('');
+    const card = document.createElement('div');
+    card.className = 'product-card' + (state.selectedProduct?.sku===p.sku?' selected':'');
+    card.innerHTML = `
+      <span class="product-badge ${badgeClass}">${badge}</span>
+      <button class="heart">♡</button>
+      <div class="product-image"><img src="${p.image_url || ''}" alt="${p.name}" onerror="this.parentElement.innerHTML='<strong>${p.brand}</strong>'" /></div>
+      <h3>${p.brand}</h3>
+      <strong>${p.name}</strong>
+      <div class="specs">${specs}</div>
+      <div class="price">${money(p.price)}</div>
+      <div class="previous">Antes: ${money(p.previous_price)}</div>
+      <div class="stock">● ${p.inventory}</div>
+      <div class="promo">Promo: ${p.promotion || 'Validar promoción vigente'}</div>
+      <p>${p.reason}</p>
+      <div class="product-actions">
+        <button class="secondary" data-article="${i}">Ver artículo</button>
+        <button class="primary" data-select="${i}">Seleccionar</button>
+      </div>`;
     grid.appendChild(card);
   });
 }
+
 function renderComparison(){
   qs('comparisonCard').hidden = false;
-  qs('comparisonBody').innerHTML = state.products.map((p,i)=>`<tr><td><strong>${p.brand}</strong><br>${p.name}</td><td>${money(p.price)}</td><td>${p.inventory}</td><td>${p.ideal}</td><td><span class="badge ${i===0?'success':'neutral'}">${p.recommendation.toLowerCase()}</span></td></tr>`).join('');
+  qs('comparisonBody').innerHTML = state.products.map((p,i)=>`<tr><td><strong>${p.brand}</strong><br>${p.name}</td><td>${money(p.price)}</td><td>${p.inventory}</td><td>${(p.use_cases || []).slice(0,2).join(' / ') || productTech(p)}</td><td><span class="badge ${i===0?'success':'neutral'}">${lower(p.recommendation || 'recomendado')}</span></td></tr>`).join('');
 }
+
 function updateGuidance(){
-  const f=collectFilters();
-  const questions = ['¿A qué distancia estará ubicado el televisor?', f.size ? `¿Confirmamos que ${f.size} es el tamaño ideal para el espacio?` : '¿Qué tamaño de pantalla tiene en mente?', f.priority ? `¿Desea priorizar ${f.priority.toLowerCase()} sobre otras variables?` : '¿Desea priorizar precio, marca, entrega o garantía?'];
+  const f = collectFilters();
+  const category = f.category || state.context.category || 'Televisores';
+  const article = findRelevantArticle([category, state.context.need, f.size, f.useCase, f.priority].join(' '));
+  const genericQuestions = category === 'Computadores'
+    ? ['¿El uso principal será estudio, trabajo, diseño o gaming?', '¿Necesita portabilidad o lo usará principalmente en escritorio?', '¿Qué programas o tareas pesadas suele utilizar?']
+    : ['¿A qué distancia estará ubicado el televisor?', '¿Lo usará más para deportes, películas o videojuegos?', '¿Desea priorizar precio, marca, entrega o garantía?'];
+  const questions = article?.recommended_questions?.length ? article.recommended_questions.slice(0,3) : genericQuestions;
   qs('questionsList').classList.remove('muted-list');
   qs('questionsList').innerHTML = questions.map(q=>`<div>${q}</div>`).join('');
   qs('pitchBox').classList.remove('empty-copy');
-  qs('pitchBox').textContent = `Con presupuesto de ${f.budget ? money(f.budget) : 'rango por definir'}, prioriza una opción ${labelForSlot(f.size,'del tamaño adecuado')} 4K para ${labelForSlot(f.useCase,'el uso indicado').toLowerCase()}, balanceando precio, disponibilidad y respaldo.`;
-  qs('nextActionBox').textContent = 'Presentar las opciones mejor rankeadas, seleccionar una recomendación y validar objeciones de precio o garantía.';
+  qs('pitchBox').textContent = article?.advisor_phrase || `Con presupuesto de ${f.budget ? money(f.budget) : 'rango por definir'}, podemos priorizar una opción de ${category.toLowerCase()} para ${labelForSlot(f.useCase,'el uso indicado').toLowerCase()}, balanceando precio, disponibilidad y respaldo.`;
+  qs('nextActionBox').textContent = article?.next_best_action || 'Presentar las opciones mejor rankeadas, seleccionar una recomendación y validar objeciones de precio o garantía.';
 }
-function selectProduct(index){ state.selectedProduct = state.products[index]; renderProducts(); renderSelected(); addHistory(`Producto seleccionado: ${state.selectedProduct.brand} ${state.selectedProduct.name}`); }
-function renderSelected(){ const p=state.selectedProduct; if(!p) return; qs('selectedCard').hidden=false; qs('selectedContent').innerHTML = `<div class="selected-mini"><div class="mini-img"><img src="${p.image}" /></div><div><strong>${p.name}</strong><br><span class="price" style="font-size:16px">${money(p.price)}</span><br>${p.inventory}<br>${p.promo}<br><em>${p.feature}</em></div></div>`; }
+
+function selectProduct(index){
+  state.selectedProduct = state.products[index];
+  renderProducts();
+  renderSelected();
+  const article = getArticleForProduct(state.selectedProduct);
+  if(article) renderArticle(article, 'Artículo relacionado');
+  addHistory(`Producto seleccionado: ${state.selectedProduct.brand} ${state.selectedProduct.name}`);
+}
+
+function renderSelected(){
+  const p = state.selectedProduct;
+  if(!p) return;
+  qs('selectedCard').hidden=false;
+  const warnings = p.advisor_warning ? `<div class="message-box"><strong>Nota asesor</strong><br>${p.advisor_warning}</div>` : '';
+  qs('selectedContent').innerHTML = `<div class="selected-mini"><div class="mini-img"><img src="${p.image_url || ''}" /></div><div><strong>${p.name}</strong><br><span class="price" style="font-size:16px">${money(p.price)}</span><br>${p.inventory}<br>${p.promotion || ''}<br><em>${p.key_benefit || ''}</em></div></div>${warnings}<button class="secondary full" id="openProductBtn">Abrir producto demo</button>`;
+}
+
 function handleObjection(){
-  const p = state.selectedProduct || state.products[0]; if(!p){ alert('Primero busca y selecciona un producto.'); return; }
-  const type = qs('objectionType').value; const phrase = qs('customerPhrase').value || 'El cliente muestra duda.';
-  const benefit = type==='Precio' ? 'ofrecer combo con soporte de pared o validar beneficio comercial limitado' : type==='Garantía' ? 'ofrecer garantía extendida y reforzar respaldo posventa' : type==='Entrega' ? 'validar disponibilidad y prometer solo tiempos confirmados' : 'reducir incertidumbre con comparativo y disponibilidad';
-  const advisor = `Entiendo tu punto. Para este ${p.brand}, puedo ayudarte a ${benefit}. Así mantienes respaldo de Alkosto y una opción alineada con lo que necesitas.`;
+  const p = state.selectedProduct || state.products[0];
+  if(!p){ alert('Primero busca y selecciona un producto.'); return; }
+  const type = qs('objectionType').value;
+  const phrase = qs('customerPhrase').value || 'El cliente muestra duda.';
+  const article = findRelevantArticle([p.category, type, phrase, ...(p.related_articles || [])].join(' '));
+  const benefit = type==='Precio' ? 'comparar contra una opción más económica y reforzar valor/precio'
+    : type==='Garantía' ? 'explicar respaldo y validar garantía extendida sin prometer condiciones no confirmadas'
+    : type==='Entrega' ? 'validar disponibilidad y tiempos en sistema oficial antes de prometer entrega'
+    : type==='Características técnicas' ? 'traducir especificaciones a beneficios concretos para el uso del cliente'
+    : 'reducir incertidumbre con comparativo y siguiente paso claro';
+  const advisor = article?.advisor_phrase || `Entiendo tu punto. Para este ${p.brand}, puedo ayudarte a ${benefit}. Así mantienes respaldo de Alkosto y una opción alineada con lo que necesitas.`;
   qs('objectionResult').hidden=false;
-  qs('objectionResult').innerHTML = `<div class="risk"><strong>Riesgo de pérdida: Alto</strong><br>Objeción: ${type}. Frase: “${phrase}”</div><div class="strategy"><strong>Estrategia recomendada</strong><br>Reforzar valor del producto seleccionado y conectar el beneficio con la prioridad del cliente.</div><div class="benefit"><strong>Beneficio sugerido</strong><br>${benefit}.</div><div class="message-box"><strong>Frase sugerida</strong><br>${advisor}</div>`;
+  qs('objectionResult').innerHTML = `<div class="risk"><strong>Riesgo de pérdida: Alto</strong><br>Objeción: ${type}. Frase: “${phrase}”</div><div class="strategy"><strong>Estrategia recomendada</strong><br>${article?.summary || 'Reforzar valor del producto seleccionado y conectar el beneficio con la prioridad del cliente.'}</div><div class="benefit"><strong>Beneficio sugerido</strong><br>${benefit}.</div><div class="message-box"><strong>Frase sugerida</strong><br>${advisor}</div>`;
+  if(article) renderArticle(article, 'Artículo para objeción');
   addHistory(`Objeción manejada: ${type}`);
 }
-function renderArticle(article){
-  state.article = article; qs('articleCard').hidden=false;
-  qs('articleContent').innerHTML = `<h3>${article.title}</h3><p class="article-source">${article.source}</p><p>${article.summary}</p><ul>${article.bullets.map(b=>`<li>${b}</li>`).join('')}</ul><div class="message-box"><strong>Frase para el asesor</strong><br>${article.advisorPhrase}</div><button class="secondary full" id="copyArticlePhraseBtn">Copiar frase del artículo</button>`;
-  addHistory(`Copilot sugirió artículo: ${article.title}`);
+
+function findRelevantArticle(contextText){
+  const text = lower(contextText);
+  if(!state.knowledgeArticles.length) return null;
+  let best = null;
+  let bestScore = -1;
+  state.knowledgeArticles.forEach(article => {
+    let score = 0;
+    if(article.category && text.includes(lower(article.category))) score += 5;
+    (article.triggers || []).forEach(trigger => { if(text.includes(lower(trigger))) score += 4; });
+    if(text.includes(lower(article.id))) score += 8;
+    if(score > bestScore){ best = article; bestScore = score; }
+  });
+  return bestScore > 0 ? best : state.knowledgeArticles[0];
 }
-function renderHistory(){ qs('historyList').innerHTML = state.history.length ? state.history.map(h=>`<div class="history-item"><strong>${h.time}</strong> · ${h.text}</div>`).join('') : '<p>Sin acciones aún.</p>'; }
+function getArticleForProduct(product){
+  if(!product) return null;
+  for(const id of product.related_articles || []){
+    const match = state.knowledgeArticles.find(a => a.id === id);
+    if(match) return match;
+  }
+  return findRelevantArticle([product.category, product.name, ...(product.use_cases || [])].join(' '));
+}
+function renderArticle(article, label='Knowledge'){
+  if(!article) return;
+  state.article = article;
+  qs('articleCard').hidden=false;
+  qs('articleContent').innerHTML = `<h3>${article.title}</h3><p class="article-source">${label} · ${article.category || 'General'} · ${article.article_type || 'guía'}</p><p>${article.summary}</p><ul>${(article.key_points || []).map(b=>`<li>${b}</li>`).join('')}</ul><div class="message-box"><strong>Frase para el asesor</strong><br>${article.advisor_phrase || ''}</div>${article.do_not_say?.length ? `<div class="message-box"><strong>No decir</strong><br>${article.do_not_say.join('<br>')}</div>` : ''}<button class="secondary full" id="copyArticlePhraseBtn">Copiar frase del artículo</button>`;
+  addHistory(`Artículo mostrado: ${article.title}`);
+}
+
+function renderHistory(){
+  qs('historyList').innerHTML = state.history.length ? state.history.map(h=>`<div class="history-item"><strong>${h.time}</strong> · ${h.text}</div>`).join('') : '<p>Sin acciones aún.</p>';
+}
+
 function simulateCopilot(){
-  state.context.intent='Compra'; state.context.category='Televisores'; state.context.origin='Copilot'; state.context.need='Televisor de 55 pulgadas para deportes y Netflix'; state.context.useCase='Deportes y streaming'; state.context.budget=2500000; state.context.city='Barranquilla'; state.context.priority='Precio y calidad';
-  qs('budgetInput').value=2500000; qs('useInput').value='Deportes y streaming'; qs('priorityInput').value='Precio y calidad'; qs('sizeInput').value='55 pulgadas'; qs('cityInput').value='Barranquilla'; renderContext(); addHistory('Copilot actualizó contexto: TV 55, deportes/Netflix, presupuesto $2.500.000');
-  qs('recommendationSummary').textContent='Copilot actualizó el contexto. Listo para buscar recomendaciones.'; updateGuidance();
+  state.context.intent='Compra';
+  state.context.category='Computadores';
+  state.context.origin='Copilot';
+  state.context.need='Portátil para trabajo remoto, estudio y videollamadas';
+  state.context.useCase='Trabajo y estudio';
+  state.context.budget=3000000;
+  state.context.city='Barranquilla';
+  state.context.priority='Precio y calidad';
+  qs('categoryInput').value='Computadores';
+  updateProfileOptions('Computadores');
+  qs('budgetInput').value=3000000;
+  qs('useInput').value='Trabajo y estudio';
+  qs('priorityInput').value='Precio y calidad';
+  qs('sizeInput').value='15.6 pulgadas';
+  qs('cityInput').value='Barranquilla';
+  renderContext();
+  qs('recommendationSummary').textContent='Copilot actualizó el contexto. Listo para buscar recomendaciones de computadores.';
+  updateGuidance();
+  addHistory('Copilot actualizó contexto: computador para trabajo/estudio, presupuesto $3.000.000');
 }
+
 function resetApp(){ location.href = location.pathname; }
 
-document.addEventListener('click', e=>{
-  if(e.target.id==='searchBtn'||e.target.id==='emptySearchBtn') searchProducts();
-  if(e.target.id==='emptyCopilotBtn'||e.target.id==='simulateCopilotBtn') simulateCopilot();
-  if(e.target.id==='simulateArticleBtn') renderArticle(articleLibrary.tv_distance);
-  if(e.target.dataset.select) selectProduct(Number(e.target.dataset.select));
-  if(e.target.id==='objectionBtn') handleObjection();
-  if(e.target.id==='copyPitchBtn') navigator.clipboard?.writeText(qs('pitchBox').textContent);
-  if(e.target.id==='copyArticlePhraseBtn') navigator.clipboard?.writeText(state.article?.advisorPhrase || '');
-  if(e.target.id==='clearSelectedBtn'){state.selectedProduct=null; qs('selectedCard').hidden=true; renderProducts();}
-  if(e.target.id==='resetBtn') resetApp();
-});
-initFromParams(); renderHistory();
+function bindEvents(){
+  document.addEventListener('click', e=>{
+    if(e.target.id==='searchBtn'||e.target.id==='emptySearchBtn') searchProducts();
+    if(e.target.id==='emptyCopilotBtn'||e.target.id==='simulateCopilotBtn') simulateCopilot();
+    if(e.target.id==='simulateArticleBtn') renderArticle(findRelevantArticle([state.context.category, state.context.need, state.context.useCase, qs('sizeInput').value].join(' ')), 'Artículo sugerido por Copilot');
+    if(e.target.dataset.select) selectProduct(Number(e.target.dataset.select));
+    if(e.target.dataset.article) renderArticle(getArticleForProduct(state.products[Number(e.target.dataset.article)]), 'Artículo relacionado');
+    if(e.target.id==='objectionBtn') handleObjection();
+    if(e.target.id==='copyPitchBtn') navigator.clipboard?.writeText(qs('pitchBox').textContent);
+    if(e.target.id==='copyArticlePhraseBtn') navigator.clipboard?.writeText(state.article?.advisor_phrase || '');
+    if(e.target.id==='openProductBtn' && state.selectedProduct?.product_url) window.open(state.selectedProduct.product_url, '_blank');
+    if(e.target.id==='clearSelectedBtn'){state.selectedProduct=null; qs('selectedCard').hidden=true; renderProducts();}
+    if(e.target.id==='resetBtn') resetApp();
+  });
+
+  qs('categoryInput').addEventListener('change', e => {
+    updateProfileOptions(e.target.value || 'Televisores');
+    state.context.category = e.target.value;
+    renderContext();
+    updateGuidance();
+  });
+
+  qs('sortInput').addEventListener('change', e => {
+    const option = e.target.value;
+    if(!state.products.length) return;
+    if(option.includes('Precio')) state.products.sort((a,b)=>a.price-b.price);
+    if(option.includes('Marca')) state.products.sort((a,b)=>a.brand.localeCompare(b.brand));
+    if(option.includes('Disponibilidad')) state.products.sort((a,b)=>Number(isAvailable(b, qs('cityInput').value))-Number(isAvailable(a, qs('cityInput').value)));
+    renderProducts(); renderComparison(); addHistory(`Orden aplicado: ${option}`);
+  });
+}
+
+async function main(){
+  bindEvents();
+  updateProfileOptions('Televisores');
+  await loadExternalData();
+  initFromParams();
+  renderHistory();
+  qs('progressStrip').innerHTML = `<span>✅ Datos listos</span><span>→</span><span>${state.productCatalog.length} productos</span><span>→</span><span>${state.knowledgeArticles.length} artículos</span>`;
+}
+
+main();
