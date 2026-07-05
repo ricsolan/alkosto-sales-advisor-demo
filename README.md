@@ -1,4 +1,4 @@
-# Alkosto Sales Advisor App · Demo v0.6A
+# Alkosto Sales Advisor App · Demo v0.6A.1.1
 
 Esta versión agrega **Copilot Reactive UI**: la Client App puede escuchar un estado de conversación expuesto por AWS API Gateway + Lambda + DynamoDB y reaccionar a eventos detectados por Copilot o Data Actions.
 
@@ -120,3 +120,10 @@ comparison_requested
 ## Nota de seguridad
 
 Para demo se permite CORS abierto (`*`) en API Gateway. Para producción se debe restringir al dominio real de la Client App y agregar autenticación/validación de origen.
+
+
+## Cambios v0.6A.1
+
+- El botón **Consultar estado ahora** ahora muestra explícitamente cuando el estado consultado en AWS no cambió.
+- Cuando llega un evento `context_updated` o `intent_detected` desde AWS/Copilot, la app limpia productos anteriores, actualiza contexto y ejecuta una nueva búsqueda automáticamente.
+- Si Copilot cambia la categoría, por ejemplo de Televisores a Computadores, se evitan mezclas visuales de contexto nuevo con resultados anteriores.

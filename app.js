@@ -159,7 +159,15 @@ function remoteEventKey(remote){
 
 function processRemoteState(remote, manual=false){
   const key = remoteEventKey(remote);
-  if(!manual && key === state.live.lastEventKey) return;
+  if(key === state.live.lastEventKey){
+    if(manual){
+      const eventType = remote.lastEventType || remote.eventType || 'estado';
+      const time = remote.updatedAt ? new Date(remote.updatedAt).toLocaleTimeString('es-CO',{hour:'2-digit', minute:'2-digit', second:'2-digit'}) : 'sin hora';
+      renderCopilotEventBox('Estado consultado sin cambios', `Último evento: ${eventType} · Actualizado: ${time}`, 'active');
+      addHistory(`Consulta manual AWS: sin cambios para ${state.live.conversationId}.`);
+    }
+    return;
+  }
   state.live.lastEventKey = key;
   applyCopilotEvent(remote);
 }
@@ -170,9 +178,19 @@ function applyCopilotEvent(remote){
   const time = remote.updatedAt ? new Date(remote.updatedAt).toLocaleTimeString('es-CO',{hour:'2-digit', minute:'2-digit', second:'2-digit'}) : 'ahora';
 
   if(eventType === 'context_updated' || eventType === 'intent_detected'){
-    applyContextFromRemote(remote, source);
-    renderCopilotEventBox('Contexto actualizado por Copilot', `Categoría: ${state.context.category || 'pendiente'} · Presupuesto: ${state.context.budget ? money(state.context.budget) : 'pendiente'} · Ciudad: ${state.context.city || 'pendiente'} · ${time}`, 'success');
+    const previousCategory = state.context.category;
+    applyContextFromRemote(remote, source, {autoSearch:true});
+    const categoryChanged = previousCategory && state.context.category && lower(previousCategory) !== lower(state.context.category);
+
+    renderCopilotEventBox(
+      categoryChanged ? 'Copilot cambió la categoría' : 'Contexto actualizado por Copilot',
+      `Categoría: ${state.context.category || 'pendiente'} · Presupuesto: ${state.context.budget ? money(state.context.budget) : 'pendiente'} · Ciudad: ${state.context.city || 'pendiente'} · ${time}. Recalculando recomendaciones...`,
+      'success'
+    );
+
+    resetRecommendationsForCopilotContext(categoryChanged);
     addHistory(`${source} actualizó contexto: ${state.context.category || 'sin categoría'}, ${state.context.budget ? money(state.context.budget) : 'sin presupuesto'}.`);
+    setTimeout(() => searchProducts(), 350);
     return;
   }
 
@@ -229,7 +247,44 @@ function applyContextFromRemote(remote, source='Agent Copilot', options={}){
   renderContext();
   updateGuidance();
   suggestArticleFromContext('Artículo sugerido por contexto actualizado');
-  if(!options.silent) qs('recommendationSummary').textContent = 'Copilot actualizó el contexto. Puedes ejecutar búsqueda con los nuevos datos.';
+  if(!options.silent && !options.autoSearch) qs('recommendationSummary').textContent = 'Copilot actualizó el contexto. Puedes ejecutar búsqueda con los nuevos datos.';
+}
+
+function resetRecommendationsForCopilotContext(categoryChanged=false){
+  state.selectedProduct = null;
+  state.products = [];
+
+  const selected = qs('selectedCard');
+  if(selected) selected.hidden = true;
+
+  const objection = qs('objectionResult');
+  if(objection){
+    objection.hidden = true;
+    objection.innerHTML = '';
+  }
+
+  const comparison = qs('comparisonCard');
+  if(comparison) comparison.hidden = true;
+
+  const empty = qs('emptyState');
+  if(empty) empty.hidden = true;
+
+  const grid = qs('productsGrid');
+  if(grid){
+    grid.innerHTML = `<div class="loading-card">✨ Copilot actualizó el contexto...<br><span>${categoryChanged ? 'La categoría cambió. Limpiando resultados anteriores y recalculando recomendaciones.' : 'Recalculando productos con los datos actualizados.'}</span></div>`;
+  }
+
+  const strip = qs('progressStrip');
+  if(strip){
+    strip.innerHTML = '<span>✨ Señal de Copilot recibida</span><span>→</span><span>🧹 Limpiando resultados anteriores</span><span>→</span><span>🔎 Recalculando recomendación</span>';
+  }
+
+  const summary = qs('recommendationSummary');
+  if(summary){
+    summary.textContent = categoryChanged
+      ? `Copilot cambió el contexto a ${state.context.category || 'nueva categoría'}. Recalculando recomendaciones...`
+      : 'Copilot actualizó el contexto. Recalculando recomendaciones con los nuevos datos...';
+  }
 }
 
 function findArticleFromRemote(remote){
