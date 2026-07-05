@@ -1,45 +1,122 @@
-# Alkosto Sales Advisor App · Demo v0.5
+# Alkosto Sales Advisor App · Demo v0.6A
 
-Versión embebible para Genesys Cloud Agent Workspace.
+Esta versión agrega **Copilot Reactive UI**: la Client App puede escuchar un estado de conversación expuesto por AWS API Gateway + Lambda + DynamoDB y reaccionar a eventos detectados por Copilot o Data Actions.
 
-## Cambios v0.5
+## Archivos incluidos
 
-- Mantiene lectura externa de `products.json` y `articles.json`.
-- Sugiere automáticamente un artículo de conocimiento cuando llega contexto por URL/AVA/Copilot.
-- Mejora el ranking de productos con señales de presupuesto, tamaño, ciudad, uso, marca y prioridad.
-- Agrega chips de coincidencia en cada producto: dentro del presupuesto, tamaño exacto, disponible en ciudad, uso compatible, etc.
-- Mejora el panel de `Siguiente mejor acción` según etapa: perfilamiento, producto seleccionado u objeción.
-- Mejora el manejo de objeciones con diferencias para Televisores y Computadores.
-- Agrega panel `Fuente de datos` para explicar que el demo usa catálogo y artículos estructurados.
-- Deja lista la arquitectura para Demo v0.6 con n8n actualizando los JSON.
+- `index.html`
+- `styles.css`
+- `app.js`
+- `products.json`
+- `articles.json`
+- `assets/`
 
-## Archivos requeridos
+## Parámetros soportados
 
-Subir todos estos archivos a la raíz del repositorio GitHub Pages:
+La app mantiene los parámetros previos:
 
 ```text
-/index.html
-/styles.css
-/app.js
-/products.json
-/articles.json
-/assets/
+category
+budget
+city
+useCase
+priority
+need
+origin
 ```
 
-## Pruebas rápidas
-
-TV:
+Y agrega estos parámetros nuevos:
 
 ```text
-https://TU_USUARIO.github.io/alkosto-sales-advisor-demo/?category=Televisores&budget=3000000&city=Barranquilla&useCase=deportes%20y%20streaming&priority=precio%20y%20calidad&need=televisor%20de%2055%20pulgadas&origin=AVA
+conversationId=demo-123
+stateApiUrl=https://TU_API.execute-api.us-east-2.amazonaws.com/conversation-state
+pollSeconds=2
 ```
 
-Computadores:
+Ejemplo:
 
 ```text
-https://TU_USUARIO.github.io/alkosto-sales-advisor-demo/?category=Computadores&budget=3000000&city=Barranquilla&useCase=trabajo%20y%20estudio&priority=precio%20y%20calidad&need=portatil%20para%20trabajo%20remoto&origin=AVA
+https://TU_USUARIO.github.io/alkosto-sales-advisor-demo/?conversationId=demo-123&stateApiUrl=https%3A%2F%2FTU_API.execute-api.us-east-2.amazonaws.com%2Fconversation-state&category=Televisores&budget=3000000&city=Barranquilla&useCase=deportes%20y%20streaming&priority=precio%20y%20calidad&need=televisor%20de%2055%20pulgadas&origin=AVA
 ```
 
-## Nota
+> Importante: `stateApiUrl` debe ir URL-encoded si lo agregas como query parameter.
 
-Los datos son demo estructurados, no inventario real. Para producción, reemplazar por API oficial, catálogo interno o ingesta gobernada con n8n.
+## Eventos soportados desde AWS
+
+La app procesa estos `eventType` / `lastEventType`:
+
+```text
+intent_detected
+context_updated
+knowledge_article_suggested
+objection_detected
+comparison_requested
+```
+
+## Contrato JSON para POST /conversation-state
+
+### Contexto actualizado
+
+```json
+{
+  "conversationId": "demo-123",
+  "eventType": "context_updated",
+  "category": "Computadores",
+  "budget": 3000000,
+  "city": "Barranquilla",
+  "useCase": "Trabajo y estudio",
+  "need": "Portátil para trabajo remoto",
+  "priority": "Precio y calidad",
+  "source": "Agent Copilot"
+}
+```
+
+### Artículo sugerido
+
+```json
+{
+  "conversationId": "demo-123",
+  "eventType": "knowledge_article_suggested",
+  "category": "Televisores",
+  "articleId": "uhd-vs-qled",
+  "articleTitle": "Diferencia entre UHD, QLED y OLED",
+  "source": "Agent Copilot"
+}
+```
+
+### Objeción detectada
+
+```json
+{
+  "conversationId": "demo-123",
+  "eventType": "objection_detected",
+  "category": "Televisores",
+  "objectionType": "precio",
+  "customerPhrase": "Está un poco caro, lo voy a pensar",
+  "source": "Agent Copilot"
+}
+```
+
+### Comparativo solicitado
+
+```json
+{
+  "conversationId": "demo-123",
+  "eventType": "comparison_requested",
+  "category": "Televisores",
+  "comparisonFocus": "precio, marca y disponibilidad",
+  "source": "Agent Copilot"
+}
+```
+
+## Prueba rápida
+
+1. Publica estos archivos en GitHub Pages.
+2. Abre la app con `conversationId` y `stateApiUrl`.
+3. Presiona **Consultar estado ahora** para validar GET.
+4. Presiona **Enviar evento demo a AWS** para validar POST desde la app.
+5. La app debe mostrar el evento en el panel **Eventos de Copilot** y actualizar artículo, objeción, contexto o comparativo.
+
+## Nota de seguridad
+
+Para demo se permite CORS abierto (`*`) en API Gateway. Para producción se debe restringir al dominio real de la Client App y agregar autenticación/validación de origen.

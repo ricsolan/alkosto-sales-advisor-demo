@@ -8,7 +8,17 @@ const state = {
   history: [],
   dataLoaded: false,
   dataUpdatedAt: null,
-  autoArticleShown: false
+  autoArticleShown: false,
+  live: {
+    conversationId: '',
+    stateApiUrl: '',
+    pollSeconds: 2,
+    pollingEnabled: false,
+    lastEventKey: '',
+    lastFetchAt: null,
+    lastError: '',
+    demoEventIndex: 0
+  }
 };
 
 const fallbackProducts = [
@@ -72,6 +82,215 @@ function renderDataSource(){
   if(catalog) catalog.textContent = state.productCatalog.length ? `${state.productCatalog.length} productos` : 'Pendiente';
   if(articles) articles.textContent = state.knowledgeArticles.length ? `${state.knowledgeArticles.length} artículos` : 'Pendiente';
   if(updated) updated.textContent = state.dataUpdatedAt ? state.dataUpdatedAt.toLocaleString('es-CO', { dateStyle:'short', timeStyle:'short' }) : 'Pendiente';
+}
+
+function initLiveConfigFromParams(){
+  const p = getParams();
+  state.live.conversationId = cleanText(p.conversationId || p.conversation_id || p.cid || '');
+  state.live.stateApiUrl = cleanText(p.stateApiUrl || p.state_api_url || '');
+  state.live.pollSeconds = Number(p.pollSeconds || p.poll_seconds || 2) || 2;
+  state.live.pollingEnabled = !!(state.live.conversationId && state.live.stateApiUrl);
+  renderLiveStatus();
+  if(state.live.pollingEnabled){
+    addHistory(`Escucha Copilot activa para conversationId ${state.live.conversationId}.`);
+    fetchConversationState({manual:false});
+    setInterval(() => fetchConversationState({manual:false}), Math.max(2, state.live.pollSeconds) * 1000);
+  }
+}
+
+function renderLiveStatus(message){
+  const idEl = qs('liveConversationId');
+  const endpointEl = qs('liveEndpointStatus');
+  const badge = qs('liveStatusBadge');
+  const header = qs('conversationLabel');
+  if(header) header.textContent = state.live.conversationId || 'Sin ID';
+  if(idEl) idEl.textContent = state.live.conversationId || 'No configurado';
+  if(endpointEl) endpointEl.textContent = state.live.stateApiUrl ? 'AWS API activa' : 'Sin API';
+  if(badge){
+    if(state.live.pollingEnabled){
+      badge.className = 'badge success';
+      badge.innerHTML = '<span class="pulse-dot"></span>Escuchando AWS';
+    } else {
+      badge.className = 'badge muted';
+      badge.textContent = 'Modo local';
+    }
+  }
+  if(message) renderCopilotEventBox(message.title, message.body, message.kind || 'active');
+}
+
+function renderCopilotEventBox(title, body, kind='active'){
+  const box = qs('copilotEventBox');
+  if(!box) return;
+  box.className = `copilot-event-box ${kind}`;
+  box.innerHTML = `<strong>${title}</strong><p>${body}</p>`;
+}
+
+function buildStateApiUrl(){
+  if(!state.live.stateApiUrl || !state.live.conversationId) return '';
+  const joiner = state.live.stateApiUrl.includes('?') ? '&' : '?';
+  return `${state.live.stateApiUrl}${joiner}conversationId=${encodeURIComponent(state.live.conversationId)}`;
+}
+
+async function fetchConversationState({manual=false}={}){
+  if(!state.live.stateApiUrl || !state.live.conversationId){
+    if(manual) renderCopilotEventBox('Configuración pendiente', 'Para escuchar eventos agrega conversationId y stateApiUrl en la URL de la Client App.', 'warning');
+    return;
+  }
+  try{
+    const res = await fetch(buildStateApiUrl(), { cache:'no-store' });
+    const payload = await res.json();
+    state.live.lastFetchAt = new Date();
+    if(!res.ok || payload.ok === false) throw new Error(payload.error || `HTTP ${res.status}`);
+    if(!payload.found || !payload.state){
+      if(manual) renderCopilotEventBox('Sin estado en AWS', `No hay eventos para ${state.live.conversationId}. Ejecuta un POST de prueba o una acción Copilot.`, 'warning');
+      return;
+    }
+    processRemoteState(payload.state, manual);
+  } catch(error){
+    console.error('Error fetching conversation state', error);
+    state.live.lastError = error.message;
+    if(manual) renderCopilotEventBox('Error consultando AWS', error.message, 'warning');
+  }
+}
+
+function remoteEventKey(remote){
+  return [remote.conversationId, remote.updatedAt, remote.lastEventType || remote.eventType, remote.articleId, remote.objectionType, remote.customerPhrase].join('|');
+}
+
+function processRemoteState(remote, manual=false){
+  const key = remoteEventKey(remote);
+  if(!manual && key === state.live.lastEventKey) return;
+  state.live.lastEventKey = key;
+  applyCopilotEvent(remote);
+}
+
+function applyCopilotEvent(remote){
+  const eventType = remote.lastEventType || remote.eventType || 'context_updated';
+  const source = remote.updatedBy || remote.source || 'Agent Copilot';
+  const time = remote.updatedAt ? new Date(remote.updatedAt).toLocaleTimeString('es-CO',{hour:'2-digit', minute:'2-digit', second:'2-digit'}) : 'ahora';
+
+  if(eventType === 'context_updated' || eventType === 'intent_detected'){
+    applyContextFromRemote(remote, source);
+    renderCopilotEventBox('Contexto actualizado por Copilot', `Categoría: ${state.context.category || 'pendiente'} · Presupuesto: ${state.context.budget ? money(state.context.budget) : 'pendiente'} · Ciudad: ${state.context.city || 'pendiente'} · ${time}`, 'success');
+    addHistory(`${source} actualizó contexto: ${state.context.category || 'sin categoría'}, ${state.context.budget ? money(state.context.budget) : 'sin presupuesto'}.`);
+    return;
+  }
+
+  if(eventType === 'knowledge_article_suggested'){
+    const article = findArticleFromRemote(remote);
+    if(article) renderArticle(article, `Artículo sugerido por ${source}`);
+    renderCopilotEventBox('Artículo sugerido por Copilot', `${remote.articleTitle || article?.title || 'Artículo de conocimiento'} · ${time}`, 'active');
+    addHistory(`${source} sugirió artículo: ${remote.articleTitle || article?.title || remote.articleId || 'sin título'}.`);
+    return;
+  }
+
+  if(eventType === 'objection_detected'){
+    if(remote.category || remote.budget || remote.city || remote.useCase || remote.need || remote.priority) applyContextFromRemote(remote, source, {silent:true});
+    applyObjectionFromRemote(remote, source);
+    renderCopilotEventBox('Objeción detectada por Copilot', `${remote.objectionType || 'Objeción'} · “${remote.customerPhrase || 'Frase no capturada'}” · ${time}`, 'warning');
+    addHistory(`${source} detectó objeción: ${remote.objectionType || 'sin tipo'}.`);
+    return;
+  }
+
+  if(eventType === 'comparison_requested'){
+    qs('comparisonCard').hidden = false;
+    if(!state.products.length) qs('recommendationSummary').textContent = 'Copilot detectó necesidad de comparar. Ejecuta búsqueda para generar comparativo con productos recomendados.';
+    renderCopilotEventBox('Comparativo solicitado', `Foco: ${remote.comparisonFocus || 'precio, marca y disponibilidad'} · ${time}`, 'active');
+    addHistory(`${source} solicitó comparativo: ${remote.comparisonFocus || 'general'}.`);
+    return;
+  }
+
+  renderCopilotEventBox('Evento recibido', `${eventType} · ${time}`, 'active');
+  addHistory(`${source} envió evento: ${eventType}.`);
+}
+
+function applyContextFromRemote(remote, source='Agent Copilot', options={}){
+  if(remote.intent) state.context.intent = remote.intent;
+  if(remote.category) state.context.category = remote.category;
+  if(remote.budget) state.context.budget = normalizeBudget(remote.budget);
+  if(remote.city) state.context.city = remote.city;
+  if(remote.useCase || remote.use_case) state.context.useCase = remote.useCase || remote.use_case;
+  if(remote.priority || remote.customerPriority) state.context.priority = remote.priority || remote.customerPriority;
+  if(remote.need || remote.customerNeed) state.context.need = remote.need || remote.customerNeed;
+  if(remote.screenSize || remote.screen_size) qs('sizeInput').value = remote.screenSize || remote.screen_size;
+  state.context.origin = source;
+
+  if(state.context.category){
+    qs('categoryInput').value = state.context.category;
+    updateProfileOptions(state.context.category);
+  }
+  if(state.context.budget) qs('budgetInput').value = state.context.budget;
+  if(state.context.city) qs('cityInput').value = state.context.city;
+  if(state.context.useCase) qs('useInput').value = state.context.useCase;
+  if(state.context.priority) qs('priorityInput').value = state.context.priority;
+  if((remote.screenSize || remote.screen_size) && qs('sizeInput')) qs('sizeInput').value = remote.screenSize || remote.screen_size;
+  else if(state.context.need && qs('sizeInput') && !qs('sizeInput').value) qs('sizeInput').value = inferSize(state.context.need);
+
+  renderContext();
+  updateGuidance();
+  suggestArticleFromContext('Artículo sugerido por contexto actualizado');
+  if(!options.silent) qs('recommendationSummary').textContent = 'Copilot actualizó el contexto. Puedes ejecutar búsqueda con los nuevos datos.';
+}
+
+function findArticleFromRemote(remote){
+  if(remote.articleId){
+    const byId = state.knowledgeArticles.find(a => lower(a.id) === lower(remote.articleId));
+    if(byId) return byId;
+  }
+  if(remote.articleTitle){
+    const title = lower(remote.articleTitle);
+    const byTitle = state.knowledgeArticles.find(a => lower(a.title).includes(title) || title.includes(lower(a.title)));
+    if(byTitle) return byTitle;
+  }
+  return findRelevantArticle([remote.category, remote.articleTitle, remote.articleId, state.context.need, state.context.useCase].join(' '));
+}
+
+function applyObjectionFromRemote(remote, source='Agent Copilot'){
+  const type = remote.objectionType || 'Precio';
+  const normalizedType = type.charAt(0).toUpperCase() + type.slice(1).toLowerCase();
+  if(qs('objectionType')) qs('objectionType').value = [...qs('objectionType').options].some(o => o.value === normalizedType) ? normalizedType : 'Precio';
+  if(qs('customerPhrase')) qs('customerPhrase').value = remote.customerPhrase || '';
+
+  const category = remote.category || state.context.category || 'Televisores';
+  const article = findRelevantArticle([category, type, remote.customerPhrase, remote.articleId].join(' '));
+  const p = state.selectedProduct || state.products[0];
+  const productText = p ? `${p.brand} ${p.name}` : `la línea de ${category.toLowerCase()}`;
+  const benefit = lower(type).includes('precio')
+    ? (category === 'Computadores' ? 'comparar una alternativa más económica sin perder rendimiento clave para el uso declarado' : 'comparar contra una opción más económica y reforzar valor, tamaño e imagen')
+    : lower(type).includes('garant') ? 'explicar respaldo y condiciones sin prometer beneficios no autorizados'
+    : lower(type).includes('entrega') ? 'validar disponibilidad y tiempos antes de prometer entrega'
+    : 'reducir incertidumbre con comparativo y siguiente paso claro';
+  const advisor = article?.advisor_phrase || `Entiendo tu punto. Revisemos ${productText} frente a otra alternativa para que veas claramente qué beneficios mantienes y qué podrías sacrificar.`;
+
+  qs('objectionResult').hidden=false;
+  qs('objectionResult').innerHTML = `<div class="risk"><strong>Riesgo de pérdida: Alto</strong><br>Detectado por ${source}. Objeción: ${normalizedType}. Frase: “${remote.customerPhrase || 'No capturada'}”</div><div class="strategy"><strong>Estrategia recomendada</strong><br>${article?.summary || 'Reforzar valor y comparar alternativas concretas.'}</div><div class="benefit"><strong>Beneficio sugerido</strong><br>${benefit}.</div><div class="message-box"><strong>Frase sugerida</strong><br>${advisor}</div>`;
+  qs('nextActionBox').textContent = nextBestActionForStage('objection');
+  if(article) renderArticle(article, `Artículo para objeción · ${source}`);
+}
+
+async function sendDemoEventToAws(){
+  if(!state.live.stateApiUrl || !state.live.conversationId){
+    renderCopilotEventBox('No hay endpoint configurado', 'Agrega stateApiUrl y conversationId en la URL para enviar eventos demo a AWS.', 'warning');
+    return;
+  }
+  const events = [
+    {eventType:'knowledge_article_suggested', category: state.context.category || 'Televisores', articleId: state.context.category === 'Computadores' ? 'laptop-study-work-guide' : 'uhd-vs-qled', articleTitle: state.context.category === 'Computadores' ? 'Portátil para estudio y trabajo remoto' : 'Diferencia entre UHD, QLED y OLED'},
+    {eventType:'objection_detected', category: state.context.category || 'Televisores', objectionType:'precio', customerPhrase:'Está un poco caro, lo voy a pensar'},
+    {eventType:'comparison_requested', category: state.context.category || 'Televisores', comparisonFocus:'precio, marca y disponibilidad'},
+    {eventType:'context_updated', category:'Computadores', budget:3000000, city:'Barranquilla', useCase:'Trabajo y estudio', need:'Portátil para trabajo remoto', priority:'Precio y calidad'}
+  ];
+  const eventBody = { conversationId: state.live.conversationId, source:'Client App Demo', ...events[state.live.demoEventIndex % events.length] };
+  state.live.demoEventIndex += 1;
+  try{
+    const res = await fetch(state.live.stateApiUrl, { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(eventBody) });
+    const payload = await res.json();
+    if(!res.ok || payload.ok === false) throw new Error(payload.error || `HTTP ${res.status}`);
+    renderCopilotEventBox('Evento demo enviado a AWS', `${eventBody.eventType}. La app lo leerá en el próximo polling.`, 'success');
+    setTimeout(() => fetchConversationState({manual:true}), 500);
+  } catch(error){
+    console.error(error);
+    renderCopilotEventBox('Error enviando evento demo', error.message, 'warning');
+  }
 }
 
 
@@ -532,6 +751,8 @@ function bindEvents(){
     if(e.target.id==='openProductBtn' && state.selectedProduct?.product_url) window.open(state.selectedProduct.product_url, '_blank');
     if(e.target.id==='clearSelectedBtn'){state.selectedProduct=null; qs('selectedCard').hidden=true; renderProducts();}
     if(e.target.id==='resetBtn') resetApp();
+    if(e.target.id==='pollNowBtn') fetchConversationState({manual:true});
+    if(e.target.id==='sendDemoEventBtn') sendDemoEventToAws();
   });
 
   qs('categoryInput').addEventListener('change', e => {
@@ -556,6 +777,7 @@ async function main(){
   updateProfileOptions('Televisores');
   await loadExternalData();
   initFromParams();
+  initLiveConfigFromParams();
   renderHistory();
   renderDataSource();
   qs('progressStrip').innerHTML = `<span>✅ Datos listos</span><span>→</span><span>${state.productCatalog.length} productos</span><span>→</span><span>${state.knowledgeArticles.length} artículos</span>`;
