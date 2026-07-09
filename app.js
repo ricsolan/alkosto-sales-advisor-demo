@@ -230,6 +230,11 @@ function applyContextFromRemote(remote, source='Agent Copilot', options={}){
   if(remote.useCase || remote.use_case) state.context.useCase = remote.useCase || remote.use_case;
   if(remote.priority || remote.customerPriority) state.context.priority = remote.priority || remote.customerPriority;
   if(remote.need || remote.customerNeed) state.context.need = remote.need || remote.customerNeed;
+
+  const remoteText = [remote.need, remote.customerNeed, remote.useCase, remote.use_case, remote.articleTitle, remote.customerPhrase].join(' ');
+  if(!state.context.useCase) state.context.useCase = inferUseCase(remoteText, state.context.category);
+  if(!state.context.priority) state.context.priority = inferPriority(remoteText);
+
   if(remote.screenSize || remote.screen_size) qs('sizeInput').value = remote.screenSize || remote.screen_size;
   state.context.origin = source;
 
@@ -245,8 +250,8 @@ function applyContextFromRemote(remote, source='Agent Copilot', options={}){
   else if(state.context.need && qs('sizeInput') && !qs('sizeInput').value) qs('sizeInput').value = inferSize(state.context.need);
 
   renderContext();
-  updateGuidance();
-  suggestArticleFromContext('Artículo sugerido por contexto actualizado');
+  if(options.autoSearch) resetGuidance();
+  else updateGuidance();
   if(!options.silent && !options.autoSearch) qs('recommendationSummary').textContent = 'Copilot actualizó el contexto. Puedes ejecutar búsqueda con los nuevos datos.';
 }
 
@@ -403,15 +408,52 @@ function inferSize(text){
   return m ? `${m[1]} pulgadas` : '';
 }
 
+function inferUseCase(text, category=''){
+  const t = lower(text);
+  if(!t) return '';
+  if(category === 'Computadores'){
+    if(t.includes('gaming') || t.includes('jugar') || t.includes('juegos')) return 'Gaming';
+    if(t.includes('diseño') || t.includes('diseno') || t.includes('edicion') || t.includes('edición')) return 'Diseño / edición';
+    if(t.includes('videollamada') || t.includes('videollamadas')) return 'Videollamadas';
+    if(t.includes('trabajo') && t.includes('estudio')) return 'Trabajo y estudio';
+    if(t.includes('trabajo') || t.includes('oficina')) return 'Trabajo remoto';
+    if(t.includes('estudio') || t.includes('universidad') || t.includes('clases')) return 'Estudio';
+  }
+  if(t.includes('deporte') || t.includes('futbol') || t.includes('fútbol')) return 'Deportes y streaming';
+  if(t.includes('netflix') || t.includes('streaming') || t.includes('series')) return 'Streaming';
+  if(t.includes('videojuego') || t.includes('gaming') || t.includes('jugar')) return 'Videojuegos';
+  if(t.includes('película') || t.includes('pelicula') || t.includes('cine')) return 'Películas';
+  return '';
+}
+
+function inferPriority(text){
+  const t = lower(text);
+  if(t.includes('precio') && (t.includes('calidad') || t.includes('balance'))) return 'Precio y calidad';
+  if(t.includes('barato') || t.includes('económico') || t.includes('economico') || t.includes('mejor precio')) return 'Mejor precio';
+  if(t.includes('marca')) return 'Marca';
+  if(t.includes('entrega')) return 'Entrega rápida';
+  if(t.includes('garant')) return 'Garantía';
+  if(t.includes('rendimiento')) return 'Rendimiento';
+  return '';
+}
+
 function initFromParams(){
   const p = getParams();
+  const contextText = [
+    p.intent, p.sales_intent, p.category, p.sales_category,
+    p.customerNeed, p.need, p.customer_need, p.useCase, p.use_case,
+    p.advisorSummary, p.advisor_summary, p.summary, p.transferSummary, p.transfer_summary
+  ].join(' ');
+
   state.context.intent = cleanText(p.intent || p.sales_intent || '');
-  state.context.category = cleanText(p.category || p.sales_category || '') || inferCategory([p.need,p.customer_need,p.useCase,p.use_case].join(' '));
-  state.context.budget = normalizeBudget(p.budget || '');
-  state.context.city = cleanText(p.city || '');
-  state.context.useCase = cleanText(p.useCase || p.use_case || '');
-  state.context.priority = cleanText(p.priority || p.customer_priority || '');
+  state.context.category = cleanText(p.category || p.sales_category || '') || inferCategory(contextText);
+  state.context.budget = normalizeBudget(p.budget || p.presupuesto || contextText);
+  state.context.city = cleanText(p.city || p.ciudad || '');
+  state.context.useCase = cleanText(p.useCase || p.use_case || '') || inferUseCase(contextText, state.context.category);
+  state.context.priority = cleanText(p.priority || p.customer_priority || '') || inferPriority(contextText);
   state.context.need = cleanText(p.customerNeed || p.need || p.customer_need || '');
+  if(!state.context.need && inferSize(contextText) && state.context.category === 'Televisores') state.context.need = `Televisor de ${inferSize(contextText)}`;
+  if(!state.context.need && state.context.category === 'Computadores') state.context.need = inferUseCase(contextText, 'Computadores') ? `Computador para ${inferUseCase(contextText, 'Computadores').toLowerCase()}` : '';
   state.context.origin = hasContext() ? cleanText(p.origin || 'AVA') : '';
 
   qs('categoryInput').value = state.context.category || '';
@@ -420,13 +462,10 @@ function initFromParams(){
   qs('cityInput').value = state.context.city || '';
   qs('useInput').value = state.context.useCase || '';
   qs('priorityInput').value = state.context.priority || '';
-  qs('sizeInput').value = inferSize(state.context.need) || '';
-  qs('brandInput').value = '';
+  qs('sizeInput').value = cleanText(p.screenSize || p.screen_size || p.size || '') || inferSize([state.context.need, contextText].join(' ')) || '';
+  qs('brandInput').value = cleanText(p.preferredBrand || p.preferred_brand || '');
   renderContext();
-  if(hasContext()) {
-    updateGuidance();
-    suggestArticleFromContext('Artículo sugerido automáticamente');
-  }
+  resetGuidance();
 }
 
 
@@ -564,7 +603,6 @@ function searchProducts(){
     renderProducts();
     renderComparison();
     updateGuidance();
-    suggestArticleFromContext('Artículo sugerido por contexto');
     addHistory(`Búsqueda ejecutada: ${state.context.category}, ${labelForSlot(f.size,'tamaño no definido')}, ${labelForSlot(f.useCase,'uso no definido')}, ${f.budget ? money(f.budget) : 'sin presupuesto'}, ${labelForSlot(f.city,'sin ciudad')}`);
   }, 700);
 }
@@ -670,6 +708,21 @@ function suggestArticleFromContext(label='Artículo sugerido por Copilot'){
     renderArticle(article, label, {silent:true});
     state.autoArticleShown = true;
   }
+}
+
+function resetGuidance(){
+  const q = qs('questionsList');
+  if(q){
+    q.classList.add('muted-list');
+    q.innerHTML = '<div>Esperando búsqueda o señal de Copilot para sugerir preguntas.</div>';
+  }
+  const pitch = qs('pitchBox');
+  if(pitch){
+    pitch.classList.add('empty-copy');
+    pitch.textContent = 'Aún no hay argumento sugerido. Ejecuta una búsqueda o recibe una señal de Copilot.';
+  }
+  const next = qs('nextActionBox');
+  if(next) next.textContent = 'Completar perfilamiento y buscar productos recomendados.';
 }
 
 function updateGuidance(){
@@ -793,6 +846,21 @@ function simulateCopilot(){
 
 function resetApp(){ location.href = location.pathname; }
 
+function scrollToComparison(){
+  if(!state.products.length){
+    qs('recommendationSummary').textContent = 'Ejecuta primero una búsqueda para generar el comparativo entre modelos.';
+    qs('emptyState').scrollIntoView({behavior:'smooth', block:'center'});
+    return;
+  }
+  renderComparison();
+  const card = qs('comparisonCard');
+  if(card){
+    card.hidden = false;
+    card.scrollIntoView({behavior:'smooth', block:'start'});
+    addHistory('Comparativo abierto por el asesor.');
+  }
+}
+
 function bindEvents(){
   document.addEventListener('click', e=>{
     if(e.target.id==='searchBtn'||e.target.id==='emptySearchBtn') searchProducts();
@@ -808,6 +876,7 @@ function bindEvents(){
     if(e.target.id==='resetBtn') resetApp();
     if(e.target.id==='pollNowBtn') fetchConversationState({manual:true});
     if(e.target.id==='sendDemoEventBtn') sendDemoEventToAws();
+    if(e.target.id==='compareBtn') scrollToComparison();
   });
 
   qs('categoryInput').addEventListener('change', e => {
