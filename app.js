@@ -17,7 +17,8 @@ const state = {
     lastEventKey: '',
     lastFetchAt: null,
     lastError: '',
-    demoEventIndex: 0
+    demoEventIndex: 0,
+    debug: false
   }
 };
 
@@ -72,7 +73,15 @@ function money(n){ return n ? '$' + Number(n).toLocaleString('es-CO') : 'Pendien
 function cleanText(v){ return String(v || '').trim(); }
 function lower(v){ return cleanText(v).toLowerCase(); }
 function getParams(){ return Object.fromEntries(new URLSearchParams(location.search).entries()); }
-function addHistory(text){ state.history.unshift({text, time:new Date().toLocaleTimeString('es-CO',{hour:'2-digit',minute:'2-digit'})}); renderHistory(); }
+function addHistory(text){
+  const normalized = cleanText(text);
+  if(!normalized) return;
+  const last = state.history[0]?.text || '';
+  if(last === normalized) return;
+  state.history.unshift({text: normalized, time:new Date().toLocaleTimeString('es-CO',{hour:'2-digit',minute:'2-digit'})});
+  state.history = state.history.slice(0, 25);
+  renderHistory();
+}
 function hasContext(){ return !!(state.context.category || state.context.need || state.context.useCase || state.context.budget || state.context.city); }
 
 function renderDataSource(){
@@ -85,6 +94,7 @@ function renderDataSource(){
 }
 
 function initLiveConfigFromParams(){
+  setDebugVisibility();
   const p = getParams();
   state.live.conversationId = cleanText(p.conversationId || p.conversation_id || p.cid || '');
   state.live.stateApiUrl = cleanText(p.stateApiUrl || p.state_api_url || '');
@@ -123,6 +133,36 @@ function renderCopilotEventBox(title, body, kind='active'){
   if(!box) return;
   box.className = `copilot-event-box ${kind}`;
   box.innerHTML = `<strong>${title}</strong><p>${body}</p>`;
+}
+
+function setDebugVisibility(){
+  const p = getParams();
+  state.live.debug = ['true','1','yes','si','sí'].includes(lower(p.debug));
+  document.body.classList.toggle('debug-mode', state.live.debug);
+  document.querySelectorAll('.debug-only').forEach(el => { el.hidden = !state.live.debug; });
+}
+
+function flashElement(id){
+  const el = qs(id);
+  if(!el) return;
+  el.classList.remove('copilot-highlight');
+  void el.offsetWidth;
+  el.classList.add('copilot-highlight');
+}
+
+function scrollToElement(id, block='start'){
+  const el = qs(id);
+  if(!el || el.hidden) return;
+  setTimeout(() => el.scrollIntoView({ behavior:'smooth', block }), 250);
+}
+
+function markCopilotUpdate(label='Actualizado por Agent Copilot'){
+  const origin = qs('contextOrigin');
+  if(origin){
+    origin.textContent = label;
+    origin.className = 'badge success copilot-badge-live';
+  }
+  flashElement('liveEventsCard');
 }
 
 function buildStateApiUrl(){
@@ -189,6 +229,8 @@ function applyCopilotEvent(remote){
     );
 
     resetRecommendationsForCopilotContext(categoryChanged);
+    markCopilotUpdate('Actualizado por Agent Copilot Intent');
+    flashElement('productsGrid');
     addHistory(`${source} actualizó contexto: ${state.context.category || 'sin categoría'}, ${state.context.budget ? money(state.context.budget) : 'sin presupuesto'}.`);
     setTimeout(() => searchProducts(), 350);
     return;
@@ -198,6 +240,9 @@ function applyCopilotEvent(remote){
     const article = findArticleFromRemote(remote);
     if(article) renderArticle(article, `Artículo sugerido por ${source}`);
     renderCopilotEventBox('Artículo sugerido por Copilot', `${remote.articleTitle || article?.title || 'Artículo de conocimiento'} · ${time}`, 'active');
+    markCopilotUpdate('Actualizado por Knowledge');
+    flashElement('articleCard');
+    scrollToElement('articleCard', 'center');
     addHistory(`${source} sugirió artículo: ${remote.articleTitle || article?.title || remote.articleId || 'sin título'}.`);
     return;
   }
@@ -206,14 +251,21 @@ function applyCopilotEvent(remote){
     if(remote.category || remote.budget || remote.city || remote.useCase || remote.need || remote.priority) applyContextFromRemote(remote, source, {silent:true});
     applyObjectionFromRemote(remote, source);
     renderCopilotEventBox('Objeción detectada por Copilot', `${remote.objectionType || 'Objeción'} · “${remote.customerPhrase || 'Frase no capturada'}” · ${time}`, 'warning');
+    markCopilotUpdate('Actualizado por Agent Copilot Intent');
+    flashElement('objectionResult');
+    scrollToElement('objectionResult', 'center');
     addHistory(`${source} detectó objeción: ${remote.objectionType || 'sin tipo'}.`);
     return;
   }
 
   if(eventType === 'comparison_requested'){
     qs('comparisonCard').hidden = false;
-    if(!state.products.length) qs('recommendationSummary').textContent = 'Copilot detectó necesidad de comparar. Ejecuta búsqueda para generar comparativo con productos recomendados.';
+    if(state.products.length) renderComparison();
+    else qs('recommendationSummary').textContent = 'Copilot detectó necesidad de comparar. Ejecuta búsqueda para generar comparativo con productos recomendados.';
     renderCopilotEventBox('Comparativo solicitado', `Foco: ${remote.comparisonFocus || 'precio, marca y disponibilidad'} · ${time}`, 'active');
+    markCopilotUpdate('Actualizado por Agent Copilot Intent');
+    flashElement('comparisonCard');
+    scrollToElement('comparisonCard', 'center');
     addHistory(`${source} solicitó comparativo: ${remote.comparisonFocus || 'general'}.`);
     return;
   }
@@ -419,7 +471,7 @@ function inferUseCase(text, category=''){
     if(t.includes('trabajo') || t.includes('oficina')) return 'Trabajo remoto';
     if(t.includes('estudio') || t.includes('universidad') || t.includes('clases')) return 'Estudio';
   }
-  if(t.includes('deporte') || t.includes('futbol') || t.includes('fútbol')) return 'Deportes y streaming';
+  if(t.includes('deporte') || t.includes('futbol') || t.includes('fútbol') || t.includes('football')) return 'Deportes y streaming';
   if(t.includes('netflix') || t.includes('streaming') || t.includes('series')) return 'Streaming';
   if(t.includes('videojuego') || t.includes('gaming') || t.includes('jugar')) return 'Videojuegos';
   if(t.includes('película') || t.includes('pelicula') || t.includes('cine')) return 'Películas';

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Alkosto Sales Advisor · Demo v0.6B.1.1</title>
+  <title>Alkosto Sales Advisor · Demo v0.6C</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -13,7 +13,7 @@
         <div class="logo">ALKOSTO</div>
         <div>
           <h1>Sales Advisor</h1>
-          <p>Asistente inteligente de ventas · Demo v0.6B.1.1</p>
+          <p>Asistente inteligente de ventas · Demo v0.6C</p>
         </div>
       </div>
       <div class="top-meta">
@@ -25,7 +25,7 @@
         <span>Ciudad: <strong id="cityLabel">Sin ciudad</strong></span>
         <span>Conv ID: <strong id="conversationLabel">Sin ID</strong></span>
       </div>
-      <div class="header-actions">
+      <div class="header-actions debug-only">
         <button class="copilot-pill" id="simulateCopilotBtn">✦ Simular señal Copilot</button>
         <button class="secondary" id="simulateArticleBtn">📄 Simular artículo</button>
       </div>
@@ -94,7 +94,7 @@
         <section class="card data-card">
           <div class="section-title-row">
             <h2>Fuente de datos</h2>
-            <span class="badge neutral">v0.6A.1</span>
+            <span class="badge neutral">v0.6C</span>
           </div>
           <div class="kv"><span>Modo</span><strong>Demo controlado</strong></div>
           <div class="kv"><span>Catálogo</span><strong id="catalogCountText">Pendiente</strong></div>
@@ -126,7 +126,7 @@
           <p>La app está esperando contexto de AVA/Copilot o datos del asesor. Al buscar, cargará productos desde <strong>products.json</strong>, artículos desde <strong>articles.json</strong>, inventario, comparativo, siguiente mejor acción y guía de cierre.</p>
           <div class="empty-actions">
             <button class="primary" id="emptySearchBtn">Buscar con filtros actuales</button>
-            <button class="secondary" id="emptyCopilotBtn">Simular contexto Copilot</button>
+            <button class="secondary debug-only" id="emptyCopilotBtn">Simular contexto Copilot</button>
           </div>
         </div>
 
@@ -156,7 +156,7 @@
             <strong>Esperando señales</strong>
             <p>Cuando Copilot/Data Action actualice AWS, aquí aparecerá la señal y la app reaccionará automáticamente.</p>
           </div>
-          <div class="event-actions">
+          <div class="event-actions debug-only">
             <button class="secondary full" id="pollNowBtn">Consultar estado ahora</button>
             <button class="secondary full" id="sendDemoEventBtn">Enviar evento demo a AWS</button>
           </div>

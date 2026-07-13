@@ -1,8 +1,8 @@
-# Alkosto Sales Advisor App — Demo v0.6B
+# Alkosto Sales Advisor App — Demo v0.6C
 
 Esta versión ajusta la experiencia inicial y corrige detalles de interacción observados en Genesys.
 
-## Cambios v0.6B
+## Cambios v0.6C
 
 - La sección **Guía para el asesor** inicia en estado vacío/minimalista.
 - La sección **Artículo sugerido por Copilot** ya no se muestra automáticamente al cargar ni al buscar productos; solo aparece por acción explícita, artículo relacionado o evento AWS `knowledge_article_suggested`.
@@ -25,3 +25,10 @@ Esta versión ajusta la experiencia inicial y corrige detalles de interacción o
 - `products.json`
 - `articles.json`
 - `assets/`
+
+
+## v0.6C
+
+- Oculta botones de simulación por defecto; se muestran solo con `debug=true` en la URL.
+- Agrega auto-scroll y resaltado visual cuando llegan eventos reales de Agent Copilot desde AWS.
+- Mantiene el estado inicial más limpio para demo ejecutivo.
