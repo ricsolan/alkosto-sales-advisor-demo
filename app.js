@@ -15,6 +15,7 @@ const state = {
     pollSeconds: 2,
     pollingEnabled: false,
     lastEventKey: '',
+    lastIntelligenceKey: '',
     lastFetchAt: null,
     lastError: '',
     demoEventIndex: 0,
@@ -72,6 +73,8 @@ function qs(id){ return document.getElementById(id); }
 function money(n){ return n ? '$' + Number(n).toLocaleString('es-CO') : 'Pendiente'; }
 function cleanText(v){ return String(v || '').trim(); }
 function lower(v){ return cleanText(v).toLowerCase(); }
+function escapeHtml(v){ return String(v ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+function safeHttpUrl(v){ try{ const url = new URL(String(v || '')); return ['http:','https:'].includes(url.protocol) ? url.href : ''; }catch{ return ''; } }
 function getParams(){ return Object.fromEntries(new URLSearchParams(location.search).entries()); }
 function addHistory(text){
   const normalized = cleanText(text);
@@ -194,12 +197,16 @@ async function fetchConversationState({manual=false}={}){
 }
 
 function remoteEventKey(remote){
-  return [remote.conversationId, remote.updatedAt, remote.lastEventType || remote.eventType, remote.articleId, remote.objectionType, remote.customerPhrase].join('|');
+  return [remote.conversationId, remote.eventId || remote.requestHash || '', remote.lastEventType || remote.eventType, remote.articleId, remote.objectionType, remote.customerPhrase].join('|');
 }
 
 function processRemoteState(remote, manual=false){
   const key = remoteEventKey(remote);
-  if(key === state.live.lastEventKey){
+  const intelligence = remote.intelligence;
+  const intelligenceKey = intelligence ? [intelligence.requestHash, intelligence.status, intelligence.generatedAt || intelligence.completedAt || ''].join('|') : '';
+  const eventChanged = key !== state.live.lastEventKey;
+  const intelligenceChanged = Boolean(intelligenceKey && intelligenceKey !== state.live.lastIntelligenceKey);
+  if(!eventChanged && !intelligenceChanged){
     if(manual){
       const eventType = remote.lastEventType || remote.eventType || 'estado';
       const time = remote.updatedAt ? new Date(remote.updatedAt).toLocaleTimeString('es-CO',{hour:'2-digit', minute:'2-digit', second:'2-digit'}) : 'sin hora';
@@ -208,8 +215,81 @@ function processRemoteState(remote, manual=false){
     }
     return;
   }
-  state.live.lastEventKey = key;
-  applyCopilotEvent(remote);
+  if(eventChanged){ state.live.lastEventKey = key; applyCopilotEvent(remote); }
+  if(intelligenceChanged){ state.live.lastIntelligenceKey = intelligenceKey; applySalesIntelligence(remote); }
+}
+
+function showIntelligencePending(remote){
+  const eventType = remote.lastEventType || remote.eventType || 'context_updated';
+  renderCopilotEventBox('Consultando fuentes actualizadas…', `Preparando inteligencia comercial para ${eventType.replaceAll('_',' ')}.`, 'active');
+  const grid = qs('productsGrid');
+  if(grid && (eventType === 'context_updated' || eventType === 'comparison_requested')){
+    qs('emptyState').hidden = true;
+    grid.innerHTML = '<div class="loading-card">✨ Consultando fuentes actualizadas…<br><span>Validando productos, características, precios de referencia y fuentes.</span></div>';
+  }
+  qs('progressStrip').innerHTML = '<span>✨ Contexto recibido</span><span>→</span><span>🌐 Consultando fuentes</span><span>→</span><span>⏳ Preparando recomendación</span>';
+}
+
+function recommendationToProduct(item, index, eventType){
+  const price = item.estimatedPrice || {};
+  const availability = item.availability || {};
+  return {
+    sku:`AI-${index + 1}-${cleanText(item.model || item.name).slice(0,24)}`, brand:cleanText(item.brand) || 'Marca por validar',
+    name:cleanText(item.name || item.model) || 'Referencia encontrada', model:cleanText(item.model), category:state.context.category || 'Producto',
+    price:Number(price.value) || 0, previous_price:0, price_type:price.type || 'unavailable', observed_at:price.observedAt || '',
+    promotion:price.type === 'observed' ? 'Precio observado; validar vigencia' : 'Precio de referencia; validar en tienda',
+    inventory:availability.message || 'Validar disponibilidad en tienda', availability_status:availability.status || 'unknown',
+    use_cases:item.bestFor ? [item.bestFor] : [], priority_tags:[], recommendation:index === 0 ? 'MEJOR OPCIÓN' : 'ALTERNATIVA',
+    key_benefit:cleanText(item.whyRecommended), reason:cleanText(item.whyRecommended), pros:item.pros || [], cons:item.cons || [],
+    product_url:safeHttpUrl(item.sourceUrls?.[0]), source_urls:(item.sourceUrls || []).map(safeHttpUrl).filter(Boolean), intelligence_event:eventType
+  };
+}
+
+function applySalesIntelligence(remote){
+  const intelligence = remote.intelligence || {};
+  if(intelligence.status === 'pending'){ showIntelligencePending(remote); return; }
+  if(intelligence.status === 'fallback' || intelligence.status === 'failed'){
+    renderCopilotEventBox('Guía local disponible', 'Usando guía local por no disponibilidad de fuentes externas.', 'warning');
+    addHistory('No fue posible consultar fuentes externas; se activó el fallback local.');
+    if(remote.eventType === 'context_updated' && !state.products.length) searchProducts();
+    return;
+  }
+  if(intelligence.status !== 'completed' || !intelligence.data) return;
+  const data = intelligence.data;
+  const recommendations = Array.isArray(data.recommendations) ? data.recommendations : [];
+  if(recommendations.length){
+    state.products = recommendations.map((item,index)=>recommendationToProduct(item,index,intelligence.eventType));
+    state.selectedProduct = null; qs('emptyState').hidden = true;
+    qs('progressStrip').innerHTML = `<span>✅ ${state.products.length} opciones actualizadas</span><span>→</span><span>${intelligence.cached ? '⚡ Resultado en caché' : '🌐 Consulta en vivo'}</span><span>→</span><span>📚 ${intelligence.citations?.length || 0} fuentes</span>`;
+    qs('recommendationSummary').textContent = data.advisorGuidance?.summary || `Se encontraron ${state.products.length} opciones actuales. Los precios y la disponibilidad deben validarse antes del cierre.`;
+    renderProducts();
+  }
+  if(Array.isArray(data.comparison) && data.comparison.length) renderDynamicComparison(data.comparison);
+  if(data.knowledge) renderDynamicKnowledge(data.knowledge, intelligence);
+  if(data.advisorGuidance) renderDynamicGuidance(data.advisorGuidance);
+  if(data.objectionHandling) renderDynamicObjection(data.objectionHandling);
+  renderIntelligenceSources(intelligence);
+  renderCopilotEventBox('Inteligencia comercial actualizada', `${intelligence.cached ? 'Respuesta reutilizada desde caché' : 'Consulta completada'} · ${intelligence.citations?.length || 0} fuentes verificables.`, 'success');
+  markCopilotUpdate('Actualizado por Perplexity IA');
+  addHistory(`Inteligencia comercial actualizada para ${intelligence.eventType || remote.eventType}.`);
+}
+
+function renderDynamicComparison(rows){
+  qs('comparisonCard').hidden = false;
+  qs('comparisonBody').innerHTML = rows.map(row => `<tr><td><strong>${escapeHtml(row.feature)}</strong></td><td>${escapeHtml(row.optionA)}</td><td>${escapeHtml(row.optionB)}</td><td colspan="2">${escapeHtml(row.advisorExplanation)}</td></tr>`).join('');
+}
+function renderDynamicKnowledge(k, intelligence){ renderArticle({title:k.title,category:state.context.category || 'General',article_type:'explicación dinámica',summary:k.summary,key_points:k.keyPoints || [],advisor_phrase:k.advisorPhrase,recommended_questions:k.recommendedQuestions || []}, `Perplexity IA · ${intelligence.citations?.length || 0} fuentes`); }
+function renderDynamicGuidance(g){
+  if(g.closingQuestion){ qs('questionsList').classList.remove('muted-list'); qs('questionsList').innerHTML = `<div>${escapeHtml(g.closingQuestion)}</div>`; }
+  qs('pitchBox').classList.remove('empty-copy'); qs('pitchBox').textContent = g.talkTrack || g.summary || '';
+  qs('nextActionBox').textContent = g.nextBestAction || 'Validar información y continuar el cierre.';
+}
+function renderDynamicObjection(o){ qs('objectionResult').hidden=false; qs('objectionResult').innerHTML=`<div class="strategy"><strong>Estrategia recomendada</strong><br>${escapeHtml(o.valueArguments?.join(' · ') || '')}</div><div class="benefit"><strong>Alternativa</strong><br>${escapeHtml(o.alternativeOffer || 'Validar una alternativa disponible.')}</div><div class="message-box"><strong>Frase sugerida</strong><br>${escapeHtml(o.suggestedResponse || '')}</div>`; }
+function renderIntelligenceSources(intelligence){
+  const card=qs('sourcesCard'), content=qs('sourcesContent'); if(!card || !content) return;
+  const citations=intelligence.citations || []; card.hidden=citations.length===0;
+  content.innerHTML=citations.map(c=>{ const url=safeHttpUrl(c.url), label=escapeHtml(c.title || c.domain || 'Fuente consultada'); return url ? `<a href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">${label}</a>` : `<span>${label}</span>`; }).join('');
+  if(qs('intelligenceMeta')) qs('intelligenceMeta').textContent=`${intelligence.cached ? 'Caché' : 'Consulta en vivo'} · ${new Date(intelligence.generatedAt).toLocaleString('es-CO')}`;
 }
 
 function applyCopilotEvent(remote){
@@ -232,11 +312,13 @@ function applyCopilotEvent(remote){
     markCopilotUpdate('Actualizado por Agent Copilot Intent');
     flashElement('productsGrid');
     addHistory(`${source} actualizó contexto: ${state.context.category || 'sin categoría'}, ${state.context.budget ? money(state.context.budget) : 'sin presupuesto'}.`);
-    setTimeout(() => searchProducts(), 350);
+    if(remote.intelligence?.status === 'pending') showIntelligencePending(remote);
+    else setTimeout(() => searchProducts(), 350);
     return;
   }
 
   if(eventType === 'knowledge_article_suggested'){
+    if(remote.intelligence?.status === 'pending'){ showIntelligencePending(remote); return; }
     const article = findArticleFromRemote(remote);
     if(article) renderArticle(article, `Artículo sugerido por ${source}`);
     renderCopilotEventBox('Artículo sugerido por Copilot', `${remote.articleTitle || article?.title || 'Artículo de conocimiento'} · ${time}`, 'active');
@@ -248,6 +330,7 @@ function applyCopilotEvent(remote){
   }
 
   if(eventType === 'objection_detected'){
+    if(remote.intelligence?.status === 'pending'){ applyContextFromRemote(remote, source, {silent:true}); showIntelligencePending(remote); return; }
     if(remote.category || remote.budget || remote.city || remote.useCase || remote.need || remote.priority) applyContextFromRemote(remote, source, {silent:true});
     applyObjectionFromRemote(remote, source);
     renderCopilotEventBox('Objeción detectada por Copilot', `${remote.objectionType || 'Objeción'} · “${remote.customerPhrase || 'Frase no capturada'}” · ${time}`, 'warning');
@@ -259,6 +342,7 @@ function applyCopilotEvent(remote){
   }
 
   if(eventType === 'comparison_requested'){
+    if(remote.intelligence?.status === 'pending'){ applyContextFromRemote(remote, source, {silent:true}); qs('comparisonCard').hidden=false; showIntelligencePending(remote); return; }
     qs('comparisonCard').hidden = false;
     if(state.products.length) renderComparison();
     else qs('recommendationSummary').textContent = 'Copilot detectó necesidad de comparar. Ejecuta búsqueda para generar comparativo con productos recomendados.';

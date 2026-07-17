@@ -20,3 +20,4 @@
 .copilot-highlight{animation:copilotPulse 1.6s ease-in-out 1}
 @keyframes copilotPulse{0%{box-shadow:0 0 0 0 rgba(11,92,255,.35);border-color:#0b5cff}70%{box-shadow:0 0 0 10px rgba(11,92,255,0)}100%{box-shadow:0 2px 8px rgba(16,24,40,.04)}}
 body:not(.debug-mode) .debug-only{display:none!important}
+.sources-list{display:flex;flex-direction:column;gap:8px}.sources-list a,.sources-list span{display:block;padding:8px 10px;border:1px solid #e5e7eb;border-radius:8px;color:#334155;text-decoration:none;font-size:12px;overflow-wrap:anywhere}.sources-list a:hover{border-color:#6d28d9;color:#5b21b6;background:#faf5ff}
